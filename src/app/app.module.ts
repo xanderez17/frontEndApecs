@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './components/encabezado/encabezado.component';
 import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component';
 import { CuerpoComponent } from './components/cuerpo/cuerpo.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EncabezadoComponent,
     PiePaginaComponent,
-    CuerpoComponent
+    CuerpoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
