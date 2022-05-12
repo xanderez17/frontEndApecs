@@ -9,8 +9,17 @@ import { EncabezadoComponent } from './components/encabezado/encabezado.componen
 import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component';
 import { CuerpoComponent } from './components/cuerpo/cuerpo.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {SharedModule} from "./shared/shared.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +28,27 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     PiePaginaComponent,
     CuerpoComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    SharedModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule
 
   ],
   providers: [],
