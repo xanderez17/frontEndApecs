@@ -1,4 +1,18 @@
-.mat-form-field {
-  font-size: 14px;
-  width: 80%;
+.full-width{
+  width: 100%;
 }
+medio-width{
+  width: 45%;
+}
+  .datos{
+    margin-right: 10;
+    text-align: center;
+    width: 45%;
+   display: table-cell;
+  }
+  .anexos{
+    text-align: center;
+    width: 45%;
+
+    display: table-cell;
+  }

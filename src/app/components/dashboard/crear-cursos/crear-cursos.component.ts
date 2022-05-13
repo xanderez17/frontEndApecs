@@ -1,5 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Curso } from 'src/app/models/Curso';
@@ -9,6 +11,7 @@ import { CursosService } from 'src/app/services/cursos.service';
   selector: 'app-crear-cursos',
   templateUrl: './crear-cursos.component.html',
   styleUrls: ['./crear-cursos.component.css'],
+  providers: [DatePipe],
 })
 export class CrearCursosComponent implements OnInit {
   lista: Curso = new Curso();
@@ -44,6 +47,20 @@ export class CrearCursosComponent implements OnInit {
     });
     this.cargarDatos(Number(this.idEdit));
   }
+
+  dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
+    // Only highligh dates inside the month view.
+    if (view === 'month') {
+      const date = cellDate.getDate();
+
+      // Highlight the 1st and 20th day of each month.
+      return date === 1 || date === 20 ? 'example-custom-date-class' : '';
+    }
+
+    return '';
+  };
+
+
   cargarDatos(id: number) {
     if (!id) {
       return;
