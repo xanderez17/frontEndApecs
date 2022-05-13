@@ -9,10 +9,11 @@ medio-width{
     text-align: center;
     width: 45%;
    display: table-cell;
+   padding: 10px;
   }
   .anexos{
     text-align: center;
     width: 45%;
-
+    padding: 10px;
     display: table-cell;
   }

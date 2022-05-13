@@ -8,93 +8,84 @@
       <mat-card-content>
         <div class="datos">
           <div class="row">
-
-            <mat-form-field class="full-width" appearance="fill">
+            <mat-form-field class="full-width" appearance="legacy">
               <mat-label>Titulo</mat-label>
               <input matInput autocomplete="off" formControlName="nombre" [(ngModel)]="lista.titulo">
             </mat-form-field>
 
           </div>
           <div class="row">
-            <mat-form-field class="full-width" appearance="fill">
+            <mat-form-field class="full-width" appearance="legacy">
               <mat-label>Descripcion</mat-label>
               <textarea matInput autocomplete="off" formControlName="descripcion"
                 [(ngModel)]="lista.descripcion"></textarea>
             </mat-form-field>
-
           </div>
 
           <div class="row">
-            <mat-form-field class="full-width" appearance="fill">
+            <mat-form-field>
               <mat-label>Categoria</mat-label>
               <input matInput autocomplete="off" formControlName="categoria" [(ngModel)]="lista.categoria">
             </mat-form-field>
 
-          </div>
-
-
-          <div class="row">
-            <mat-form-field appearance="fill">
+            <mat-form-field>
               <mat-label>Cupos</mat-label>
               <input matInput type="number" autocomplete="off" formControlName="cupos" [(ngModel)]="lista.cupos">
             </mat-form-field>
 
-
-            <mat-form-field appearance="fill">
+          </div>
+          <div>
+            <mat-form-field>
               <mat-label>Duracion</mat-label>
               <input matInput type="number" autocomplete="off" formControlName="duracion" [(ngModel)]="lista.duracion">
             </mat-form-field>
 
+            <mat-form-field class="full-width" appearance="legacy">
+              <mat-label>Fecha de inscripcion</mat-label>
+              <input matInput [matDatepicker]="myDatepicker1" autocomplete="off" formControlName="fechaInscripcion"
+                [(ngModel)]="lista.fechaInscripcion">
+            </mat-form-field>
+            <mat-datepicker-toggle [for]="myDatepicker1"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker1></mat-datepicker>
           </div>
 
           <div class="row">
-            <mat-form-field class="full-width" appearance="fill">
+            <mat-form-field class="full-width" appearance="legacy">
+              <mat-label>Fecha inicio</mat-label>
+              <input matInput [matDatepicker]="myDatepicker2" autocomplete="off" formControlName="fechaInicio"
+                [(ngModel)]="lista.fechaInicio">
+            </mat-form-field>
+            <mat-datepicker-toggle [for]="myDatepicker2"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker2></mat-datepicker>
+
+            <mat-form-field class="full-width" appearance="legacy">
+              <mat-label>Fecha fin</mat-label>
+              <input matInput [matDatepicker]="myDatepicker3" autocomplete="off" formControlName="fechaFin"
+                [(ngModel)]="lista.fechaFin">
+            </mat-form-field>
+            <mat-datepicker-toggle [for]="myDatepicker3"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker3></mat-datepicker>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="full-width" appearance="legacy">
               <mat-label>Seminarios</mat-label>
               <input matInput autocomplete="off" formControlName="seminarios" [(ngModel)]="lista.seminarios">
             </mat-form-field>
-
           </div>
 
 
-          <div class="row">
-            <mat-form-field class="full-width" appearance="fill">
-
-              <mat-label>Fecha de inscripcion</mat-label>
-              <input matInput autocomplete="off" formControlName="fechaInscripcion"
-                [(ngModel)]="lista.fechaInscripcion">
-            </mat-form-field>
-
-          </div>
-
-          <div class="row">
-            <mat-form-field class="full-width" appearance="fill">
-              <mat-label>Fecha inicio</mat-label>
-              <input matInput   [matDatepicker]="myDatepicker" autocomplete="off" formControlName="fechaInicio" [(ngModel)]="lista.fechaInicio">
-            </mat-form-field>
-            <mat-datepicker-toggle
-            [for]="myDatepicker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker  #myDatepicker></mat-datepicker>
-          </div>
-
-          <div class="row">
-            <mat-form-field class="full-width" appearance="fill">
-              <mat-label>Fecha fin</mat-label>
-              <input matInput autocomplete="off" formControlName="fechaFin" [(ngModel)]="lista.fechaFin">
-            </mat-form-field>
-
-          </div>
         </div>
         <div class="anexos">
           <div class="row">
-            <mat-form-field class="full-width" appearance="fill">
+            <mat-form-field class="full-width" appearance="legacy">
               <mat-label>Imagen</mat-label>
               <input matInput autocomplete="off" formControlName="img" [(ngModel)]="lista.img">
             </mat-form-field>
 
           </div>
           <div class="row" style=" height: 400px;">
-            <mat-form-field class="full-width"  appearance="fill">
+            <mat-form-field class="full-width" appearance="legacy">
               <mat-label>PDF</mat-label>
               <input matInput autocomplete="off" formControlName="pdf" [(ngModel)]="lista.pdf">
             </mat-form-field>
@@ -104,7 +95,7 @@
         <!--
         <div class="row">
           <div class="col-md-6">
-            <mat-form-field class="full-width" appearance="fill">
+            <mat-form-field class="full-width" appearance="legacy">
 
               <div style="text-align: center;">
                 <button mat-raised-button color="primary" routerLink="/dashboard/listar-materias"

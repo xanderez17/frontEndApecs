@@ -1,5 +1,5 @@
 import { Persona } from "./Persona";
 
-export class Representante{
-persona:Persona = new Persona();
+export class Representante extends Persona{
+
 }

@@ -23,7 +23,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ListarCursosComponent } from './components/dashboard/listar-cursos/listar-cursos.component';
 import { CrearCursosComponent } from './components/dashboard/crear-cursos/crear-cursos.component';
 import { ListarContratosComponent } from './components/dashboard/listar-contratos/listar-contratos.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +54,8 @@ import { ListarContratosComponent } from './components/dashboard/listar-contrato
     MatTableModule,
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
 
   ],
   providers: [],
