@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CrearCursosComponent} from "../dashboard/crear-cursos/crear-cursos.component";
+import {LoginComponent} from "../login/login.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-encabezado',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncabezadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
   }
 
+  openDialog() {
+    this.dialog.open(LoginComponent);
+  }
+
+
 }
+

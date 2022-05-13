@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   loading= false;
   listausuario:Array<Usuario>=[]
   cont: number=0;
+  hide=true;
 
 
   constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private router:Router,
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
       }
       if (this.cont==1){
         this.fakeLoading();
+
       }else{
         this._snackBar.open('Usuario o Contraseña Incorrectos!', '', {
           duration: 5000,
@@ -56,6 +58,8 @@ export class LoginComponent implements OnInit {
     setTimeout(()=>{
       //Redireccionar al Dashboard
       this.router.navigateByUrl('/dashboard')
-    }, 1500);
+    }, 500);
   }
+
+
 }
