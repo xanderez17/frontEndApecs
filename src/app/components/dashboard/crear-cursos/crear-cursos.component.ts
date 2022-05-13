@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Curso } from 'src/app/models/Curso';
@@ -23,7 +24,8 @@ export class CrearCursosComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private cursoServicio: CursosService
+    private cursoServicio: CursosService,
+    public dialogRef: MatDialogRef<CrearCursosComponent>,
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
@@ -99,6 +101,6 @@ export class CrearCursosComponent implements OnInit {
   }
 
   irLista() {
-    this.router.navigateByUrl('/dashboard/listar-cursos');
+    this.dialogRef.close();
   }
 }
