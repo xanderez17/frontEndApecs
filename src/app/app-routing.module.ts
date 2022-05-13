@@ -5,6 +5,7 @@ import {CuerpoComponent} from "./components/cuerpo/cuerpo.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import { ListarCursosComponent } from './components/dashboard/listar-cursos/listar-cursos.component';
 import { CrearCursosComponent } from './components/dashboard/crear-cursos/crear-cursos.component';
+import {ListarContratosComponent} from "./components/dashboard/listar-contratos/listar-contratos.component";
 
 
 const routes: Routes = [
@@ -16,6 +17,8 @@ const routes: Routes = [
   {path:'dashboard/crear-curso',component:CrearCursosComponent},
   {path:'dashboard/editar-cursos/:id',component:CrearCursosComponent},
   {path:'dashboard/listar-cursos',component:ListarCursosComponent},
+  {path:'dashboard/listar-contratos',component:ListarContratosComponent},
+
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
 
 ];
