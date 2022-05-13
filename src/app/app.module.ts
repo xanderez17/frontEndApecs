@@ -20,6 +20,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ListarCursosComponent } from './components/dashboard/listar-cursos/listar-cursos.component';
+import { CrearCursosComponent } from './components/dashboard/crear-cursos/crear-cursos.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     CuerpoComponent,
     LoginComponent,
     DashboardComponent,
-    NavBarComponent
+    NavBarComponent,
+    ListarCursosComponent,
+    CrearCursosComponent
   ],
   imports: [
     BrowserModule,

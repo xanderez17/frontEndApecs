@@ -1,0 +1,21 @@
+.container{
+  text-align: center;
+}
+.items{
+  text-align: center;
+    padding-top: 20px;
+    background-color: #fff;
+    border: 2px solid #ecf0f1;
+    border-top: 0;
+    overflow: hidden;
+}
+.btn.btn-info {
+  width: 100%;
+  background: #3498db;
+  box-shadow: 0 2px #2980b9;
+  margin-bottom: 10px;
+}
+.btn.btn-success {
+  width: 100%;
+  background: #2ecc71;
+  box-shadow: 0 2px #27ae60;}

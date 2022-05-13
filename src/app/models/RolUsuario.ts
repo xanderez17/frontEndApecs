@@ -1,4 +1,4 @@
-export class RolUsuario{
+export class RolUsuario {
   idRol: any;
   rol: any;
 }
