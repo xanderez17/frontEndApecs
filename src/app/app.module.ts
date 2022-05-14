@@ -24,6 +24,7 @@ import { ListarCursosComponent } from './components/dashboard/listar-cursos/list
 import { CrearCursosComponent } from './components/dashboard/crear-cursos/crear-cursos.component';
 import { ListarContratosComponent } from './components/dashboard/listar-contratos/listar-contratos.component';
 import {MatDialogModule} from '@angular/material/dialog';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     NavBarComponent,
     ListarCursosComponent,
     CrearCursosComponent,
-    ListarContratosComponent
+    ListarContratosComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,8 +56,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule
-
+    MatDialogModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

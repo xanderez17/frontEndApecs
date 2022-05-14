@@ -1,5 +1,3 @@
-import { Persona } from "./Persona";
+import { Persona } from './Persona';
 
-export class Representante extends Persona{
-
-}
+export class Representante extends Persona {}

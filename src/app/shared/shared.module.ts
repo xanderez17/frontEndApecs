@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-
 //Angular Material
 import {MatSliderModule} from "@angular/material/slider";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -23,7 +20,8 @@ import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "../app-routing.module";
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [],
   imports: [
@@ -49,10 +47,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     BrowserModule,
     AppRoutingModule,
     MatDatepickerModule,
-    MatNativeDateModule
-
-  ],
+    MatNativeDateModule,
+    MatSelectModule
+     ],
   exports:[
+    CommonModule,
     MatSliderModule,
     MatFormFieldModule,
     MatInputModule,
@@ -70,11 +69,13 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatPaginatorModule,
     MatCardModule,
     MatGridListModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule
+    
   ]
 })
 export class SharedModule { }

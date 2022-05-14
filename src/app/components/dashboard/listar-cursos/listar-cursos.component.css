@@ -1,8 +1,6 @@
-.container{
+.mat-table{
   width: 100%;
-  padding: 0%;
 }
-table{
-width: 100%;
+.mat-cell{
+  padding: 5px;
 }
-

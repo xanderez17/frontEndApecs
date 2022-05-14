@@ -1,3 +1,8 @@
+import { Docente } from './Docente';
+import { Horario } from './Horario';
+import { Materia } from './Materia';
+import { Paralelo } from './Paralelo';
+
 export class Curso {
   idCurso: any;
   titulo: any;
@@ -11,4 +16,8 @@ export class Curso {
   fechaInscripcion: any;
   img: any;
   pdf: any;
+  docente: Docente = new Docente();
+  materia: Materia = new Materia();
+  paralelo: Paralelo = new Paralelo();
+  horario: Horario= new Horario();
 }

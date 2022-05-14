@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -17,7 +16,7 @@ export class ListarCursosComponent implements OnInit {
 
   public lista!: MatTableDataSource<any>;
 //datos encabezado tablas
-  displayedColumns: string[] = ['titulo', 'descripcion','categoria','cupos','seminarios','fechaInscripcion','fechaInicio','fechaFin', 'acciones'];
+  displayedColumns: string[] = ['titulo', 'descripcion','categoria','cupos','seminarios','fechaInscripcion','fechaInicio', 'acciones'];
 
   //varibel paginador
   length = 100;
@@ -30,13 +29,11 @@ export class ListarCursosComponent implements OnInit {
   @ViewChild(MatSort) marSort!: MatSort;
 
   constructor(
-    private dialog:MatDialog,
+   
     private cursoServicio: CursosService
     ) {
   }
-openDialog(){
-  this.dialog.open(CrearCursosComponent)
-}
+
   ngOnInit() {
 
     this.cursoServicio.listar().subscribe((response) => {

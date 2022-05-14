@@ -12,16 +12,16 @@ export class CursosService {
 
   constructor(private http: HttpClient) {}
 
-    //Lista cursos
+    //Listar todo
     listar(): Observable<Curso[]> {
       return this.http.get<Curso[]>(`http://localhost:9898/api/curso/listarCursos`);
     }
 
-  //Obtener curso por id
+  //Obtener lista por id
   getById(id: number): Observable<Curso> {
     return this.http.get<Curso>(`http://localhost:9898/api/curso/listar-curso/${id}`);
   }
-//Ccrear curso
+//Crear  nuevo 
 crear(curso: Curso): Observable<Curso> {
   return this.http.post<Curso>(`http://localhost:9898/api/curso/`, curso).pipe(
     map((response: any) => response.curso as Curso),
@@ -35,7 +35,7 @@ crear(curso: Curso): Observable<Curso> {
   );
 }
 
-//Editar curso
+//Editar 
 editar(curso: Curso, idCurso: number): Observable<Curso> {
   return this.http.put<Curso>(`http://localhost:9898/api/curso/actualizarCurso/${idCurso}`, curso).pipe(
     map((response: any) => response.curso as Curso),
@@ -48,7 +48,7 @@ editar(curso: Curso, idCurso: number): Observable<Curso> {
     })
   );
 }
-//Eeliminar curso
+//Eeliminar por id
 eliminar(id: number): Observable<Curso> {
   return this.http.delete<Curso>(`http://localhost:9898/api/curso/eliminarCurso/${id}`).pipe(
     catchError((e) => {
