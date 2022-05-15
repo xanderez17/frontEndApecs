@@ -22,12 +22,12 @@ import { MateriaService } from 'src/app/services/materia.service';
 import { ParaleloService } from 'src/app/services/paralelo.service';
 
 @Component({
-  selector: 'app-crear-cursos',
-  templateUrl: './crear-cursos.component.html',
-  styleUrls: ['./crear-cursos.component.css'],
+  selector: 'app-crear-curso',
+  templateUrl: './crear-curso.component.html',
+  styleUrls: ['./crear-curso.component.css'],
   providers: [DatePipe],
 })
-export class CrearCursosComponent implements OnInit {
+export class CrearCursoComponent implements OnInit {
   public formSubmitted = false;
   lista = new Curso();
   listaParalelos: Paralelo[] = [];
@@ -38,13 +38,13 @@ export class CrearCursosComponent implements OnInit {
   idEdit!: string | null;
 
   toppings = new FormControl();
-  listam: string[] = [];
+
   form!: FormGroup;
   constructor(
     private router: Router,
+    private fb: FormBuilder,
     private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
-    private fb: FormBuilder,
     private cursoServicio: CursosService,
     private paraleloServicio: ParaleloService,
     private materiaServicio: MateriaService,
@@ -134,17 +134,22 @@ export class CrearCursosComponent implements OnInit {
         });
     } else {
       const fechaInicio = this.miDatePipe.transform(
-        this.lista.fechaInicio, "yyyy-MM-dd"  );
+        this.lista.fechaInicio,
+        'yyyy-MM-dd'
+      );
       this.lista.fechaInicio = fechaInicio;
 
       const fechaInscripcion = this.miDatePipe.transform(
-        this.lista.fechaInscripcion, "yyyy-MM-dd"  );
+        this.lista.fechaInscripcion,
+        'yyyy-MM-dd'
+      );
       this.lista.fechaInicio = fechaInscripcion;
 
       const fechaFin = this.miDatePipe.transform(
-        this.lista.fechaFin, "yyyy-MM-dd"  );
+        this.lista.fechaFin,
+        'yyyy-MM-dd'
+      );
       this.lista.fechaFin = fechaFin;
-
 
       this.cursoServicio.crear(this.lista).subscribe((m) => {
         this._snackBar.open('Curso creada!', '', {

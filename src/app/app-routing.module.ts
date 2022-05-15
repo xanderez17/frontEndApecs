@@ -4,8 +4,8 @@ import {LoginComponent} from "./components/login/login.component";
 import {CuerpoComponent} from "./components/cuerpo/cuerpo.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import { ListarCursosComponent } from './components/dashboard/listar-cursos/listar-cursos.component';
-import { CrearCursosComponent } from './components/dashboard/crear-cursos/crear-cursos.component';
 import {ListarContratosComponent} from "./components/dashboard/listar-contratos/listar-contratos.component";
+import { CrearCursoComponent } from './components/dashboard/crear-curso/crear-curso.component';
 
 
 const routes: Routes = [
@@ -14,8 +14,8 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
 
-  {path:'dashboard/crear-curso',component:CrearCursosComponent},
-  {path:'dashboard/editar-cursos/:id',component:CrearCursosComponent},
+  {path:'dashboard/crear-curso',component:CrearCursoComponent},
+  {path:'dashboard/editar-cursos/:id',component:CrearCursoComponent},
   {path:'dashboard/listar-cursos',component:ListarCursosComponent},
   {path:'dashboard/listar-contratos',component:ListarContratosComponent},
 

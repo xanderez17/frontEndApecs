@@ -1,9 +1,8 @@
-
 .medio-width {
   width: 120px;
   height: 60px;
-  
-  
+
+
 }
 
 .datos {
@@ -11,7 +10,7 @@
   text-align: center;
   width: 400px;
   display: table-cell;
-  
+
 }
 .anexos {
   text-align: center;
@@ -24,5 +23,3 @@
   pad: 10px;
 margin-left: 3px;
 }
-
-

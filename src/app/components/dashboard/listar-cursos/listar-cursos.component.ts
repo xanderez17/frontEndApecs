@@ -5,7 +5,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Curso } from 'src/app/models/Curso';
 import { CursosService } from 'src/app/services/cursos.service';
 import Swal from 'sweetalert2';
-import { CrearCursosComponent } from '../crear-cursos/crear-cursos.component';
 
 @Component({
   selector: 'app-listar-cursos',
@@ -29,7 +28,7 @@ export class ListarCursosComponent implements OnInit {
   @ViewChild(MatSort) marSort!: MatSort;
 
   constructor(
-   
+
     private cursoServicio: CursosService
     ) {
   }

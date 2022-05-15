@@ -146,6 +146,7 @@
               name="materia"
               #materia="ngModel"
               [(ngModel)]="lista.materia"
+
             >
               <mat-option
                 *ngFor="let topping of listaMaterias"
@@ -259,7 +260,6 @@
           type="submit"
           mat-raised-button
           color="accent"
-          routerLink="/dashboard/crear-cursos"
         >
           Guardar
         </button>

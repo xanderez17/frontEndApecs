@@ -21,9 +21,9 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ListarCursosComponent } from './components/dashboard/listar-cursos/listar-cursos.component';
-import { CrearCursosComponent } from './components/dashboard/crear-cursos/crear-cursos.component';
 import { ListarContratosComponent } from './components/dashboard/listar-contratos/listar-contratos.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CrearCursoComponent } from './components/dashboard/crear-curso/crear-curso.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +35,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     DashboardComponent,
     NavBarComponent,
     ListarCursosComponent,
-    CrearCursosComponent,
     ListarContratosComponent,
+    CrearCursoComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +57,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
