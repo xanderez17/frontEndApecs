@@ -1,5 +1,9 @@
-<form [formGroup]="formContrato">
-  <mat-card>
+<mat-card>
+<form [formGroup]="formContrato" appearance="standard">
+  <mat-card-header>
+    <mat-card-title>Formulario Contrato</mat-card-title>
+  </mat-card-header>
+<mat-card-content>
     <div class="row">
       <mat-form-field appearance="legacy">
         <mat-label>Fecha Contrato</mat-label>
@@ -7,8 +11,7 @@
           matInput
           [matDatepicker]="myDatepicker"
           autocomplete="off"
-          name="fechaContrato"
-          #fechaContrato="ngModel"
+          formControlName="fechaContrato"
           [(ngModel)]="lista.fechaContrato"
         />
       </mat-form-field>
@@ -17,13 +20,33 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatepicker></mat-datepicker>
     </div>
+    <div class="row">
+      <mat-form-field class="full-width" appearance="legacy">
+        <mat-label>Alumno</mat-label>
+        <mat-select
+          matInput
+          autocomplete="off"
+          formControlName="alumno"
+          [compareWith]="compareAlumno"
+          [(ngModel)]="lista.alumno"
+        >
+          <mat-option
+            *ngFor="let x of listaAlumnos"
+            [value]="x"
+            >{{ x.apellidoPrimer }} {{ x.nombrePrimer }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
 
     <div class="row">
       <mat-form-field>
+        <mat-label>Estado</mat-label>
         <mat-select
           formControlName="estado"
           [(ngModel)]="lista.estado">
           <mat-option value="Activo">Activo</mat-option>
+          <mat-option value="En pausa">Activo</mat-option>
           <mat-option value="Cancelado">Cancelado</mat-option>
         </mat-select>
       </mat-form-field>
@@ -40,7 +63,7 @@
         ></textarea>
       </mat-form-field>
     </div>
-
+</mat-card-content>
     <mat-card-actions>
       <button
         mat-raised-button
@@ -60,5 +83,6 @@
         Guardar
       </button>
     </mat-card-actions>
-  </mat-card>
+
 </form>
+</mat-card>

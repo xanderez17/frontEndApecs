@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {Contrato} from "../../../../models/Contrato";
-import {Alumno} from "../../../../models/Alumno";
-import {ContratoService} from "../../../../services/contrato.service";
-import {AlumnoService} from "../../../../services/alumno.service";
-import {DatePipe} from "@angular/common";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Contrato } from '../../../../models/Contrato';
+import { Alumno } from '../../../../models/Alumno';
+import { ContratoService } from '../../../../services/contrato.service';
+import { AlumnoService } from '../../../../services/alumno.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-crear-contrato',
@@ -16,7 +21,9 @@ import {DatePipe} from "@angular/common";
 })
 export class CrearContratoComponent implements OnInit {
   lista = new Contrato();
+
   listaAlumnos: Alumno[] = [];
+
   formContrato!: FormGroup;
   idEdit!: string | null;
 
@@ -30,16 +37,15 @@ export class CrearContratoComponent implements OnInit {
     private miDatePipe: DatePipe
   ) {
     this.formContrato = this.fb.group({
-      estado: ['', Validators.required],
-      fechaContrato: ['', Validators.required],
-      observacion: ['', Validators.required],
       alumno: ['', Validators.required],
       curso: ['', Validators.required],
+      estado: ['', Validators.required],
+      fechaContrato: ['', Validators.required],
       formaPago: ['', Validators.required],
       matricula: ['', Validators.required],
+      observacion: ['', Validators.required],
       representante: ['', Validators.required],
     });
-
   }
 
   ngOnInit(): void {
@@ -48,13 +54,12 @@ export class CrearContratoComponent implements OnInit {
     });
 
     this.cargarListas();
-
-
   }
 
-  cargarListas(){
+  cargarListas() {
     this.alumnoServicio.listar().subscribe((p: any) => {
-      this.alumnoServicio = p;});
+      this.listaAlumnos = p;
+    });
   }
 
   productForm = new FormGroup({
@@ -64,7 +69,7 @@ export class CrearContratoComponent implements OnInit {
 
   agregar() {
     if (this.idEdit) {
-      const fechaContrato= this.miDatePipe.transform(
+      const fechaContrato = this.miDatePipe.transform(
         this.lista.fechaContrato,
         'yyyy-MM-dd'
       );
@@ -80,7 +85,7 @@ export class CrearContratoComponent implements OnInit {
           this.irLista();
         });
     } else {
-      const fechaContrato= this.miDatePipe.transform(
+      const fechaContrato = this.miDatePipe.transform(
         this.lista.fechaContrato,
         'yyyy-MM-dd'
       );
@@ -97,8 +102,9 @@ export class CrearContratoComponent implements OnInit {
       this.irLista();
     }
   }
-
-
+  compareAlumno(x: Alumno, y: Alumno): boolean {
+    return x && y ? x.idPersona === y.idPersona : x === y;
+  }
   irLista() {
     this.router.navigateByUrl('dashboard/listar-contratos');
   }

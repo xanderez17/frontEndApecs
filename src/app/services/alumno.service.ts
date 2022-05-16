@@ -53,7 +53,7 @@ eliminar(id: number): Observable<Alumno> {
 }
   //Lista alumnp
   listar(): Observable<Alumno[]> {
-    return this.http.get<Alumno[]>(`http://localhost:9898/api/alumno/listarAlumno`);
+    return this.http.get<Alumno[]>(`http://localhost:9898/api/alumno/listarAlumnos`);
   }
 
 }
