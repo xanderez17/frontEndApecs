@@ -1,6 +1,6 @@
 export class Persona {
   idPersona: any;
-  identidicacion: any;
+  identificacion: any;
   apellidoPrimer: any;
   apellidoSegundo: any;
   nombrePrimer: any;

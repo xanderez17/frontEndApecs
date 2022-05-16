@@ -20,14 +20,15 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { ListarCursosComponent } from './components/dashboard/listar-cursos/listar-cursos.component';
+import { ListarCursosComponent } from './components/dashboard/curso/listar-cursos/listar-cursos.component';
 import { ListarContratosComponent } from './components/dashboard/contratos/listar-contratos/listar-contratos.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { CrearCursoComponent } from './components/dashboard/crear-curso/crear-curso.component';
-import { CrearParaleloComponent } from './components/dashboard/crear-paralelo/crear-paralelo.component';
-import { ListarParaleloComponent } from './components/dashboard/listar-paralelo/listar-paralelo.component';
+import { CrearCursoComponent } from './components/dashboard/curso/crear-curso/crear-curso.component';
 import { ContratosComponent } from './components/dashboard/contratos/contratos.component';
 import {CrearContratoComponent} from "./components/dashboard/contratos/crear-contrato/crear-contrato.component";
+import { CrearInscripcionComponent } from './components/dashboard/crear-inscripcion/crear-inscripcion.component';
+import { ListarParaleloComponent } from './components/dashboard/paralelo/listar-paralelo/listar-paralelo.component';
+import { CrearParaleloComponent } from './components/dashboard/paralelo/crear-paralelo/crear-paralelo.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {CrearContratoComponent} from "./components/dashboard/contratos/crear-con
     CrearParaleloComponent,
     ListarParaleloComponent,
     ContratosComponent,
-    CrearContratoComponent
+    CrearContratoComponent,
+    CrearInscripcionComponent
   ],
   imports: [
     BrowserModule,
