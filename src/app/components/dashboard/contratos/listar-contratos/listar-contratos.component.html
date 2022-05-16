@@ -3,7 +3,14 @@
     <span>Lista de Contratos</span>
   </mat-toolbar>
 
+  <div class="dt-buttons">
+    <button mat-raised-button color="accent" routerLink="/dashboard/crear-contrato" style="margin-right: 20px;">
+      Nuevo Contrato
+    </button>
+  </div>
   <mat-form-field appearance="standard">
+
+
 
     <mat-label>Buscar por ID de Contrato</mat-label>
     <input matInput (keyup)="filtrar($event)" autocomplete="off" #input>

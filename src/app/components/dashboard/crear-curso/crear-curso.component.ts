@@ -37,7 +37,7 @@ export class CrearCursoComponent implements OnInit {
 
   idEdit!: string | null;
 
-  toppings = new FormControl();
+  topping = new FormControl();
 
   form!: FormGroup;
   constructor(

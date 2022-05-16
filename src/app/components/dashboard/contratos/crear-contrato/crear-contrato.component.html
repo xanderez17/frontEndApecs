@@ -1,0 +1,64 @@
+<form [formGroup]="formContrato">
+  <mat-card>
+    <div class="row">
+      <mat-form-field appearance="legacy">
+        <mat-label>Fecha Contrato</mat-label>
+        <input
+          matInput
+          [matDatepicker]="myDatepicker"
+          autocomplete="off"
+          name="fechaContrato"
+          #fechaContrato="ngModel"
+          [(ngModel)]="lista.fechaContrato"
+        />
+      </mat-form-field>
+      <mat-datepicker-toggle
+        [for]="myDatepicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker></mat-datepicker>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <mat-select
+          formControlName="estado"
+          [(ngModel)]="lista.estado">
+          <mat-option value="Activo">Activo</mat-option>
+          <mat-option value="Cancelado">Cancelado</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field class="ancho">
+        <mat-label>Observación</mat-label>
+        <textarea
+          matInput
+          autocomplete="off"
+          formControlName="observacion"
+          [(ngModel)]="lista.observacion"
+        ></textarea>
+      </mat-form-field>
+    </div>
+
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="irLista()"
+        style="margin-right: 20px"
+      >
+        Volver
+      </button>
+      <button
+        type="submit"
+        [disabled]="formContrato.invalid"
+        mat-raised-button
+        color="accent"
+        (click)="agregar()"
+      >
+        Guardar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

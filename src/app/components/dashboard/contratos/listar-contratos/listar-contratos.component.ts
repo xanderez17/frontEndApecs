@@ -2,10 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
-import {ContratoService} from "../../../services/contrato.service";
-import {Curso} from "../../../models/Curso";
+import {ContratoService} from "../../../../services/contrato.service";
+import {Curso} from "../../../../models/Curso";
 import Swal from "sweetalert2";
-import {Contrato} from "../../../models/Contrato";
+import {Contrato} from "../../../../models/Contrato";
 
 @Component({
   selector: 'app-listar-contratos',
