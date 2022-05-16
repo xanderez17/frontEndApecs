@@ -21,11 +21,13 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ListarCursosComponent } from './components/dashboard/listar-cursos/listar-cursos.component';
-import { ListarContratosComponent } from './components/dashboard/listar-contratos/listar-contratos.component';
+import { ListarContratosComponent } from './components/dashboard/contratos/listar-contratos/listar-contratos.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CrearCursoComponent } from './components/dashboard/crear-curso/crear-curso.component';
 import { CrearParaleloComponent } from './components/dashboard/crear-paralelo/crear-paralelo.component';
 import { ListarParaleloComponent } from './components/dashboard/listar-paralelo/listar-paralelo.component';
+import { ContratosComponent } from './components/dashboard/contratos/contratos.component';
+import {CrearContratoComponent} from "./components/dashboard/contratos/crear-contrato/crear-contrato.component";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ListarParaleloComponent } from './components/dashboard/listar-paralelo/
     ListarContratosComponent,
     CrearCursoComponent,
     CrearParaleloComponent,
-    ListarParaleloComponent
+    ListarParaleloComponent,
+    ContratosComponent,
+    CrearContratoComponent
   ],
   imports: [
     BrowserModule,
