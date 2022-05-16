@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
@@ -56,10 +55,7 @@ export class CrearParaleloComponent implements OnInit {
     });
   }
 
-  productForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    category: new FormControl('', [Validators.required]),
-  });
+
 
   cargarParalelo(id: number) {
     if (!id) {

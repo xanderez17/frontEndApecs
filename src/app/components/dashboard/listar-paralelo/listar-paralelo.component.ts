@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Paralelo } from 'src/app/models/Paralelo';
 import { ParaleloService } from 'src/app/services/paralelo.service';
 import Swal from 'sweetalert2';
@@ -28,7 +29,7 @@ export class ListarParaleloComponent implements OnInit {
   @ViewChild(MatSort) marSort!: MatSort;
 
   constructor(
-
+    private router: Router,
     private paraleloServicio: ParaleloService
     ) {
   }
@@ -76,15 +77,17 @@ export class ListarParaleloComponent implements OnInit {
       .then((result) => {
         if (result.value) {
           this.paraleloServicio.eliminar(p.idParalelo).subscribe((resp) => {
-
+            this.router.navigateByUrl('dashboard/listar-paralelos');
             swalWithBootstrapButtons.fire(
               'Eliminada!',
               `La materia ${p.nombre} ha  sido eliminada correctamente!`,
               'success'
             );
+
           });
         }
       });
+
   }
 
 }
