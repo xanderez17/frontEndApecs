@@ -1,8 +1,13 @@
-<form [formGroup]="formParalelo">
-  <mat-card>
+<mat-card>
+<form [formGroup]="formParalelo" appearance="standard">
 
+  <mat-card-header>
+    <mat-card-title>Formulario Paralelo</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
     <div class="row">
-      <mat-form-field class="ancho">
+      <mat-form-field appearance="legacy">
         <mat-label>Nombre</mat-label>
         <input
           matInput
@@ -18,7 +23,7 @@
         <mat-select
           formControlName="aula"
           [(ngModel)]="lista.aula"
-          [compareWith]="compareFn"        >
+          [compareWith]="compareAula"        >
           <mat-option *ngFor="let x of listaAulas" [value]="x">
             {{ x.nombre }}
           </mat-option>
@@ -29,7 +34,7 @@
 
 
 
-    <mat-card-actions>
+    <mat-card-actions  style="text-align: center">
       <button
         mat-raised-button
         color="primary"
@@ -48,5 +53,6 @@
         Guardar
       </button>
     </mat-card-actions>
-  </mat-card>
+</mat-card-content>
 </form>
+</mat-card>

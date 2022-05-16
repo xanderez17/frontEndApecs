@@ -1,12 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  NgForm,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
@@ -28,18 +22,17 @@ import { ParaleloService } from 'src/app/services/paralelo.service';
   providers: [DatePipe],
 })
 export class CrearCursoComponent implements OnInit {
-  public formSubmitted = false;
   lista = new Curso();
-  listaParalelos: Paralelo[] = [];
-  listaMaterias: Materia[] = [];
+
   listaDocentes: Docente[] = [];
   listaHorarios: Horario[] = [];
+  listaMaterias: Materia[] = [];
+  listaParalelos: Paralelo[] = [];
 
   idEdit!: string | null;
 
-  topping = new FormControl();
-
   form!: FormGroup;
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -82,17 +75,21 @@ export class CrearCursoComponent implements OnInit {
 
   validar() {
     this.form = this.fb.group({
-      nombre: ['', Validators.required],
-      descripcion: ['', Validators.required],
       categoria: ['', Validators.required],
       cupos: ['', Validators.required],
-      seminarios: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      docente: ['', Validators.required],
       duracion: ['', Validators.required],
       fechaInicio: ['', Validators.required],
       fechaFin: ['', Validators.required],
       fechaInscripcion: ['', Validators.required],
+      horario: ['', Validators.required],
       img: ['', Validators.required],
+      materia: ['', Validators.required],
+      paralelo: ['', Validators.required],
       pdf: ['', Validators.required],
+      seminarios: ['', Validators.required],
+      titulo: ['', Validators.required],
     });
   }
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
@@ -116,11 +113,7 @@ export class CrearCursoComponent implements OnInit {
       this.lista = ma;
     });
   }
-  agregar(form: NgForm) {
-    this.formSubmitted = true;
-    if (form.invalid) {
-      return;
-    }
+  agregar() {
     if (this.idEdit) {
       this.cursoServicio
         .editar(this.lista, Number(this.idEdit))
@@ -164,6 +157,18 @@ export class CrearCursoComponent implements OnInit {
     }
   }
 
+  compareMateria(x: Materia, y: Materia): boolean {
+    return x && y ? x.idMateria === y.idMateria : x === y;
+  }
+  compareHorario(x: Horario, y: Horario): boolean {
+    return x && y ? x.idHorario === y.idHorario : x === y;
+  }
+  compareDocente(x: Docente, y: Docente): boolean {
+    return x && y ? x.idPersona === y.idPersona : x === y;
+  }
+  compareParalelo(x: Paralelo, y: Paralelo): boolean {
+    return x && y ? x.idParalelo === y.idParalelo : x === y;
+  }
   irLista() {
     this.router.navigateByUrl('/dashboard/listar-cursos');
   }

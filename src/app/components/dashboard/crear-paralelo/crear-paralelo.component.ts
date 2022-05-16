@@ -68,7 +68,7 @@ export class CrearParaleloComponent implements OnInit {
       this.lista = m;
     });
   }
-  compareFn(x: Aula, y: Aula): boolean {
+  compareAula(x: Aula, y: Aula): boolean {
     return x && y ? x.idAula === y.idAula : x === y;
     }
   agregar() {

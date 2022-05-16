@@ -53,9 +53,8 @@ export class CrearContratoComponent implements OnInit {
   }
 
   cargarListas(){
-    //this.aulaServicio.listar().subscribe((p: any) => {
-      //this.listaAulas = p;
-   // });
+    this.alumnoServicio.listar().subscribe((p: any) => {
+      this.alumnoServicio = p;});
   }
 
   productForm = new FormGroup({

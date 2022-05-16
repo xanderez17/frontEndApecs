@@ -1,8 +1,10 @@
-<form #MyForm="ngForm" (submit)="agregar(MyForm)" appearance="standard">
-  <mat-card>
+<mat-card>
+<form [formGroup]="form" appearance="standard">
+
     <mat-card-header>
       <mat-card-title>Formulario Curso</mat-card-title>
     </mat-card-header>
+
     <mat-card-content>
       <div class="datos">
         <div class="row">
@@ -11,8 +13,7 @@
             <input
               matInput
               autocomplete="off"
-              name="titulo"
-              #titulo="ngModel"
+              formControlName="titulo"
               [(ngModel)]="lista.titulo"
             />
           </mat-form-field>
@@ -27,8 +28,7 @@
             <textarea
               matInput
               autocomplete="off"
-              name="descripcion"
-              #descripcion="ngModel"
+              formControlName="descripcion"
               [(ngModel)]="lista.descripcion"
             ></textarea>
           </mat-form-field>
@@ -42,8 +42,7 @@
                 <input
                   matInput
                   autocomplete="off"
-                  name="categoria"
-                  #categoria="ngModel"
+                  formControlName="categoria"
                   [(ngModel)]="lista.categoria"
                 />
               </mat-form-field>
@@ -54,8 +53,7 @@
                   matInput
                   type="number"
                   autocomplete="off"
-                  name="cupos"
-                  #cupos="ngModel"
+                  formControlName="cupos"
                   [(ngModel)]="lista.cupos"
                 />
               </mat-form-field>
@@ -66,8 +64,7 @@
                   matInput
                   type="number"
                   autocomplete="off"
-                  name="duracion"
-                  #duracion="ngModel"
+                  formControlName="duracion"
                   [(ngModel)]="lista.duracion"
                 />
               </mat-form-field>
@@ -80,8 +77,8 @@
                   matInput
                   [matDatepicker]="myDatepicker1"
                   autocomplete="off"
-                  name="fechaInscripcion"
-                  #fechaInscripcion="ngModel"
+                  formControlName="fechaInscripcion"
+
                   [(ngModel)]="lista.fechaInscripcion"
                 />
               </mat-form-field>
@@ -96,8 +93,8 @@
                   matInput
                   [matDatepicker]="myDatepicker2"
                   autocomplete="off"
-                  name="fechaInicio"
-                  #fechainicio="ngModel"
+                  formControlName="fechaInicio"
+
                   [(ngModel)]="lista.fechaInicio"
                 />
               </mat-form-field>
@@ -112,8 +109,8 @@
                   matInput
                   [matDatepicker]="myDatepicker3"
                   autocomplete="off"
-                  name="fechaFin"
-                  #fechaFin="ngModel"
+                  formControlName="fechaFin"
+
                   [(ngModel)]="lista.fechaFin"
                 />
               </mat-form-field>
@@ -130,8 +127,7 @@
             <input
               matInput
               autocomplete="off"
-              name="seminarios"
-              #seminarios="ngModel"
+              formControlName="seminarios"
               [(ngModel)]="lista.seminarios"
             />
           </mat-form-field>
@@ -143,10 +139,9 @@
             <mat-select
               matInput
               autocomplete="off"
-              name="materia"
-              #materia="ngModel"
+              formControlName="materia"
+              [compareWith]="compareMateria"
               [(ngModel)]="lista.materia"
-
             >
               <mat-option
                 *ngFor="let topping of listaMaterias"
@@ -163,8 +158,8 @@
             <mat-select
               matInput
               autocomplete="off"
-              name="horario"
-              #horario="ngModel"
+              formControlName="horario"
+              [compareWith]="compareHorario"
               [(ngModel)]="lista.horario"
             >
               <mat-option
@@ -185,8 +180,8 @@
             <mat-select
               matInput
               autocomplete="off"
-              name="docente"
-              #docente="ngModel"
+              formControlName="docente"
+              [compareWith]="compareDocente"
               [(ngModel)]="lista.docente"
             >
               <mat-option
@@ -205,14 +200,15 @@
             <mat-select
               matInput
               autocomplete="off"
-              name="paralelo"
-              #paralelo="ngModel"
+              formControlName="paralelo"
               [(ngModel)]="lista.paralelo"
+              [compareWith]="compareParalelo"
+
             >
               <mat-option
-                *ngFor="let topping of listaParalelos"
-                [value]="topping"
-                >{{ topping.nombre }}</mat-option
+                *ngFor="let x of listaParalelos"
+                [value]="x"
+                >{{ x.nombre }}</mat-option
               >
             </mat-select>
           </mat-form-field>
@@ -224,8 +220,7 @@
             <input
               matInput
               autocomplete="off"
-              name="img"
-              #img="ngModel"
+              formControlName="img"
               [(ngModel)]="lista.img"
             />
           </mat-form-field>
@@ -237,8 +232,7 @@
             <input
               matInput
               autocomplete="off"
-              name="pdf"
-              #materia="ngModel"
+              formControlName="pdf"
               [(ngModel)]="lista.pdf"
             />
           </mat-form-field>
@@ -247,7 +241,7 @@
     </mat-card-content>
 
     <div class="row">
-      <div class="form-actions" style="text-align: center">
+      <div style="text-align: center">
         <button
           mat-raised-button
           color="primary"
@@ -258,12 +252,15 @@
         </button>
         <button
           type="submit"
+          [disabled]="form.invalid"
           mat-raised-button
           color="accent"
+          (click)="agregar()"
         >
           Guardar
         </button>
       </div>
     </div>
-  </mat-card>
+
 </form>
+</mat-card>
