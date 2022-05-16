@@ -4,6 +4,19 @@
     <mat-card-title>Formulario Contrato</mat-card-title>
   </mat-card-header>
 <mat-card-content>
+
+  <div class="row">
+    <mat-form-field appearance="legacy">
+      <mat-label>ID</mat-label>
+      <input
+        matInput
+        autocomplete="off"
+        formControlName="idcontrato"
+        [(ngModel)]="lista.idContrato"
+      />
+    </mat-form-field>
+  </div>
+
     <div class="row">
       <mat-form-field appearance="legacy">
         <mat-label>Fecha Contrato</mat-label>
@@ -27,7 +40,6 @@
           matInput
           autocomplete="off"
           formControlName="alumno"
-          [compareWith]="compareAlumno"
           [(ngModel)]="lista.alumno"
         >
           <mat-option
@@ -38,6 +50,24 @@
         </mat-select>
       </mat-form-field>
     </div>
+
+  <div class="row">
+    <mat-form-field appearance="legacy">
+      <mat-label>Representante</mat-label>
+      <mat-select
+        matInput
+        autocomplete="off"
+        formControlName="representante"
+        [(ngModel)]="lista.representante.nombrePrimer"
+      >
+      <mat-option
+        *ngFor="let x of listaRepresentantes"
+        [value]="x"
+      >{{ x.nombrePrimer }} {{ x.apellidoPrimer }}</mat-option
+      >
+      </mat-select>
+    </mat-form-field>
+  </div>
 
     <div class="row">
       <mat-form-field>
