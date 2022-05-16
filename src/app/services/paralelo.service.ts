@@ -13,7 +13,7 @@ export class ParaleloService {
 
   //Lista paralelo
   listar(): Observable<Paralelo[]> {
-    return this.http.get<Paralelo[]>(`http://localhost:9898/api/paralelo/listarParalelo`);
+    return this.http.get<Paralelo[]>(`http://localhost:9898/api/paralelo/listarParalelos`);
   }
 
 //Obtener paralelo por id

@@ -2,6 +2,6 @@ import { Aula } from './Aula';
 
 export class Paralelo {
   idParalelo: any;
-  descripcion: any;
+  nombre: any;
   aula: Aula =new Aula();
 }

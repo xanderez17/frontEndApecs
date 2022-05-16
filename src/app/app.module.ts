@@ -24,6 +24,8 @@ import { ListarCursosComponent } from './components/dashboard/listar-cursos/list
 import { ListarContratosComponent } from './components/dashboard/listar-contratos/listar-contratos.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CrearCursoComponent } from './components/dashboard/crear-curso/crear-curso.component';
+import { CrearParaleloComponent } from './components/dashboard/crear-paralelo/crear-paralelo.component';
+import { ListarParaleloComponent } from './components/dashboard/listar-paralelo/listar-paralelo.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { CrearCursoComponent } from './components/dashboard/crear-curso/crear-cu
     NavBarComponent,
     ListarCursosComponent,
     ListarContratosComponent,
-    CrearCursoComponent
+    CrearCursoComponent,
+    CrearParaleloComponent,
+    ListarParaleloComponent
   ],
   imports: [
     BrowserModule,

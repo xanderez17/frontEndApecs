@@ -6,6 +6,8 @@ import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import { ListarCursosComponent } from './components/dashboard/listar-cursos/listar-cursos.component';
 import {ListarContratosComponent} from "./components/dashboard/listar-contratos/listar-contratos.component";
 import { CrearCursoComponent } from './components/dashboard/crear-curso/crear-curso.component';
+import { CrearParaleloComponent } from './components/dashboard/crear-paralelo/crear-paralelo.component';
+import { ListarParaleloComponent } from './components/dashboard/listar-paralelo/listar-paralelo.component';
 
 
 const routes: Routes = [
@@ -17,8 +19,12 @@ const routes: Routes = [
   {path:'dashboard/crear-curso',component:CrearCursoComponent},
   {path:'dashboard/editar-cursos/:id',component:CrearCursoComponent},
   {path:'dashboard/listar-cursos',component:ListarCursosComponent},
+
   {path:'dashboard/listar-contratos',component:ListarContratosComponent},
 
+  {path:'dashboard/crear-paralelo',component:CrearParaleloComponent},
+  {path:'dashboard/editar-paralelo/:id',component:CrearParaleloComponent},
+  {path:'dashboard/listar-paralelos',component:ListarParaleloComponent},
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
 
 ];
