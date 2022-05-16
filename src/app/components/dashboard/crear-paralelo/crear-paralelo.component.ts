@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Aula } from 'src/app/models/Aula';
@@ -15,8 +20,7 @@ import { ParaleloService } from 'src/app/services/paralelo.service';
 export class CrearParaleloComponent implements OnInit {
   lista = new Paralelo();
   listaAulas: Aula[] = [];
-  form: FormGroup;
-
+  formParalelo!: FormGroup;
   idEdit!: string | null;
 
   constructor(
@@ -27,10 +31,11 @@ export class CrearParaleloComponent implements OnInit {
     private route: ActivatedRoute,
     private _snackBar: MatSnackBar
   ) {
-    this.form = this.fb.group({
+    this.formParalelo = this.fb.group({
       nombre: ['', Validators.required],
       aula: ['', Validators.required],
     });
+
   }
 
   ngOnInit(): void {
@@ -41,6 +46,8 @@ export class CrearParaleloComponent implements OnInit {
     this.cargarParalelo(Number(this.idEdit));
 
     this.listarAulas();
+
+
   }
 
   listarAulas() {
@@ -48,6 +55,11 @@ export class CrearParaleloComponent implements OnInit {
       this.listaAulas = p;
     });
   }
+
+  productForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    category: new FormControl('', [Validators.required]),
+  });
 
   cargarParalelo(id: number) {
     if (!id) {
@@ -60,7 +72,9 @@ export class CrearParaleloComponent implements OnInit {
       this.lista = m;
     });
   }
-
+  compareFn(x: Aula, y: Aula): boolean {
+    return x && y ? x.idAula === y.idAula : x === y;
+    }
   agregar() {
     if (this.idEdit) {
       this.paraleloServicio
