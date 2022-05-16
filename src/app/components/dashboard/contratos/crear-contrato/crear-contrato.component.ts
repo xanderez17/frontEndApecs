@@ -12,6 +12,8 @@ import { Alumno } from '../../../../models/Alumno';
 import { ContratoService } from '../../../../services/contrato.service';
 import { AlumnoService } from '../../../../services/alumno.service';
 import { DatePipe } from '@angular/common';
+import {Representante} from "../../../../models/Representante";
+import {RepresentanteService} from "../../../../services/representante.service";
 
 @Component({
   selector: 'app-crear-contrato',
@@ -23,6 +25,7 @@ export class CrearContratoComponent implements OnInit {
   lista = new Contrato();
 
   listaAlumnos: Alumno[] = [];
+  listaRepresentantes: Representante[] = [];
 
   formContrato!: FormGroup;
   idEdit!: string | null;
@@ -30,6 +33,7 @@ export class CrearContratoComponent implements OnInit {
   constructor(
     private contratoServicio: ContratoService,
     private alumnoServicio: AlumnoService,
+    private representanteServicio: RepresentanteService,
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
@@ -59,6 +63,9 @@ export class CrearContratoComponent implements OnInit {
   cargarListas() {
     this.alumnoServicio.listar().subscribe((p: any) => {
       this.listaAlumnos = p;
+    });
+    this.representanteServicio.listarRepresentante().subscribe((p:any)=>{
+      this.listaRepresentantes=p;
     });
   }
 
