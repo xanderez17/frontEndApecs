@@ -1,42 +1,58 @@
-<header>
-  <div class="px-3 py-2 text-white" style="background: #0e375d">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-        </a>
+<body>
+  <header>
+    <nav class="navegacion">
+      <h1 class="menuLogo">Apecs</h1>
 
-        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-          <li>
-            <a href="#" class="nav-link text-white">
-              <span class="material-icons">home</span>
-              <svg class="bi d-block mx-auto mb-1"><use xlink:href="#home"/></svg>
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="dashboard/listar-cursos" class="nav-link text-white">
-              <span class="material-icons">meeting_room</span>
-              <svg class="bi d-block mx-auto mb-1"><use xlink:href="#speedometer2"/></svg>
-              Gestión Cursos
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white">
-              <span class="material-icons">playlist_add_check_circle</span>
-              <svg class="bi d-block mx-auto mb-1"><use xlink:href="#table"/></svg>
-              Gestión Asistencia
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white">
-              <span class="material-icons">format_list_numbered</span>
-              <svg class="bi d-block mx-auto mb-1"><use xlink:href="#grid"/></svg>
-              Gestión Calificaciones
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</header>
+      <ul class="menu">
+        <li>
+          <a href="">Inicio</a>
+        </li>
+        <li> <a href=" ">Personas </a>
+          <ul class="submenu">
+            <li>
+              <a href="/inscripcion">Inscribir</a>
+            </li>
+            <li>
+              <a href="/dashboard/listar-alumnos">Ver Estudiantes</a>
+            </li>
+            <li>
+              <a href="/dashboard/crear-docente">Agregar Docente</a>
+            </li>
+            <li>
+              <a href="/dashboard/listar-docentes">Ver Docentes</a>
+            </li>
+            <li>
+              <a href="/dashboard/listar-representantes">Ver Representante</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="">Cursos </a>
+          <ul class="submenu">
+            <li>
+              <a href="/dashboard/crear-curso">Crear Cursos</a>
+            </li>
+            <li>
+              <a href="/dashboard/listar-cursos">Ver Cursos</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="">Contratos </a>
+          <ul class="submenu">
+            <li>
+              <a href="/dashboard/crear-contrato">Crear Contrato</a>
+            </li>
+            <li class="menuInside">
+              <a href="/dashboard/listar-contratos">Ver Contratos</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="">Home </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</body>
