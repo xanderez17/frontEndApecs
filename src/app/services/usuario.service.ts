@@ -11,7 +11,7 @@ export class UsuarioService {
 
   listar(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(
-      'http://localhost:9898/api/usuarios/listarUsuarios'
+      'http://localhost:9898/api/usuario/listarUsuarios'
     );
   }
 }
