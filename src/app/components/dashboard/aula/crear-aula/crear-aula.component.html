@@ -1,0 +1,77 @@
+<mat-card>
+  <form [formGroup]="form" appearance="standard">
+    <mat-card-header>
+      <mat-card-title>Formulario Aulas</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="nombre"
+            [(ngModel)]="lista.nombre"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Capacidad</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            type="number"
+            formControlName="capacidad"
+            [(ngModel)]="lista.capacidad"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Modalidad</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="modalidad"
+            [(ngModel)]="lista.modalidad"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Ubicacion</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="ubicacion"
+            [(ngModel)]="lista.ubicacion"
+          />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions style="text-align: center">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="irLista()"
+        style="margin-right: 20px"
+      >
+        Volver
+      </button>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        mat-raised-button
+        color="accent"
+        (click)="agregar()"
+      >
+        Guardar
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

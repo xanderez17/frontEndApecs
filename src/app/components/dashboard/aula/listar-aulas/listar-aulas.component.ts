@@ -3,20 +3,20 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Paralelo } from 'src/app/models/Paralelo';
-import { ParaleloService } from 'src/app/services/paralelo.service';
+import { Aula } from 'src/app/models/Aula';
+import { AulaService } from 'src/app/services/aula.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-listar-paralelo',
-  templateUrl: './listar-paralelo.component.html',
-  styleUrls: ['./listar-paralelo.component.css']
+  selector: 'app-listar-aulas',
+  templateUrl: './listar-aulas.component.html',
+  styleUrls: ['./listar-aulas.component.css']
 })
-export class ListarParaleloComponent implements OnInit {
+export class ListarAulasComponent implements OnInit {
 
   public lista!: MatTableDataSource<any>;
 //datos encabezado tablas
-  displayedColumns: string[] = ['nombre','aula', 'acciones'];
+  displayedColumns: string[] = ['nombre','capacidad','modalidad','ubicacion', 'acciones'];
 
   //varibel paginador
   length = 100;
@@ -30,13 +30,13 @@ export class ListarParaleloComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private paraleloServicio: ParaleloService
+    private aulaServicio: AulaService
     ) {
   }
 
   ngOnInit() {
 
-    this.paraleloServicio.listar().subscribe((response) => {
+    this.aulaServicio.listar().subscribe((response) => {
       this.lista = new MatTableDataSource(response);
       this.lista.paginator = this.paginador;
       this.lista.sort = this.marSort;
@@ -55,7 +55,7 @@ export class ListarParaleloComponent implements OnInit {
   }
 
 //emininar
-  eliminar(p: Paralelo) {
+  eliminar(p: Aula) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -67,7 +67,7 @@ export class ListarParaleloComponent implements OnInit {
     swalWithBootstrapButtons
       .fire({
         title: '¿Estas  seguro?',
-        text: `¿Seguro que quieres eliminar paralelo ${p.nombre} ?`,
+        text: `¿Seguro que quieres eliminar  aula ${p.nombre} ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar!',
@@ -76,17 +76,15 @@ export class ListarParaleloComponent implements OnInit {
       })
       .then((result) => {
         if (result.value) {
-          this.paraleloServicio.eliminar(p.idParalelo).subscribe((resp) => {
-            this.router.navigateByUrl('dashboard/listar-paralelos');
+          this.aulaServicio.eliminar(p.idAula).subscribe((resp) => {
+            this.router.navigateByUrl('dashboard/listar-aulas');
             swalWithBootstrapButtons.fire(
               'Eliminada!',
-              `Paralelo ${p.nombre} ha  sido eliminada correctamente!`,
+              `Aula ${p.nombre} ha  sido eliminada correctamente!`,
               'success'
             );
 
-
           });
-          location.reload();
         }
       });
 

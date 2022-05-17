@@ -3,20 +3,20 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Paralelo } from 'src/app/models/Paralelo';
-import { ParaleloService } from 'src/app/services/paralelo.service';
+import { Materia } from 'src/app/models/Materia';
+import { MateriaService } from 'src/app/services/materia.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-listar-paralelo',
-  templateUrl: './listar-paralelo.component.html',
-  styleUrls: ['./listar-paralelo.component.css']
+  selector: 'app-listar-materias',
+  templateUrl: './listar-materias.component.html',
+  styleUrls: ['./listar-materias.component.css']
 })
-export class ListarParaleloComponent implements OnInit {
+export class ListarMateriasComponent implements OnInit {
 
   public lista!: MatTableDataSource<any>;
 //datos encabezado tablas
-  displayedColumns: string[] = ['nombre','aula', 'acciones'];
+  displayedColumns: string[] = ['nombre','contenido', 'acciones'];
 
   //varibel paginador
   length = 100;
@@ -30,13 +30,13 @@ export class ListarParaleloComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private paraleloServicio: ParaleloService
+    private materiaServicio :MateriaService
     ) {
   }
 
   ngOnInit() {
 
-    this.paraleloServicio.listar().subscribe((response) => {
+    this.materiaServicio.listar().subscribe((response) => {
       this.lista = new MatTableDataSource(response);
       this.lista.paginator = this.paginador;
       this.lista.sort = this.marSort;
@@ -55,7 +55,7 @@ export class ListarParaleloComponent implements OnInit {
   }
 
 //emininar
-  eliminar(p: Paralelo) {
+  eliminar(p: Materia) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -67,7 +67,7 @@ export class ListarParaleloComponent implements OnInit {
     swalWithBootstrapButtons
       .fire({
         title: '¿Estas  seguro?',
-        text: `¿Seguro que quieres eliminar paralelo ${p.nombre} ?`,
+        text: `¿Seguro que quieres eliminar la materia ${p.nombre} ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar!',
@@ -76,17 +76,15 @@ export class ListarParaleloComponent implements OnInit {
       })
       .then((result) => {
         if (result.value) {
-          this.paraleloServicio.eliminar(p.idParalelo).subscribe((resp) => {
-            this.router.navigateByUrl('dashboard/listar-paralelos');
+          this.materiaServicio.eliminar(p.idMateria).subscribe((resp) => {
+            this.router.navigateByUrl('dashboard/listar-materias');
             swalWithBootstrapButtons.fire(
               'Eliminada!',
-              `Paralelo ${p.nombre} ha  sido eliminada correctamente!`,
+              `ateria  ${p.nombre} ha  sido eliminada correctamente!`,
               'success'
             );
 
-
           });
-          location.reload();
         }
       });
 

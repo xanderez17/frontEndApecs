@@ -11,6 +11,10 @@ import { CrearParaleloComponent } from './components/dashboard/paralelo/crear-pa
 import { ListarParaleloComponent } from './components/dashboard/paralelo/listar-paralelo/listar-paralelo.component';
 import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-inscripcion/crear-inscripcion.component';
 import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar-estudiantes/listar-estudiantes.component';
+import { ListarAulasComponent } from './components/dashboard/aula/listar-aulas/listar-aulas.component';
+import { CrearAulaComponent } from './components/dashboard/aula/crear-aula/crear-aula.component';
+import { CrearMateriaComponent } from './components/dashboard/materia/crear-materia/crear-materia.component';
+import { ListarMateriasComponent } from './components/dashboard/materia/listar-materias/listar-materias.component';
 
 
 const routes: Routes = [
@@ -27,6 +31,10 @@ const routes: Routes = [
   {path:'dashboard/crear-contrato',component:CrearContratoComponent},
   {path:'dashboard/editar-contrato/:id',component:CrearContratoComponent},
 
+  {path:'dashboard/crear-aula',component:CrearAulaComponent},
+  {path:'dashboard/editar-aula/:id',component:CrearAulaComponent},
+  {path:'dashboard/listar-aulas',component:ListarAulasComponent},
+
   {path:'dashboard/crear-paralelo',component:CrearParaleloComponent},
   {path:'dashboard/editar-paralelo/:id',component:CrearParaleloComponent},
   {path:'dashboard/listar-paralelos',component:ListarParaleloComponent},
@@ -34,6 +42,10 @@ const routes: Routes = [
   {path:'inscripcion',component:CrearInscripcionComponent},
   {path:'dashboard/editar-alumno/:id',component:CrearInscripcionComponent},
   {path:'dashboard/listar-alumnos',component:ListarEstudiantesComponent},
+
+  {path:'dashboard/crear-materia',component:CrearMateriaComponent},
+  {path:'dashboard/editar-materia/:id',component:CrearMateriaComponent},
+  {path:'dashboard/listar-materias',component:ListarMateriasComponent},
 
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
 

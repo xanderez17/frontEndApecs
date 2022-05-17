@@ -32,6 +32,10 @@ import { CrearDocenteComponent } from './components/dashboard/docente/crear-doce
 import { ListarDocentesComponent } from './components/dashboard/docente/listar-docentes/listar-docentes.component';
 import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-inscripcion/crear-inscripcion.component';
 import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar-estudiantes/listar-estudiantes.component';
+import { CrearAulaComponent } from './components/dashboard/aula/crear-aula/crear-aula.component';
+import { ListarAulasComponent } from './components/dashboard/aula/listar-aulas/listar-aulas.component';
+import { ListarMateriasComponent } from './components/dashboard/materia/listar-materias/listar-materias.component';
+import { CrearMateriaComponent } from './components/dashboard/materia/crear-materia/crear-materia.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,10 @@ import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar
     ListarEstudiantesComponent,
     ListarDocentesComponent,
     CrearDocenteComponent,
+    CrearAulaComponent,
+    ListarAulasComponent,
+    ListarMateriasComponent,
+    CrearMateriaComponent,
   ],
   imports: [
     BrowserModule,
