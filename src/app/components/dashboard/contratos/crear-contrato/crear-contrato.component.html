@@ -1,99 +1,131 @@
 <mat-card>
-<form [formGroup]="formContrato" appearance="standard">
-  <mat-card-header>
-    <mat-card-title>Formulario Contrato</mat-card-title>
-  </mat-card-header>
-<mat-card-content>
+  <form [formGroup]="formContrato" appearance="standard">
+    <mat-card-header>
+      <mat-card-title>Formulario Contrato</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <mat-label>Contrato Nº {{ numContrato }}</mat-label>
+      </div>
 
-  <div class="row">
-    <mat-form-field appearance="legacy">
-      <mat-label>ID</mat-label>
-      <input
-        matInput
-        autocomplete="off"
-        formControlName="idcontrato"
-        [(ngModel)]="lista.idContrato"
-      />
-    </mat-form-field>
-  </div>
-
-    <div class="row">
-      <mat-form-field appearance="legacy">
-        <mat-label>Fecha Contrato</mat-label>
-        <input
-          matInput
-          [matDatepicker]="myDatepicker"
-          autocomplete="off"
-          formControlName="fechaContrato"
-          [(ngModel)]="lista.fechaContrato"
-        />
-      </mat-form-field>
-      <mat-datepicker-toggle
-        [for]="myDatepicker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #myDatepicker></mat-datepicker>
-    </div>
-    <div class="row">
-      <mat-form-field class="full-width" appearance="legacy">
-        <mat-label>Alumno</mat-label>
-        <mat-select
-          matInput
-          autocomplete="off"
-          formControlName="alumno"
-          [(ngModel)]="lista.alumno"
-        >
-          <mat-option
-            *ngFor="let x of listaAlumnos"
-            [value]="x"
-            >{{ x.apellidoPrimer }} {{ x.nombrePrimer }}</mat-option
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Fecha Contrato</mat-label>
+          <input
+            matInput
+            [matDatepicker]="myDatepicker"
+            autocomplete="off"
+            formControlName="fechaContrato"
+            [(ngModel)]="lista.fechaContrato"
+          />
+        </mat-form-field>
+        <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Alumno</mat-label>
+          <mat-select
+            matInput
+            autocomplete="off"
+            formControlName="alumno"
+            [compareWith]="compareAlumno"
+            [(ngModel)]="lista.alumno"
           >
-        </mat-select>
-      </mat-form-field>
-    </div>
+            <mat-option *ngFor="let x of listaAlumnos" [value]="x"
+              >{{ x.apellidoPrimer }} {{ x.nombrePrimer }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-  <div class="row">
-    <mat-form-field appearance="legacy">
-      <mat-label>Representante</mat-label>
-      <mat-select
-        matInput
-        autocomplete="off"
-        formControlName="representante"
-        [(ngModel)]="lista.representante.nombrePrimer"
-      >
-      <mat-option
-        *ngFor="let x of listaRepresentantes"
-        [value]="x"
-      >{{ x.nombrePrimer }} {{ x.apellidoPrimer }}</mat-option
-      >
-      </mat-select>
-    </mat-form-field>
-  </div>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Representante</mat-label>
+          <mat-select
+            matInput
+            autocomplete="off"
+            formControlName="representante"
+            [compareWith]="compareRepresentante"
+            [(ngModel)]="lista.representante"
+          >
+            <mat-option *ngFor="let x of listaRepresentantes" [value]="x"
+              >{{ x.nombrePrimer }} {{ x.apellidoPrimer }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-    <div class="row">
-      <mat-form-field>
-        <mat-label>Estado</mat-label>
-        <mat-select
-          formControlName="estado"
-          [(ngModel)]="lista.estado">
-          <mat-option value="Activo">Activo</mat-option>
-          <mat-option value="En pausa">En pausa</mat-option>
-          <mat-option value="Cancelado">Cancelado</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Curso</mat-label>
+          <mat-select
+            matInput
+            autocomplete="off"
+            formControlName="curso"
+            [compareWith]="compareCurso"
+            [(ngModel)]="lista.curso"
+          >
+            <mat-option *ngFor="let x of listaCursos" [value]="x">{{
+              x.titulo
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-    <div class="row">
-      <mat-form-field class="ancho">
-        <mat-label>Observación</mat-label>
-        <textarea
-          matInput
-          autocomplete="off"
-          formControlName="observacion"
-          [(ngModel)]="lista.observacion"
-        ></textarea>
-      </mat-form-field>
-    </div>
-</mat-card-content>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Forma de Pago </mat-label>
+          <mat-select
+            matInput
+            autocomplete="off"
+            formControlName="formaPago"
+            [compareWith]="compareFormaPago"
+            [(ngModel)]="lista.formaPago"
+          >
+            <mat-option *ngFor="let x of listaFormaPago" [value]="x"
+              >{{ x.tipoPago }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Matricula</mat-label>
+          <mat-select
+            formControlName="matricula"
+            [(ngModel)]="lista.matricula"
+            [compareWith]="compareMatricula"
+          >
+            <mat-option *ngFor="let x of listaMatricula" [value]="x">
+              valor curso {{ x.valorCurso }} valor matricula
+              {{ x.valorMatricula }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="estado" [(ngModel)]="lista.estado">
+            <mat-option value="Activo">Activo</mat-option>
+            <mat-option value="En pausa">En pausa</mat-option>
+            <mat-option value="Cancelado">Cancelado</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Observación</mat-label>
+          <textarea
+            matInput
+            autocomplete="off"
+            formControlName="observacion"
+            [(ngModel)]="lista.observacion"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
     <mat-card-actions>
       <button
         mat-raised-button
@@ -113,6 +145,5 @@
         Guardar
       </button>
     </mat-card-actions>
-
-</form>
+  </form>
 </mat-card>

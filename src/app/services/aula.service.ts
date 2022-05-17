@@ -12,9 +12,7 @@ export class AulaService {
   constructor(private http: HttpClient) {}
   //Obtener aula por id
   getById(idAula: number): Observable<Aula> {
-    return this.http.get<Aula>(
-      `http://localhost:9898/api/aula/listar-aula/${idAula}`
-    );
+    return this.http.get<Aula>( `http://localhost:9898/api/aula/listar-aula/${idAula}` );
   }
   //Lista aula
   listar(): Observable<Aula[]> {
@@ -54,7 +52,7 @@ export class AulaService {
         })
       );
   }
-  //Eeliminar aula
+  //Eliminar aula
   eliminar(id: number): Observable<Aula> {
     return this.http
       .delete<Aula>(`http://localhost:9898/api/aula/elminarAula/${id}`)

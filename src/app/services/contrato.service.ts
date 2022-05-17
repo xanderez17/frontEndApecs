@@ -11,21 +11,20 @@ import Swal from "sweetalert2";
 })
 export class ContratoService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private http:HttpClient) { }
 
   //Listar Contrato
   listarContrato():Observable<Contrato[]>{
-    return this.httpClient.get<Contrato[]>('http://localhost:9898/api/contratos/listarContrato');
+ return this.http.get<Contrato[]>('http://localhost:9898/api/contrato/listarContratos');
   }
 
   //Listar Contrato ID
-  getById(id: number): Observable<Contrato> {
-    return this.httpClient.get<Contrato>('http://localhost:9898/api/contratos/listarContrato/${id}');
+  getById(idContrato: number): Observable<Contrato> {
+    return this.http.get<Contrato>( `http://localhost:9898/api/contrato/listar-contrato/${idContrato}` );
   }
-
   //Crear Contrato
   crearContrato(contrato:Contrato): Observable<Contrato>{
-    return this.httpClient.post<Contrato>('http://localhost:9898/api/contratos/crearContrato', contrato).pipe(
+    return this.http.post<Contrato>('http://localhost:9898/api/contrato/crearContrato', contrato).pipe(
       map((response: any) => response.contrato as Contrato),
       catchError((e) => {
         if (e.status == 400) {
@@ -39,7 +38,7 @@ export class ContratoService {
 
   //Editar Contrato
   editarContrato(contrato: Contrato, idContrato: number): Observable<Contrato> {
-    return this.httpClient.put<Contrato>('http://localhost:9898/api/curso/actualizarContrato/${idContrato}', contrato).pipe(
+    return this.http.put<Contrato>(`http://localhost:9898/api/contrato/actualizarContrato/${idContrato}`, contrato).pipe(
       map((response: any) => response.contrato as Contrato),
       catchError((e) => {
         if (e.status == 400) {
@@ -53,7 +52,7 @@ export class ContratoService {
 
   //Eliminar Contrato
   eliminarContrato(id: number): Observable<Contrato> {
-    return this.httpClient.delete<Contrato>('http://localhost:9898/api/contratos/eliminarContrato/${id}').pipe(
+    return this.http.delete<Contrato>('http://localhost:9898/api/contrato/eliminarContrato/${id}').pipe(
       catchError((e) => {
         Swal.fire(e.error.mensaje, e.error.error, "error");
         return throwError(e);

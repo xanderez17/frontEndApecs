@@ -48,7 +48,7 @@ editar(horario: Horario, idHorario: number): Observable<Horario> {
     })
   );
 }
-//Eeliminar por id
+//Eliminar por id
 eliminar(id: number): Observable<Horario> {
   return this.http.delete<Horario>(`http://localhost:9898/api/horario/eliminarHorario/${id}`).pipe(
     catchError((e) => {
