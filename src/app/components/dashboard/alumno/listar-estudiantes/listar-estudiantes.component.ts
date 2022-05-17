@@ -3,20 +3,21 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Paralelo } from 'src/app/models/Paralelo';
-import { ParaleloService } from 'src/app/services/paralelo.service';
+import { Alumno } from 'src/app/models/Alumno';
+
+import { AlumnoService } from 'src/app/services/alumno.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-listar-paralelo',
-  templateUrl: './listar-paralelo.component.html',
-  styleUrls: ['./listar-paralelo.component.css']
+  selector: 'app-listar-estudiantes',
+  templateUrl: './listar-estudiantes.component.html',
+  styleUrls: ['./listar-estudiantes.component.css'],
 })
-export class ListarParaleloComponent implements OnInit {
+export class ListarEstudiantesComponent implements OnInit {
 
   public lista!: MatTableDataSource<any>;
-//datos encabezado tablas
-  displayedColumns: string[] = ['nombre','aula', 'acciones'];
+  //datos encabezado tablas
+  displayedColumns: string[] = [  'identificacion',    'nombre',    'apellido',    'acciones',  ];
 
   //varibel paginador
   length = 100;
@@ -29,18 +30,14 @@ export class ListarParaleloComponent implements OnInit {
   @ViewChild(MatSort) marSort!: MatSort;
 
   constructor(
-    private router: Router,
-    private paraleloServicio: ParaleloService
-    ) {
-  }
+    private alumnoServicio: AlumnoService,
+    private router: Router,) {}
 
   ngOnInit() {
-
-    this.paraleloServicio.listar().subscribe((response) => {
+    this.alumnoServicio.listar().subscribe((response) => {
       this.lista = new MatTableDataSource(response);
       this.lista.paginator = this.paginador;
       this.lista.sort = this.marSort;
-
     });
     this.paginador._intl.itemsPerPageLabel = 'Registros por página:';
     this.paginador._intl.nextPageLabel = 'Siguiente';
@@ -48,14 +45,13 @@ export class ListarParaleloComponent implements OnInit {
     this.paginador._intl.firstPageLabel = 'Primera Página';
     this.paginador._intl.lastPageLabel = 'Última Página';
   }
-// filtrar
+  // filtrar
   filtrar($event: any) {
     this.lista.filter = $event.target.value;
-
   }
 
-//emininar
-  eliminar(p: Paralelo) {
+  //emininar
+  eliminar(alumno: Alumno) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -67,7 +63,7 @@ export class ListarParaleloComponent implements OnInit {
     swalWithBootstrapButtons
       .fire({
         title: '¿Estas  seguro?',
-        text: `¿Seguro que quieres eliminar la materia ${p.nombre} ?`,
+        text: `¿Seguro que quieres eliminar al alumno ${alumno.apellidoPrimer} ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar!',
@@ -76,18 +72,14 @@ export class ListarParaleloComponent implements OnInit {
       })
       .then((result) => {
         if (result.value) {
-          this.paraleloServicio.eliminar(p.idParalelo).subscribe((resp) => {
-            this.router.navigateByUrl('dashboard/listar-paralelos');
+          this.alumnoServicio.eliminar(alumno.id).subscribe((resp) => {
             swalWithBootstrapButtons.fire(
               'Eliminada!',
-              `La materia ${p.nombre} ha  sido eliminada correctamente!`,
+              `La materia ${alumno.id} ha  sido eliminada correctamente!`,
               'success'
             );
-
           });
         }
       });
-
   }
-
 }

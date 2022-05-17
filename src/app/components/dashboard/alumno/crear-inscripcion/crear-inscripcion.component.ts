@@ -12,7 +12,7 @@ import { AlumnoService } from 'src/app/services/alumno.service';
 })
 export class CrearInscripcionComponent implements OnInit {
   lista = new Alumno();
-  form!: FormGroup;
+   form!: FormGroup;
   idEdit!: string | null;
 
   constructor(
@@ -35,16 +35,36 @@ export class CrearInscripcionComponent implements OnInit {
       sexo: ['', Validators.required],
       ocupacion: ['', Validators.required],
       cargo: ['', Validators.required],
-
-
     });
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.idEdit = params.get('id');
+    });
+    this.cargarAlumno(Number(this.idEdit));
 
-   }
+    this.listarAlumno();
+  }
 
 
+  listarAlumno() {
+    this.alumnoServicio.listar().subscribe((p: any) => {
+      this.lista = p;
+    });
+  }
+
+  cargarAlumno(id: number) {
+    if (!id) {
+      return;
+    }
+    this.alumnoServicio.getById(id).subscribe((m) => {
+      if (!m) {
+        return this.irLista();
+      }
+      this.lista = m;
+    });
+  }
 
   agregar() {
     this.alumnoServicio.crear(this.lista).subscribe((m) => {

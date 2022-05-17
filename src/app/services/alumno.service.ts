@@ -15,7 +15,7 @@ export class AlumnoService {
   getById(id: number): Observable<Alumno> {
     return this.http.get<Alumno>(`http://localhost:9898/api/alumno/listar-alumno/${id}`);
   }
- //Ccrear alumno
+ //Crear alumno
  crear(alumno: Alumno): Observable<Alumno> {
   return this.http.post<Alumno>(`http://localhost:9898/api/alumno/`, alumno).pipe(
     map((response: any) => response.alumno as Alumno),
@@ -30,8 +30,8 @@ export class AlumnoService {
 }
 
 //Editar alumno
-editar(alumno: Alumno, idAlumno: number): Observable<Alumno> {
-  return this.http.put<Alumno>(`http://localhost:9898/api/alumno/actualizarAlumno/${idAlumno}`, alumno).pipe(
+editar(alumno: Alumno, id: number): Observable<Alumno> {
+  return this.http.put<Alumno>(`http://localhost:9898/api/alumno/actualizarAlumno/${id}`, alumno).pipe(
     map((response: any) => response.alumno as Alumno),
     catchError((e) => {
       if (e.status == 400) {
@@ -42,7 +42,7 @@ editar(alumno: Alumno, idAlumno: number): Observable<Alumno> {
     })
   );
 }
-//Eeliminar alumno
+//Eliminar alumno
 eliminar(id: number): Observable<Alumno> {
   return this.http.delete<Alumno>(`http://localhost:9898/api/alumno/eliminarAlumno/${id}`).pipe(
     catchError((e) => {

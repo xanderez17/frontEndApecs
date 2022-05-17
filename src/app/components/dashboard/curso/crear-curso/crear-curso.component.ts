@@ -164,7 +164,7 @@ export class CrearCursoComponent implements OnInit {
     return x && y ? x.idHorario === y.idHorario : x === y;
   }
   compareDocente(x: Docente, y: Docente): boolean {
-    return x && y ? x.idPersona === y.idPersona : x === y;
+    return x && y ? x.id === y.id : x === y;
   }
   compareParalelo(x: Paralelo, y: Paralelo): boolean {
     return x && y ? x.idParalelo === y.idParalelo : x === y;

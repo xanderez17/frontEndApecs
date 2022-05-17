@@ -110,7 +110,7 @@ export class CrearContratoComponent implements OnInit {
     }
   }
   compareAlumno(x: Alumno, y: Alumno): boolean {
-    return x && y ? x.idPersona === y.idPersona : x === y;
+    return x && y ? x.id === y.id : x === y;
   }
   irLista() {
     this.router.navigateByUrl('dashboard/listar-contratos');

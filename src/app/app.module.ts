@@ -28,10 +28,10 @@ import { ContratosComponent } from './components/dashboard/contratos/contratos.c
 import { CrearContratoComponent } from './components/dashboard/contratos/crear-contrato/crear-contrato.component';
 import { ListarParaleloComponent } from './components/dashboard/paralelo/listar-paralelo/listar-paralelo.component';
 import { CrearParaleloComponent } from './components/dashboard/paralelo/crear-paralelo/crear-paralelo.component';
-import { ListarEstudiantesComponent } from './components/dashboard/estudiantes/listar-estudiantes/listar-estudiantes.component';
-import { CrearInscripcionComponent } from './components/dashboard/estudiantes/crear-inscripcion/crear-inscripcion.component';
-import { ListarDocentesComponent } from './components/dashboard/docente/listar-docentes/listar-docentes.component';
 import { CrearDocenteComponent } from './components/dashboard/docente/crear-docente/crear-docente.component';
+import { ListarDocentesComponent } from './components/dashboard/docente/listar-docentes/listar-docentes.component';
+import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-inscripcion/crear-inscripcion.component';
+import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar-estudiantes/listar-estudiantes.component';
 
 @NgModule({
   declarations: [

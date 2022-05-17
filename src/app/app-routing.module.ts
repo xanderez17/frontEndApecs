@@ -9,7 +9,8 @@ import { CrearCursoComponent } from './components/dashboard/curso/crear-curso/cr
 import {CrearContratoComponent} from "./components/dashboard/contratos/crear-contrato/crear-contrato.component";
 import { CrearParaleloComponent } from './components/dashboard/paralelo/crear-paralelo/crear-paralelo.component';
 import { ListarParaleloComponent } from './components/dashboard/paralelo/listar-paralelo/listar-paralelo.component';
-import { CrearInscripcionComponent } from './components/dashboard/estudiantes/crear-inscripcion/crear-inscripcion.component';
+import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-inscripcion/crear-inscripcion.component';
+import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar-estudiantes/listar-estudiantes.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,8 @@ const routes: Routes = [
   {path:'dashboard/listar-paralelos',component:ListarParaleloComponent},
 
   {path:'inscripcion',component:CrearInscripcionComponent},
+  {path:'dashboard/editar-alumno/:id',component:CrearInscripcionComponent},
+  {path:'dashboard/listar-alumnos',component:ListarEstudiantesComponent},
 
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
 

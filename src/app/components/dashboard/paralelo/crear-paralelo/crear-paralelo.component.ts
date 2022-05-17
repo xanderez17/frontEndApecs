@@ -44,7 +44,7 @@ export class CrearParaleloComponent implements OnInit {
     });
     this.cargarParalelo(Number(this.idEdit));
 
-    this.listarAulas();
+
 
 
   }

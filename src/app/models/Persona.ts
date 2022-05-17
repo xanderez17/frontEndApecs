@@ -1,5 +1,5 @@
 export class Persona {
-  idPersona: any;
+  id: any;
   identificacion: any;
   apellidoPrimer: any;
   apellidoSegundo: any;

@@ -47,7 +47,7 @@ return this.http.put<Paralelo>(`http://localhost:9898/api/paralelo/actualizarPar
   })
 );
 }
-//Eeliminar paralelo
+//Eliminar paralelo
 eliminar(id: number): Observable<Paralelo> {
 return this.http.delete<Paralelo>(`http://localhost:9898/api/paralelo/eliminarParalelo/${id}`).pipe(
   catchError((e) => {
