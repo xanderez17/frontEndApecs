@@ -9,7 +9,7 @@ import { CrearCursoComponent } from './components/dashboard/curso/crear-curso/cr
 import {CrearContratoComponent} from "./components/dashboard/contratos/crear-contrato/crear-contrato.component";
 import { CrearParaleloComponent } from './components/dashboard/paralelo/crear-paralelo/crear-paralelo.component';
 import { ListarParaleloComponent } from './components/dashboard/paralelo/listar-paralelo/listar-paralelo.component';
-import { CrearInscripcionComponent } from './components/dashboard/crear-inscripcion/crear-inscripcion.component';
+import { CrearInscripcionComponent } from './components/dashboard/estudiantes/crear-inscripcion/crear-inscripcion.component';
 
 
 const routes: Routes = [
