@@ -85,7 +85,7 @@ export class ListarAulasComponent implements OnInit {
             );
 
           });
-        }
+        } location.reload();
       });
 
   }

@@ -83,7 +83,7 @@ export class ListarCursosComponent implements OnInit {
               'success'
             );
           });
-        }
+        } location.reload();
       });
   }
 

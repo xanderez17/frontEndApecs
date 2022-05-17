@@ -14,10 +14,14 @@ import Swal from 'sweetalert2';
   styleUrls: ['./listar-estudiantes.component.css'],
 })
 export class ListarEstudiantesComponent implements OnInit {
-
   public lista!: MatTableDataSource<any>;
   //datos encabezado tablas
-  displayedColumns: string[] = [  'identificacion',    'nombre',    'apellido',    'acciones',  ];
+  displayedColumns: string[] = [
+    'identificacion',
+    'nombre',
+    'apellido',
+    'acciones',
+  ];
 
   //varibel paginador
   length = 100;
@@ -29,9 +33,7 @@ export class ListarEstudiantesComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginador!: MatPaginator;
   @ViewChild(MatSort) marSort!: MatSort;
 
-  constructor(
-    private alumnoServicio: AlumnoService,
-    private router: Router,) {}
+  constructor(private alumnoServicio: AlumnoService, private router: Router) {}
 
   ngOnInit() {
     this.alumnoServicio.listar().subscribe((response) => {
@@ -60,11 +62,10 @@ export class ListarEstudiantesComponent implements OnInit {
       buttonsStyling: false,
     });
 
-    console.log(this.lista)
+    console.log(this.lista);
 
     swalWithBootstrapButtons
       .fire({
-
         title: '¿Estas  seguro?',
         text: `¿Seguro que quieres eliminar al alumno ${alumno.apellidoPrimer} ?`,
         icon: 'warning',
@@ -83,6 +84,7 @@ export class ListarEstudiantesComponent implements OnInit {
             );
           });
         }
+        location.reload();
       });
   }
 }
