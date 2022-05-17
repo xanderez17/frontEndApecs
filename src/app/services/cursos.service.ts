@@ -48,7 +48,7 @@ editar(curso: Curso, idCurso: number): Observable<Curso> {
     })
   );
 }
-//Eeliminar por id
+//Eliminar por id
 eliminar(id: number): Observable<Curso> {
   return this.http.delete<Curso>(`http://localhost:9898/api/curso/eliminarCurso/${id}`).pipe(
     catchError((e) => {

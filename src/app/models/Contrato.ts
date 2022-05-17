@@ -4,13 +4,13 @@ import { FormaPago } from './FormaPago';
 import { Matricula } from './Matricula';
 import { Representante } from './Representante';
 export class Contrato {
-  idContrato: any;
-  fechaContrato: any;
-  observacion: any;
-  estado: any;
   alumno: Alumno = new Alumno();
-  representante: Representante = new Representante();
   curso: Curso = new Curso();
+  idContrato: any;
+  estado: any;
+  fechaContrato: any;
   formaPago: FormaPago = new FormaPago();
   matricula: Matricula = new Matricula();
+  observacion: any;
+  representante: Representante = new Representante();
 }

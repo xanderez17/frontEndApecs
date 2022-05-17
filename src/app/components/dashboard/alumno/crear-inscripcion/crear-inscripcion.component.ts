@@ -46,7 +46,6 @@ export class CrearInscripcionComponent implements OnInit {
 
     this.cargarAlumno();
 
-    //this.listarAlumno();
   }
 
 

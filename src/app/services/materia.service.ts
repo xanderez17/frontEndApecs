@@ -42,7 +42,7 @@ export class MateriaService {
       })
     );
   }
-  //Eeliminar materia
+  //Eliminar materia
   eliminar(id: number): Observable<Materia> {
     return this.http.delete<Materia>(`http://localhost:9898/api/materia/eliminarMateria/${id}`).pipe(
       catchError((e) => {
