@@ -11,9 +11,10 @@ import { Alumno } from '../models/Alumno';
 export class AlumnoService {
 
   constructor(private http: HttpClient) {}
+
   //Obtener paralelo por id
   getById(id: number): Observable<Alumno> {
-    return this.http.get<Alumno>(`http://localhost:9898/api/alumno/listar-alumno/${id}`);
+    return this.http.get<Alumno>('http://localhost:9898/api/alumno/listar-alumno/'+id);
   }
  //Crear alumno
  crear(alumno: Alumno): Observable<Alumno> {
@@ -31,7 +32,7 @@ export class AlumnoService {
 
 //Editar alumno
 editar(alumno: Alumno, id: number): Observable<Alumno> {
-  return this.http.put<Alumno>(`http://localhost:9898/api/alumno/actualizarAlumno/${id}`, alumno).pipe(
+  return this.http.put<Alumno>('http://localhost:9898/api/alumno/actualizarAlumno/${id}', alumno).pipe(
     map((response: any) => response.alumno as Alumno),
     catchError((e) => {
       if (e.status == 400) {
@@ -53,7 +54,9 @@ eliminar(id: number): Observable<Alumno> {
 }
   //Lista alumnp
   listar(): Observable<Alumno[]> {
-    return this.http.get<Alumno[]>(`http://localhost:9898/api/alumno/listarAlumnos`);
+    return this.http.get<Alumno[]>('http://localhost:9898/api/alumno/listarAlumnos');
   }
+
+
 
 }

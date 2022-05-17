@@ -60,8 +60,11 @@ export class ListarEstudiantesComponent implements OnInit {
       buttonsStyling: false,
     });
 
+    console.log(this.lista)
+
     swalWithBootstrapButtons
       .fire({
+
         title: '¿Estas  seguro?',
         text: `¿Seguro que quieres eliminar al alumno ${alumno.apellidoPrimer} ?`,
         icon: 'warning',
