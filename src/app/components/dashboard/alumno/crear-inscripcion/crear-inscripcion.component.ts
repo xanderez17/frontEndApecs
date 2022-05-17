@@ -13,7 +13,7 @@ import { AlumnoService } from 'src/app/services/alumno.service';
 export class CrearInscripcionComponent implements OnInit {
   lista = new Alumno();
    form!: FormGroup;
-  idEdit!: string | null;
+  idEdit: any;
 
   constructor(
     private alumnoServicio: AlumnoService,
@@ -41,10 +41,12 @@ export class CrearInscripcionComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.idEdit = params.get('id');
+      console.log(this.idEdit)
     });
-    this.cargarAlumno(Number(this.idEdit));
 
-    this.listarAlumno();
+    this.cargarAlumno();
+
+    //this.listarAlumno();
   }
 
 
@@ -54,11 +56,11 @@ export class CrearInscripcionComponent implements OnInit {
     });
   }
 
-  cargarAlumno(id: number) {
-    if (!id) {
+  cargarAlumno() {
+    if (!this.idEdit) {
       return;
     }
-    this.alumnoServicio.getById(id).subscribe((m) => {
+    this.alumnoServicio.getById(this.idEdit).subscribe((m) => {
       if (!m) {
         return this.irLista();
       }

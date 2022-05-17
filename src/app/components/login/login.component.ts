@@ -12,7 +12,8 @@ import {UsuarioService} from "../../services/usuario.service";
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  loading= false;
+  loading= true;
+  fake=false;
   listausuario:Array<Usuario>=[]
   cont: number=0;
 
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   }
 
+
   ingresar() {
     const usuario = this.form.value.usuario;
     const password = this.form.value.password;
@@ -40,7 +42,7 @@ export class LoginComponent implements OnInit {
         }
       }
       if (this.cont==1){
-        this.fakeLoading();
+        this.fakeLoading()
       }else{
         this._snackBar.open('Usuario o Contraseña Incorrectos!', '', {
           duration: 5000,
@@ -52,10 +54,16 @@ export class LoginComponent implements OnInit {
   }
 
   fakeLoading(){
-    this.loading=true;
+    this.fake=true;
+    this.loading=false;
     setTimeout(()=>{
       //Redireccionar al Dashboard
-      this.router.navigateByUrl('/dashboard')
-    }, 1500);
+      this.router.navigateByUrl('/dashboard').then((m)=>{
+        console.log("Dashbaord")
+        this.fake=false;
+      })
+    }, 2000);
   }
+
+
 }

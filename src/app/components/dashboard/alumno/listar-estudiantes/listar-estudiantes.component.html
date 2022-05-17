@@ -1,6 +1,6 @@
 <div class="container">
   <mat-toolbar>
-    <span>Lista de cursos</span>
+    <span>Lista de Alumnos</span>
   </mat-toolbar>
 
   <div class="dt-buttons">
@@ -10,10 +10,9 @@
       routerLink="/dashboard/crear-curso"
       style="margin-right: 20px"
     >
-      Nuevo Curso
+      Nuevo Alumno
     </button>
   </div>
-
   <mat-form-field appearance="standard">
     <mat-label>Buscar por nombre</mat-label>
     <input matInput (keyup)="filtrar($event)" autocomplete="off" #input />
