@@ -81,7 +81,7 @@ export class ListarContratosComponent implements OnInit {
               'success'
             );
           });
-        }
+        } location.reload();
       });
   }
 }

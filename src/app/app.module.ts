@@ -24,7 +24,6 @@ import { ListarCursosComponent } from './components/dashboard/curso/listar-curso
 import { ListarContratosComponent } from './components/dashboard/contratos/listar-contratos/listar-contratos.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CrearCursoComponent } from './components/dashboard/curso/crear-curso/crear-curso.component';
-import { ContratosComponent } from './components/dashboard/contratos/contratos.component';
 import { CrearContratoComponent } from './components/dashboard/contratos/crear-contrato/crear-contrato.component';
 import { ListarParaleloComponent } from './components/dashboard/paralelo/listar-paralelo/listar-paralelo.component';
 import { CrearParaleloComponent } from './components/dashboard/paralelo/crear-paralelo/crear-paralelo.component';
@@ -51,7 +50,6 @@ import { CrearMateriaComponent } from './components/dashboard/materia/crear-mate
     CrearCursoComponent,
     CrearParaleloComponent,
     ListarParaleloComponent,
-    ContratosComponent,
     CrearContratoComponent,
     CrearInscripcionComponent,
     ListarEstudiantesComponent,
