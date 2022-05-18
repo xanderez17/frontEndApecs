@@ -1,17 +1,21 @@
 *{
-	margin: 0;
-	padding: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body{
-	background: #083177;
+  background: #083177;
 }
 
 header{
+<<<<<<< HEAD
 	width: 40px;
+=======
+  width: 100%;
+>>>>>>> 7ffdfa71fa1b955d2867c295291663322e51cbcf
 }
 
 .navegacion{
