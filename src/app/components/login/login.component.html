@@ -13,13 +13,15 @@
 
       <div class="example-container">
         <mat-form-field class="ancho" appearance="fill">
-          <mat-label>Enter your password</mat-label>
+          <mat-label>Ingrese su Contraseña</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
       </div>
+
+
 
       <br>
       <button  type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>

@@ -36,6 +36,8 @@ import { ListarAulasComponent } from './components/dashboard/aula/listar-aulas/l
 import { ListarMateriasComponent } from './components/dashboard/materia/listar-materias/listar-materias.component';
 import { CrearMateriaComponent } from './components/dashboard/materia/crear-materia/crear-materia.component';
 import { CrearMatriculaComponent } from './components/dashboard/matricula/crear-matricula/crear-matricula.component';
+import {SidenavComponent} from "./components/sidenav/sidenav.component";
+import {BodyComponent} from "./components/body/body.component";
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { CrearMatriculaComponent } from './components/dashboard/matricula/crear-
     ListarMateriasComponent,
     CrearMateriaComponent,
     CrearMatriculaComponent,
+    SidenavComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
