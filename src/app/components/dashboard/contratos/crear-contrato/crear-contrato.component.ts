@@ -58,12 +58,10 @@ export class CrearContratoComponent implements OnInit {
   ) {
     this.formContrato = this.fb.group({
       alumno: ['', Validators.required],
-      curso: ['', Validators.required],
       estado: ['', Validators.required],
       fechaContrato: ['', Validators.required],
       formaPago: ['', Validators.required],
-      matricula: ['', Validators.required],
-      observacion: ['', Validators.required],
+       observacion: ['', Validators.required],
       representante: ['', Validators.required],
     });
   }

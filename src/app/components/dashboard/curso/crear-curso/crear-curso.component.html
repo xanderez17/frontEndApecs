@@ -133,24 +133,7 @@
           </mat-form-field>
         </div>
 
-        <div class="row">
-          <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>Materias</mat-label>
-            <mat-select
-              matInput
-              autocomplete="off"
-              formControlName="materia"
-              [compareWith]="compareMateria"
-              [(ngModel)]="lista.materia"
-            >
-              <mat-option
-                *ngFor="let topping of listaMaterias"
-                [value]="topping"
-                >{{ topping.nombre }}</mat-option
-              >
-            </mat-select>
-          </mat-form-field>
-        </div>
+
 
         <div class="row">
           <mat-form-field class="full-width" appearance="legacy">
@@ -194,51 +177,7 @@
           </mat-form-field>
         </div>
 
-        <div class="row">
-          <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>Paralelo</mat-label>
-            <mat-select
-              matInput
-              autocomplete="off"
-              formControlName="paralelo"
-              [(ngModel)]="lista.paralelo"
-              [compareWith]="compareParalelo"
 
-            >
-              <mat-option
-                *ngFor="let x of listaParalelos"
-                [value]="x"
-                >{{ x.nombre }}</mat-option
-              >
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <div class="row">
-          <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>Imagen</mat-label>
-            <input
-              matInput
-              autocomplete="off"
-              formControlName="img"
-              [(ngModel)]="lista.img"
-            />
-          </mat-form-field>
-        </div>
-
-        <div class="row" style="height: 400px">
-          <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>PDF</mat-label>
-            <input
-              matInput
-              autocomplete="off"
-              formControlName="pdf"
-              [(ngModel)]="lista.pdf"
-            />
-          </mat-form-field>
-        </div>
-      </div>
-    </mat-card-content>
 
     <div class="row">
       <div style="text-align: center">
@@ -261,6 +200,7 @@
         </button>
       </div>
     </div>
-
+    </div>
+  </mat-card-content>
 </form>
 </mat-card>

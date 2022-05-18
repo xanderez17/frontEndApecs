@@ -13,9 +13,6 @@ import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-i
 import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar-estudiantes/listar-estudiantes.component';
 import { ListarAulasComponent } from './components/dashboard/aula/listar-aulas/listar-aulas.component';
 import { CrearAulaComponent } from './components/dashboard/aula/crear-aula/crear-aula.component';
-import { CrearMateriaComponent } from './components/dashboard/materia/crear-materia/crear-materia.component';
-import { ListarMateriasComponent } from './components/dashboard/materia/listar-materias/listar-materias.component';
-
 
 const routes: Routes = [
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
@@ -43,9 +40,6 @@ const routes: Routes = [
   {path:'dashboard/editar-alumno/:id',component:CrearInscripcionComponent},
   {path:'dashboard/listar-alumnos',component:ListarEstudiantesComponent},
 
-  {path:'dashboard/crear-materia',component:CrearMateriaComponent},
-  {path:'dashboard/editar-materia/:id',component:CrearMateriaComponent},
-  {path:'dashboard/listar-materias',component:ListarMateriasComponent},
 
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
 

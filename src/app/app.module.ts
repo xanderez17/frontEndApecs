@@ -33,8 +33,6 @@ import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-i
 import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar-estudiantes/listar-estudiantes.component';
 import { CrearAulaComponent } from './components/dashboard/aula/crear-aula/crear-aula.component';
 import { ListarAulasComponent } from './components/dashboard/aula/listar-aulas/listar-aulas.component';
-import { ListarMateriasComponent } from './components/dashboard/materia/listar-materias/listar-materias.component';
-import { CrearMateriaComponent } from './components/dashboard/materia/crear-materia/crear-materia.component';
 import { CrearMatriculaComponent } from './components/dashboard/matricula/crear-matricula/crear-matricula.component';
 import {SidenavComponent} from "./components/sidenav/sidenav.component";
 import {BodyComponent} from "./components/body/body.component";
@@ -60,8 +58,6 @@ import {BodyComponent} from "./components/body/body.component";
     CrearDocenteComponent,
     CrearAulaComponent,
     ListarAulasComponent,
-    ListarMateriasComponent,
-    CrearMateriaComponent,
     CrearMatriculaComponent,
     SidenavComponent,
     BodyComponent

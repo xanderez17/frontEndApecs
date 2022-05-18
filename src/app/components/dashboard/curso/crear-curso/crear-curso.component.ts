@@ -84,10 +84,6 @@ export class CrearCursoComponent implements OnInit {
       fechaFin: ['', Validators.required],
       fechaInscripcion: ['', Validators.required],
       horario: ['', Validators.required],
-      img: ['', Validators.required],
-      materia: ['', Validators.required],
-      paralelo: ['', Validators.required],
-      pdf: ['', Validators.required],
       seminarios: ['', Validators.required],
       titulo: ['', Validators.required],
     });

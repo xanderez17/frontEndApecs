@@ -56,22 +56,7 @@
         </mat-form-field>
       </div>
 
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Curso</mat-label>
-          <mat-select
-            matInput
-            autocomplete="off"
-            formControlName="curso"
-            [compareWith]="compareCurso"
-            [(ngModel)]="lista.curso"
-          >
-            <mat-option *ngFor="let x of listaCursos" [value]="x">{{
-              x.titulo
-            }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+
 
       <div class="row">
         <mat-form-field appearance="legacy">
@@ -89,21 +74,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Matricula</mat-label>
-          <mat-select
-            formControlName="matricula"
-            [(ngModel)]="lista.matricula"
-            [compareWith]="compareMatricula"
-          >
-            <mat-option *ngFor="let x of listaMatricula" [value]="x">
-              valor curso {{ x.valorCurso }} valor matricula
-              {{ x.valorMatricula }}</mat-option
-            >
-          </mat-select>
-        </mat-form-field>
-      </div>
+
       <div class="row">
         <mat-form-field appearance="legacy">
           <mat-label>Estado</mat-label>
