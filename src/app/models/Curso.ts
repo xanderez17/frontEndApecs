@@ -2,22 +2,27 @@ import { Docente } from './Docente';
 import { Horario } from './Horario';
 import { Materia } from './Materia';
 import { Paralelo } from './Paralelo';
+import {Catalogo} from "./Catalogo";
+import {Sucursal} from "./Sucursal";
 
 export class Curso {
   idCurso: any;
-  titulo: any;
-  descripcion: any;
+  valorCurso: any;
+  valorMatricula: any;
   categoria: any;
   cupos: any;
-  seminarios: any;
+  descripcion: any;
   duracion: any;
+  estado: any;
   fechaInicio: any;
   fechaFin: any;
   fechaInscripcion: any;
-  img: any;
-  pdf: any;
+  seminarios: any;
+  titulo: any;
+  catalogo: Catalogo = new Catalogo();
   docente: Docente = new Docente();
-  materia: Materia = new Materia();
-  paralelo: Paralelo = new Paralelo();
   horario: Horario= new Horario();
+  sucursal: Sucursal = new Sucursal();
+
+
 }

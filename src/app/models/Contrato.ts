@@ -5,7 +5,6 @@ import { Matricula } from './Matricula';
 import { Representante } from './Representante';
 export class Contrato {
   alumno: Alumno = new Alumno();
-  curso: Curso = new Curso();
   idContrato: any;
   estado: any;
   fechaContrato: any;
