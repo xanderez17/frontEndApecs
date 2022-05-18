@@ -7,9 +7,10 @@ import {Sucursal} from "./Sucursal";
 
 export class Curso {
   idCurso: any;
-  valorCurso: any;
-  valorMatricula: any;
+  
   categoria: any;
+  catalogo: Catalogo = new Catalogo();
+  docente: Docente = new Docente();
   cupos: any;
   descripcion: any;
   duracion: any;
@@ -17,12 +18,13 @@ export class Curso {
   fechaInicio: any;
   fechaFin: any;
   fechaInscripcion: any;
+
   seminarios: any;
-  titulo: any;
-  catalogo: Catalogo = new Catalogo();
-  docente: Docente = new Docente();
   horario: Horario= new Horario();
   sucursal: Sucursal = new Sucursal();
-
+ 
+  titulo: any;
+  valorCurso: any;
+  valorMatricula: any;
 
 }

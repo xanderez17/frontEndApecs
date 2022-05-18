@@ -1,0 +1,74 @@
+<mat-card>
+  <form [formGroup]="form" appearance="standard">
+    <mat-card-header>
+      <mat-card-title>Formulario Paralelo</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="nombre"
+            [(ngModel)]="lista.nombre"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Descripcion</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="descripcion"
+            [(ngModel)]="lista.descripcion"
+          />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>Imagen</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="img"
+            [(ngModel)]="lista.img"
+          />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="legacy">
+          <mat-label>PDF</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="pdf"
+            [(ngModel)]="lista.pdf"
+          />
+        </mat-form-field>
+      </div>
+      <mat-card-actions style="text-align: center">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="irLista()"
+          style="margin-right: 20px"
+        >
+          Volver
+        </button>
+        <button
+          type="submit"
+          [disabled]="form.invalid"
+          mat-raised-button
+          color="accent"
+          (click)="agregar()"
+        >
+          Guardar
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+  </form>
+</mat-card>

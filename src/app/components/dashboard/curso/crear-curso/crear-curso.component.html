@@ -146,10 +146,10 @@
               [(ngModel)]="lista.horario"
             >
               <mat-option
-                *ngFor="let topping of listaHorarios"
-                [value]="topping"
-                >{{ topping.dias }} {{ topping.horaInicio }}
-                {{ topping.HoraFin }}</mat-option
+                *ngFor="let x of listaHorarios"
+                [value]="x"
+                >{{ x.dias }} {{ x.horaInicio }}
+                {{ x.HoraFin }}</mat-option
               >
             </mat-select>
           </mat-form-field>
@@ -168,13 +168,46 @@
               [(ngModel)]="lista.docente"
             >
               <mat-option
-                *ngFor="let topping of listaDocentes"
-                [value]="topping"
-                >{{ topping.nombrePrimer }}
-                {{ topping.apellidoPrimer }}</mat-option
+                *ngFor="let x of listaDocentes"
+                [value]="x"
+                >{{ x.nombrePrimer }}
+                {{ x.apellidoPrimer }}</mat-option
               >
             </mat-select>
           </mat-form-field>
+          
+          <div class="row">
+            <mat-form-field appearance="legacy">
+              <mat-label>Estado</mat-label>
+              <mat-select formControlName="estado" [(ngModel)]="lista.estado">
+                <mat-option value="Activo">Inscripcion</mat-option>
+                <mat-option value="En pausa">Inicio</mat-option>
+                <mat-option value="Cancelado">Finalizado</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+            <div class="row">
+              <mat-form-field class="full-width" appearance="legacy">
+                <mat-label>Valor Matricula</mat-label>
+                <input
+                  matInput
+                  autocomplete="off"
+                  formControlName="titulo"
+                  [(ngModel)]="lista.valorMatricula"
+                />
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field class="full-width" appearance="legacy">
+                <mat-label>Valor Curso</mat-label>
+                <input
+                  matInput
+                  autocomplete="off"
+                  formControlName="titulo"
+                  [(ngModel)]="lista.valorCurso"
+                />
+              </mat-form-field>
+            </div>
         </div>
 
 

@@ -4,15 +4,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Catalogo } from 'src/app/models/Catalogo';
 import { Curso } from 'src/app/models/Curso';
 import { Docente } from 'src/app/models/Docente';
 import { Horario } from 'src/app/models/Horario';
-import { Materia } from 'src/app/models/Materia';
 import { Paralelo } from 'src/app/models/Paralelo';
+import { Sucursal } from 'src/app/models/Sucursal';
+import { CatalogoService } from 'src/app/services/catalogo.service';
 import { CursosService } from 'src/app/services/cursos.service';
 import { DocenteService } from 'src/app/services/docente.service';
 import { HorarioService } from 'src/app/services/horario.service';
-import { MateriaService } from 'src/app/services/materia.service';
 import { ParaleloService } from 'src/app/services/paralelo.service';
 
 @Component({
@@ -26,7 +27,8 @@ export class CrearCursoComponent implements OnInit {
 
   listaDocentes: Docente[] = [];
   listaHorarios: Horario[] = [];
-  listaMaterias: Materia[] = [];
+  listaSucursal: Sucursal[] = [];
+  listaCatalogo: Catalogo[] = [];
   listaParalelos: Paralelo[] = [];
 
   idEdit!: string | null;
@@ -40,7 +42,7 @@ export class CrearCursoComponent implements OnInit {
     private route: ActivatedRoute,
     private cursoServicio: CursosService,
     private paraleloServicio: ParaleloService,
-    private materiaServicio: MateriaService,
+    private catalogoServicio: CatalogoService,
     private docenteServicio: DocenteService,
     private horarioservicio: HorarioService,
     private miDatePipe: DatePipe
@@ -62,8 +64,8 @@ export class CrearCursoComponent implements OnInit {
       this.listaParalelos = p;
     });
 
-    this.materiaServicio.listar().subscribe((p: any) => {
-      this.listaMaterias = p;
+    this.catalogoServicio.listar().subscribe((p: any) => {
+      this.listaCatalogo = p;
     });
     this.docenteServicio.listar().subscribe((p: any) => {
       this.listaDocentes = p;
@@ -153,8 +155,8 @@ export class CrearCursoComponent implements OnInit {
     }
   }
 
-  compareMateria(x: Materia, y: Materia): boolean {
-    return x && y ? x.idMateria === y.idMateria : x === y;
+  compareSucursal(x: Sucursal, y: Sucursal): boolean {
+    return x && y ? x.idSucursal === y.idSucursal : x === y;
   }
   compareHorario(x: Horario, y: Horario): boolean {
     return x && y ? x.idHorario === y.idHorario : x === y;

@@ -1,8 +1,7 @@
 export class Catalogo{
   idCatalogo: any;
-  capacidad: any;
-  imagen: any;
-  pdf: any;
+  descripcion: any;
   nombre: any;
-  ubicacion: any;
+  img: any;
+  pdf: any;
 }

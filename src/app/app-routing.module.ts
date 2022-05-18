@@ -13,6 +13,8 @@ import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-i
 import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar-estudiantes/listar-estudiantes.component';
 import { ListarAulasComponent } from './components/dashboard/aula/listar-aulas/listar-aulas.component';
 import { CrearAulaComponent } from './components/dashboard/aula/crear-aula/crear-aula.component';
+import { CrearCatalogoComponent } from './components/dashboard/catalogo/crear-catalogo/crear-catalogo.component';
+import { ListarCatalogoComponent } from './components/dashboard/catalogo/listar-catalogo/listar-catalogo.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
@@ -40,6 +42,9 @@ const routes: Routes = [
   {path:'dashboard/editar-alumno/:id',component:CrearInscripcionComponent},
   {path:'dashboard/listar-alumnos',component:ListarEstudiantesComponent},
 
+  {path:'dashboard/crear-catalogo',component:CrearCatalogoComponent},
+  {path:'dashboard/editar-catalogo/:id',component:CrearCatalogoComponent},
+  {path:'dashboard/listar-catalogos',component:ListarCatalogoComponent},
 
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
 
