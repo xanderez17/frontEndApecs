@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   fake=false;
   listausuario:Array<Usuario>=[]
   cont: number=0;
+  hide = true;
 
 
   constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private router:Router,
