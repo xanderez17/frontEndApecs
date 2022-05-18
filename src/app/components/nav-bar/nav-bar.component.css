@@ -11,18 +11,24 @@ body{
 }
 
 header{
+<<<<<<< HEAD
+	width: 40px;
+=======
   width: 100%;
+>>>>>>> 7ffdfa71fa1b955d2867c295291663322e51cbcf
 }
 
 .navegacion{
 	width: 1000px;
 	margin: 30px auto;
   color: #fff;
+  height: 50px;
 
 }
 
 .navegacion ul{
 	list-style: none;
+  height:  50px;
 }
 
 .menu > li{
