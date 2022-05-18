@@ -52,7 +52,7 @@ export class ContratoService {
 
   //Eliminar Contrato
   eliminarContrato(id: number): Observable<Contrato> {
-    return this.http.delete<Contrato>('http://localhost:9898/api/contrato/eliminarContrato/${id}').pipe(
+    return this.http.delete<Contrato>(`http://localhost:9898/api/contrato/eliminarContrato/${id}`).pipe(
       catchError((e) => {
         Swal.fire(e.error.mensaje, e.error.error, "error");
         return throwError(e);

@@ -11,18 +11,20 @@ body{
 }
 
 header{
-	width: 100%;
+	width: 40px;
 }
 
 .navegacion{
 	width: 1000px;
 	margin: 30px auto;
   color: #fff;
+  height: 50px;
 
 }
 
 .navegacion ul{
 	list-style: none;
+  height:  50px;
 }
 
 .menu > li{
