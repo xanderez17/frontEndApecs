@@ -63,9 +63,7 @@ import {MatListModule} from "@angular/material/list";
     MatRadioModule,
     MatDividerModule,
     MatSidenavModule,
-    MatListModule,
-    HeaderComponent,
-    MatTableDataSource
+    MatListModule
      ],
   exports:[
     CommonModule,
@@ -96,9 +94,7 @@ import {MatListModule} from "@angular/material/list";
     MatRadioModule,
     MatDividerModule,
     MatSidenavModule,
-    MatListModule,
-    HeaderComponent,
-    MatTableDataSource
+    MatListModule
   ]
 })
 export class SharedModule { }
