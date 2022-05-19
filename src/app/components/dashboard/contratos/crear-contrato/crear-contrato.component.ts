@@ -20,7 +20,6 @@ import { Matricula } from 'src/app/models/Matricula';
 import { MatriculaService } from 'src/app/services/matricula.service';
 import { CursosService } from 'src/app/services/cursos.service';
 import { Curso } from 'src/app/models/Curso';
-import { Parentezco } from 'src/app/models/Perentezco';
 
 @Component({
   selector: 'app-crear-contrato',
@@ -39,7 +38,7 @@ export class CrearContratoComponent implements OnInit {
   listaMatricula: Matricula[] = [];
   listaRepresentantes: Representante[] = [];
 
-  formContrato!: FormGroup;
+  form!: FormGroup;
   idEdit!: string | null;
 
   constructor(
@@ -56,7 +55,7 @@ export class CrearContratoComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private miDatePipe: DatePipe
   ) {
-    this.formContrato = this.fb.group({
+    this.form = this.fb.group({
       alumno: ['', Validators.required],
       estado: ['', Validators.required],
       fechaContrato: ['', Validators.required],

@@ -1,14 +1,16 @@
-<mat-card>
-  <form [formGroup]="formContrato" appearance="standard">
+<mat-card class="container">
+  <form [formGroup]="form" appearance="standard">
     <mat-card-header>
       <mat-card-title>Formulario Contrato</mat-card-title>
     </mat-card-header>
+
+
     <mat-card-content>
       <div class="row">
         <mat-label>Contrato Nº {{ numContrato }}</mat-label>
       </div>
 
-      <div class="row">
+
         <mat-form-field appearance="legacy">
           <mat-label>Fecha Contrato</mat-label>
           <input
@@ -21,8 +23,7 @@
         </mat-form-field>
         <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
         <mat-datepicker #myDatepicker></mat-datepicker>
-      </div>
-      <div class="row">
+    
         <mat-form-field appearance="legacy">
           <mat-label>Alumno</mat-label>
           <mat-select
@@ -37,9 +38,7 @@
             >
           </mat-select>
         </mat-form-field>
-      </div>
-
-      <div class="row">
+    
         <mat-form-field appearance="legacy">
           <mat-label>Representante</mat-label>
           <mat-select
@@ -54,28 +53,16 @@
             >
           </mat-select>
         </mat-form-field>
-      </div>
-
-
-
-      <div class="row">
+    
         <mat-form-field appearance="legacy">
-          <mat-label>Forma de Pago </mat-label>
-          <mat-select
-            matInput
-            autocomplete="off"
-            formControlName="formaPago"
-            [compareWith]="compareFormaPago"
-            [(ngModel)]="lista.formaPago"
-          >
-            <mat-option *ngFor="let x of listaFormaPago" [value]="x"
-              >{{ x.tipoPago }}
-            </mat-option>
+          <mat-label>Forma de pago</mat-label>
+          <mat-select formControlName="formaPago"[(ngModel)]="lista.formaPago">
+            <mat-option value="mensual">Mensual</mat-option>
+            <mat-option value="Semanal">Semanal</mat-option>
           </mat-select>
         </mat-form-field>
-      </div>
 
-      <div class="row">
+
         <mat-form-field appearance="legacy">
           <mat-label>Estado</mat-label>
           <mat-select formControlName="estado" [(ngModel)]="lista.estado">
@@ -84,8 +71,7 @@
             <mat-option value="Cancelado">Cancelado</mat-option>
           </mat-select>
         </mat-form-field>
-      </div>
-      <div class="row">
+  
         <mat-form-field appearance="legacy">
           <mat-label>Observación</mat-label>
           <textarea
@@ -95,7 +81,7 @@
             [(ngModel)]="lista.observacion"
           ></textarea>
         </mat-form-field>
-      </div>
+ 
     </mat-card-content>
     <mat-card-actions>
       <button
@@ -108,7 +94,7 @@
       </button>
       <button
         type="submit"
-        [disabled]="formContrato.invalid"
+        [disabled]="form.invalid"
         mat-raised-button
         color="accent"
         (click)="agregar()"

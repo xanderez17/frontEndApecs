@@ -102,15 +102,16 @@
         />
       </mat-form-field>
 
-
+      <label id="example-radio-group-label">Sexo:
+      <br>
       <mat-radio-group formControlName="sexo" [(ngModel)]="lista.sexo">
-        <br>
-        <label id="example-radio-group-label">Sexo: </label>
+  
+               
         <mat-radio-button value="Masculino">Masculino</mat-radio-button>
         <mat-radio-button value="Femenino">Femenino</mat-radio-button>
       </mat-radio-group>
 
-
+    </label>
       <mat-form-field appearance="legacy">
         <mat-label>Ocupacion</mat-label>
         <input
