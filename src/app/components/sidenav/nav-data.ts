@@ -14,5 +14,4 @@ export const navbarData=[
     icon:'fas fa-users-class',
     label: 'Gestión Alumnos'
   }
-
 ];

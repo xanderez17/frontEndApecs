@@ -40,6 +40,11 @@ import { CrearCatalogoComponent } from './components/dashboard/catalogo/crear-ca
 import { ListarCatalogoComponent } from './components/dashboard/catalogo/listar-catalogo/listar-catalogo.component';
 import { ListarSucursalComponent } from './components/dashboard/sucursal/listar-sucursal/listar-sucursal.component';
 import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-sucursal/crear-sucursal.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
+import { HomeComponent } from './components/home/home.component';
+import { PrincipalComponent } from './components/principal/principal.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
@@ -68,7 +73,11 @@ import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-su
     CrearCatalogoComponent,
     ListarCatalogoComponent,
     ListarSucursalComponent,
-    CrearSucursalComponent
+    CrearSucursalComponent,
+    HeaderComponent,
+    MenuLateralComponent,
+    HomeComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +98,7 @@ import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-su
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

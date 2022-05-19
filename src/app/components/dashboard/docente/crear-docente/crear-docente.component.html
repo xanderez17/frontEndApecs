@@ -49,7 +49,8 @@
         <mat-label>Identificación</mat-label>
         <input
           matInput
-          type="number"
+          type="any"
+          maxlength="10"
           autocomplete="off"
           formControlName="identificacion"
           [(ngModel)]="lista.identificacion"
@@ -91,24 +92,22 @@
       <mat-datepicker #myDatepicker1></mat-datepicker>
 
       <mat-form-field appearance="legacy">
-        <mat-label>Telélefono</mat-label>
+        <mat-label>Teléfono</mat-label>
         <input
           matInput
+          maxlength="10"
           autocomplete="off"
           formControlName="telefono"
           [(ngModel)]="lista.telefono"
         />
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
-        <mat-label>Sexo</mat-label>
-        <input
-          matInput
-          autocomplete="off"
-          formControlName="sexo"
-          [(ngModel)]="lista.sexo"
-        />
-      </mat-form-field>
+      <mat-radio-group formControlName="sexo" [(ngModel)]="lista.sexo">
+        <br>
+        <label id="example-radio-group-label">Sexo: </label>
+        <mat-radio-button value="Masculino">Masculino</mat-radio-button>
+        <mat-radio-button value="Femenino">Femenino</mat-radio-button>
+      </mat-radio-group>
 
       <mat-form-field appearance="legacy">
         <mat-label>Especialidad</mat-label>

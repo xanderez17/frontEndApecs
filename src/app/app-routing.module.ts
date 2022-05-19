@@ -19,12 +19,19 @@ import { ListarSucursalComponent } from './components/dashboard/sucursal/listar-
 import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-sucursal/crear-sucursal.component';
 import { CrearDocenteComponent } from './components/dashboard/docente/crear-docente/crear-docente.component';
 import { ListarDocentesComponent } from './components/dashboard/docente/listar-docentes/listar-docentes.component';
+import {HomeComponent} from "./components/home/home.component";
+import {PrincipalComponent} from "./components/principal/principal.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
+  {path:'home',component:HomeComponent},
+  {path:'principal',component:PrincipalComponent},
+
+
   {path:'inicio', component:CuerpoComponent},
   {path:'login', component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
+
 
   {path:'dashboard/crear-curso/:idC',component:CrearCursoComponent},
   {path:'dashboard/editar-cursos/:id',component:CrearCursoComponent},
@@ -59,7 +66,9 @@ const routes: Routes = [
   {path:'dashboard/listar-sucursales',component:ListarSucursalComponent},
 
 
-  {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
+    {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
+
+
 
 ];
 

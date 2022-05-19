@@ -25,8 +25,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
-
-
+import {MatRadioModule} from "@angular/material/radio";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {HeaderComponent} from "../components/header/header.component";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -56,7 +59,11 @@ import {MatMenuModule} from '@angular/material/menu';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatSidenavModule,
+    MatListModule
      ],
   exports:[
     CommonModule,
@@ -83,8 +90,11 @@ import {MatMenuModule} from '@angular/material/menu';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatMenuModule
-
+    MatMenuModule,
+    MatRadioModule,
+    MatDividerModule,
+    MatSidenavModule,
+    MatListModule
   ]
 })
 export class SharedModule { }
