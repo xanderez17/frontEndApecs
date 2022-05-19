@@ -38,6 +38,8 @@ import {SidenavComponent} from "./components/sidenav/sidenav.component";
 import {BodyComponent} from "./components/body/body.component";
 import { CrearCatalogoComponent } from './components/dashboard/catalogo/crear-catalogo/crear-catalogo.component';
 import { ListarCatalogoComponent } from './components/dashboard/catalogo/listar-catalogo/listar-catalogo.component';
+import { ListarSucursalComponent } from './components/dashboard/sucursal/listar-sucursal/listar-sucursal.component';
+import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-sucursal/crear-sucursal.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { ListarCatalogoComponent } from './components/dashboard/catalogo/listar-
     SidenavComponent,
     BodyComponent,
     CrearCatalogoComponent,
-    ListarCatalogoComponent
+    ListarCatalogoComponent,
+    ListarSucursalComponent,
+    CrearSucursalComponent
   ],
   imports: [
     BrowserModule,

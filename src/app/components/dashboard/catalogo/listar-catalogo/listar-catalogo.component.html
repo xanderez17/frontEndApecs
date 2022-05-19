@@ -1,87 +1,72 @@
-<div class="container">
-  <mat-toolbar>
-    <span>Lista de Catalogos</span>
-  </mat-toolbar>
-
-  <div class="dt-buttons">
+<mat-toolbar>
+  <div class="col-md-10 text-left">Lista de Catalogos</div>
+  <div class="col-md-2 text-right">
     <button
       mat-raised-button
       color="accent"
       routerLink="/dashboard/crear-catalogo"
-      style="margin-right: 20px"
-    ><span class=" mdi mdi-note-plus">
-      Nuevo Catalogo</span>
+    >
+      Nuevo Catalogo
     </button>
   </div>
-
-  <mat-form-field appearance="standard">
-    <mat-label>Buscar por nombre</mat-label>
-    <input matInput (keyup)="filtrar($event)" autocomplete="off" #input />
-    <div id="example23_filter" class="dataTables_filter"></div>
-  </mat-form-field>
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="lista" matSort>
-      <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-        <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="descripcion">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
-        <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="pdf">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>PDF</th>
-        <td mat-cell *matCellDef="let element">{{ element.pdf }}</td>
-      </ng-container>
-      <ng-container matColumnDef="img">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Imagen</th>
-        <td mat-cell *matCellDef="let element">{{ element.img }}</td>
-      </ng-container>
-     
-      
-      <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef>Acciones</th>
-        <td mat-cell *matCellDef="let element">
-          <a
-            class="mr-2"
-            mat-button
-            color="primary"
-            [routerLink]="['/dashboard/editar-catalogo', element.idCatalogo]"
-            data-toggle="tooltip"
-            matTooltip="Editar"
+</mat-toolbar>
+<mat-card class="container">
+  <div *ngIf="lista.length > 0">
+    <div class="class=items col-md-4 col-xs-12" *ngFor="let x of lista">
+      <mat-card-content>
+        <img
+          class="card-img-top"
+          src="assets/recursos/imgCurso.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h2 class="card-title">{{ x.nombre }}</h2>
+          <h4 class="card-text">{{ x.descripcion }}</h4>
+        </div>
+      </mat-card-content>
+      <mat-card-actions style="text-align: center">
+        <a
+          class="mr-2"
+          mat-button
+          color="warn"
+          data-toggle="tooltip"
+          (click)="eliminar(x)"
+          matTooltip="Eliminar"
+        >
+          <mat-icon aria-hidden="true" aria-label="Example home icon"
+            >delete</mat-icon
           >
-            <mat-icon aria-hidden="true" aria-label="Example home icon"
-              >mode_edit</mat-icon
-            >
-          </a>
-          <a
-            class="mr-2"
-            mat-button
-            color="warn"
-            data-toggle="tooltip"
-            (click)="eliminar(element)"
-            matTooltip="Eliminar"
+        </a>
+        <a
+          class="mr-2"
+          mat-button
+          color="primary"
+          [routerLink]="['/dashboard/editar-catalogo', x.idCatalogo]"
+          data-toggle="tooltip"
+          matTooltip="Editar"
+        >
+          <mat-icon aria-hidden="true" aria-label="Example home icon"
+            >mode_edit</mat-icon
           >
-            <mat-icon aria-hidden="true" aria-label="Example home icon"
-              >delete</mat-icon
-            >
-          </a>
-        </td>
-      </ng-container>
+        </a>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-
-    <mat-paginator
-      [length]="length"
-      [pageSize]="pageSize"
-      [pageSizeOptions]="pageSizeOptions"
-      (page)="pageEvent = $event"
-      aria-label="Select page"
-    >
-    </mat-paginator>
+        <a
+          class="mr-2"
+          mat-button
+          color="indigo"
+          [routerLink]="['/dashboard/crear-curso', x.idCatalogo]"
+          data-toggle="tooltip"
+          matTooltip="Crear curso"
+        >
+          <mat-icon aria-hidden="true" aria-label="Example home icon"
+            >forward
+          </mat-icon>
+        </a>
+      </mat-card-actions>
+    </div>
   </div>
-</div>
+
+  <div *ngIf="lista.length == 0">
+    <span>No hay datos</span>
+  </div>
+</mat-card>

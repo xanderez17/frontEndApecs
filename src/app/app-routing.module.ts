@@ -15,6 +15,10 @@ import { ListarAulasComponent } from './components/dashboard/aula/listar-aulas/l
 import { CrearAulaComponent } from './components/dashboard/aula/crear-aula/crear-aula.component';
 import { CrearCatalogoComponent } from './components/dashboard/catalogo/crear-catalogo/crear-catalogo.component';
 import { ListarCatalogoComponent } from './components/dashboard/catalogo/listar-catalogo/listar-catalogo.component';
+import { ListarSucursalComponent } from './components/dashboard/sucursal/listar-sucursal/listar-sucursal.component';
+import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-sucursal/crear-sucursal.component';
+import { CrearDocenteComponent } from './components/dashboard/docente/crear-docente/crear-docente.component';
+import { ListarDocentesComponent } from './components/dashboard/docente/listar-docentes/listar-docentes.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
@@ -22,7 +26,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
 
-  {path:'dashboard/crear-curso',component:CrearCursoComponent},
+  {path:'dashboard/crear-curso/:idC',component:CrearCursoComponent},
   {path:'dashboard/editar-cursos/:id',component:CrearCursoComponent},
   {path:'dashboard/listar-cursos',component:ListarCursosComponent},
 
@@ -42,9 +46,18 @@ const routes: Routes = [
   {path:'dashboard/editar-alumno/:id',component:CrearInscripcionComponent},
   {path:'dashboard/listar-alumnos',component:ListarEstudiantesComponent},
 
+  {path:'dashboard/crear-docente',component:CrearDocenteComponent},
+  {path:'dashboard/editar-docente/:id',component:CrearDocenteComponent},
+  {path:'dashboard/listar-docentes',component:ListarDocentesComponent},
+
   {path:'dashboard/crear-catalogo',component:CrearCatalogoComponent},
   {path:'dashboard/editar-catalogo/:id',component:CrearCatalogoComponent},
   {path:'dashboard/listar-catalogos',component:ListarCatalogoComponent},
+
+  {path:'dashboard/crear-sucursal',component:CrearSucursalComponent},
+  {path:'dashboard/editar-sucursal/:id',component:CrearSucursalComponent},
+  {path:'dashboard/listar-sucursales',component:ListarSucursalComponent},
+
 
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
 

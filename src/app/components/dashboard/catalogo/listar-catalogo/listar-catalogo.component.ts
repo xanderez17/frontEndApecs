@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Catalogo } from 'src/app/models/Catalogo';
 import { CatalogoService } from 'src/app/services/catalogo.service';
 import Swal from 'sweetalert2';
@@ -13,48 +11,26 @@ import Swal from 'sweetalert2';
 })
 export class ListarCatalogoComponent implements OnInit {
 
-  public lista!: MatTableDataSource<any>;
-//datos encabezado tablas
-  displayedColumns: string[] = ['nombre', 'descripcion','pdf','img','acciones'];
+  public lista: Catalogo[]=[];
 
-  //varibel paginador
-  length = 100;
-  pageSize = 5;
-  pageSizeOptions: number[] = [10, 25, 100];
-  // MatPaginator
-  pageEvent!: PageEvent;
 
-  @ViewChild(MatPaginator, { static: true }) paginador!: MatPaginator;
-  @ViewChild(MatSort) marSort!: MatSort;
 
   constructor(
+    private  servicio:CatalogoService,
+    private router: Router) { }
 
-    private catalogoSservicio: CatalogoService
-    ) {
-  }
 
   ngOnInit() {
 
-    this.catalogoSservicio.listar().subscribe((response) => {
-      this.lista = new MatTableDataSource(response);
-      this.lista.paginator = this.paginador;
-      this.lista.sort = this.marSort;
-
-    });
-    this.paginador._intl.itemsPerPageLabel = 'Registros por página:';
-    this.paginador._intl.nextPageLabel = 'Siguiente';
-    this.paginador._intl.previousPageLabel = 'Anterior';
-    this.paginador._intl.firstPageLabel = 'Primera Página';
-    this.paginador._intl.lastPageLabel = 'Última Página';
-  }
-// filtrar
-  filtrar($event: any) {
-    this.lista.filter = $event.target.value;
-
+    this.getAll();
   }
 
-//emininar
-  eliminar(catalogo: Catalogo) {
+  getAll(){
+    this.servicio.listar().subscribe((x:any)=>{
+      this.lista=x;
+  });}
+
+  eliminar(p: Catalogo) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -66,7 +42,7 @@ export class ListarCatalogoComponent implements OnInit {
     swalWithBootstrapButtons
       .fire({
         title: '¿Estas  seguro?',
-        text: `¿Seguro que quieres eliminar la materia ${catalogo.nombre} ?`,
+        text: `¿Seguro que quieres eliminar   ${p.nombre} ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar!',
@@ -75,16 +51,18 @@ export class ListarCatalogoComponent implements OnInit {
       })
       .then((result) => {
         if (result.value) {
-          this.catalogoSservicio.eliminar(catalogo.idCatalogo).subscribe((resp) => {
-
+          this.servicio.eliminar(p.idCatalogo).subscribe((resp) => {
+            this.router.navigateByUrl('dashboard/listar-catalogos');
             swalWithBootstrapButtons.fire(
               'Eliminada!',
-              `La materia ${catalogo.idCatalogo} ha  sido eliminada correctamente!`,
+              ` ${p.nombre} ha  sido eliminado correctamente!`,
               'success'
             );
+
           });
         } location.reload();
       });
+
   }
 
 }

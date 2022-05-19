@@ -1,91 +1,82 @@
-<mat-card>
+<mat-card class="container">
   <form [formGroup]="form" appearance="standard">
     <mat-card-header>
-      <mat-card-title>Formulario Alumno</mat-card-title>
+      <mat-card-title>Formulario Estudiantes</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Primer nombre</mat-label>
-          <input
-            matInput
-            autocomplete="off"
-            formControlName="primerNombre"
-            [(ngModel)]="lista.nombrePrimer"
-          />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Segundo nombre</mat-label>
-          <input
-            matInput
-            autocomplete="off"
-            formControlName="segundoNombre"
-            [(ngModel)]="lista.nombreSegundo"
-          />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Primer Apellido</mat-label>
-          <input
-            matInput
-            autocomplete="off"
-            formControlName="primerApellido"
-            [(ngModel)]="lista.apellidoPrimer"
-          />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Segundo Apellido</mat-label>
-          <input
-            matInput
-            autocomplete="off"
-            formControlName="segundoApellido"
-            [(ngModel)]="lista.apellidoSegundo"
-          />
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="legacy">
+        <mat-label>Primer nombre</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="primerNombre"
+          [(ngModel)]="lista.nombrePrimer"
+        />
+      </mat-form-field>
 
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Identificación</mat-label>
-          <input
-            matInput
-            type="number"
-            autocomplete="off"
-            formControlName="identificacion"
-            [(ngModel)]="lista.identificacion"
-          />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Direccion</mat-label>
-          <input
-            matInput
-            autocomplete="off"
-            formControlName="direccion"
-            [(ngModel)]="lista.direccion"
-          />
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="legacy">
+        <mat-label>Segundo nombre</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="segundoNombre"
+          [(ngModel)]="lista.nombreSegundo"
+        />
+      </mat-form-field>
 
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Correo</mat-label>
-          <input
-            matInput
-            type="email"
-            autocomplete="off"
-            formControlName="correo"
-            [(ngModel)]="lista.correo"
-          />
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="legacy">
+        <mat-label>Primer Apellido</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="primerApellido"
+          [(ngModel)]="lista.apellidoPrimer"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Segundo Apellido</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="segundoApellido"
+          [(ngModel)]="lista.apellidoSegundo"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Identificación</mat-label>
+        <input
+          matInput
+          type="number"
+          autocomplete="off"
+          formControlName="identificacion"
+          [(ngModel)]="lista.identificacion"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Direccion</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="direccion"
+          [(ngModel)]="lista.direccion"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Correo</mat-label>
+        <input
+          matInput
+          type="email"
+          autocomplete="off"
+          formControlName="correo"
+          [(ngModel)]="lista.correo"
+        />
+      </mat-form-field>
+
       <mat-form-field appearance="legacy">
         <mat-label>Fecha de Nacimiento</mat-label>
         <input
@@ -93,59 +84,51 @@
           [matDatepicker]="myDatepicker1"
           autocomplete="off"
           formControlName="fechaNacimiento"
-
           [(ngModel)]="lista.fechaNacimiento"
         />
       </mat-form-field>
-      <mat-datepicker-toggle
-        [for]="myDatepicker1"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle [for]="myDatepicker1"></mat-datepicker-toggle>
       <mat-datepicker #myDatepicker1></mat-datepicker>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Telélefono</mat-label>
-          <input
-            matInput
-            autocomplete="off"
-            formControlName="telefono"
-            [(ngModel)]="lista.telefono"
-          />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Sexo</mat-label>
-          <input
-            matInput
-            autocomplete="off"
-            formControlName="sexo"
-            [(ngModel)]="lista.sexo"
-          />
-        </mat-form-field>
-      </div>
 
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Ocupacion</mat-label>
-          <input
-            matInput
-            autocomplete="off"
-            formControlName="ocupacion"
-            [(ngModel)]="lista.ocupacion"
-          />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Cargo</mat-label>
-          <input
-            matInput
-            autocomplete="off"
-            formControlName="cargo"
-            [(ngModel)]="lista.cargo"
-          />
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="legacy">
+        <mat-label>Telélefono</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="telefono"
+          [(ngModel)]="lista.telefono"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Sexo</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="sexo"
+          [(ngModel)]="lista.sexo"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Ocupacion</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="ocupacion"
+          [(ngModel)]="lista.ocupacion"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Cargo</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="cargo"
+          [(ngModel)]="lista.cargo"
+        />
+      </mat-form-field>
     </mat-card-content>
     <mat-card-actions style="text-align: center">
       <button

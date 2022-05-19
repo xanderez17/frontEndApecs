@@ -69,7 +69,7 @@ export class CrearInscripcionComponent implements OnInit {
 
   agregar() {
     this.alumnoServicio.crear(this.lista).subscribe((m) => {
-      this._snackBar.open('Curso creada!', '', {
+      this._snackBar.open('Alumno creado!', '', {
         duration: 2500,
         horizontalPosition: 'center',
         verticalPosition: 'bottom',

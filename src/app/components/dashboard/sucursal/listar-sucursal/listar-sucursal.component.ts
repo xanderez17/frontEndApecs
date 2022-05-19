@@ -2,41 +2,40 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
-import { Alumno } from 'src/app/models/Alumno';
-
-import { AlumnoService } from 'src/app/services/alumno.service';
+import { Sucursal } from 'src/app/models/Sucursal';
+import { SucursalService } from 'src/app/services/sucursal.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-listar-estudiantes',
-  templateUrl: './listar-estudiantes.component.html',
-  styleUrls: ['./listar-estudiantes.component.css'],
+  selector: 'app-listar-sucursal',
+  templateUrl: './listar-sucursal.component.html',
+  styleUrls: ['./listar-sucursal.component.css']
 })
-export class ListarEstudiantesComponent implements OnInit {
+export class ListarSucursalComponent implements OnInit {
   public lista!: MatTableDataSource<any>;
+  lista1: Sucursal[] = [];
   //datos encabezado tablas
   displayedColumns: string[] = [
-    'identificacion',
+    'direccion',
     'nombre',
-    'apellido',
-    'acciones',
+    'telefono',
+    'ubicacion'
   ];
 
   //varibel paginador
   length = 100;
-  pageSize = 10;
-  pageSizeOptions: number[] = [10, 25, 100];
+  pageSize = 25;
+  pageSizeOptions: number[] = [ 25,50, 100];
   // MatPaginator
   pageEvent!: PageEvent;
 
   @ViewChild(MatPaginator, { static: true }) paginador!: MatPaginator;
   @ViewChild(MatSort) marSort!: MatSort;
 
-  constructor(private alumnoServicio: AlumnoService, private router: Router) {}
+  constructor(private servicio: SucursalService) {}
 
   ngOnInit() {
-    this.alumnoServicio.listar().subscribe((response) => {
+    this.servicio.listar().subscribe((response) => {
       this.lista = new MatTableDataSource(response);
       this.lista.paginator = this.paginador;
       this.lista.sort = this.marSort;
@@ -53,7 +52,7 @@ export class ListarEstudiantesComponent implements OnInit {
   }
 
   //emininar
-  eliminar(alumno: Alumno) {
+  eliminar(sucursal: Sucursal) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -62,12 +61,10 @@ export class ListarEstudiantesComponent implements OnInit {
       buttonsStyling: false,
     });
 
-    console.log(this.lista);
-
     swalWithBootstrapButtons
       .fire({
         title: '¿Estas  seguro?',
-        text: `¿Seguro que quieres eliminar al alumno ${alumno.apellidoPrimer} ?`,
+        text: `¿Seguro que quieres eliminar ${sucursal.nombre} ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar!',
@@ -76,10 +73,10 @@ export class ListarEstudiantesComponent implements OnInit {
       })
       .then((result) => {
         if (result.value) {
-          this.alumnoServicio.eliminar(alumno.id).subscribe((resp) => {
+          this.servicio.eliminar(sucursal.idSucursal).subscribe((resp) => {
             swalWithBootstrapButtons.fire(
               'Eliminada!',
-              `${alumno.apellidoPrimer} ha  sido eliminada correctamente!`,
+              `${sucursal.nombre} ha  sido eliminado correctamente!`,
               'success'
             );
           });

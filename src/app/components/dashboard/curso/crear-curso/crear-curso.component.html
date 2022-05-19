@@ -1,218 +1,190 @@
-<mat-card>
-<form [formGroup]="form" appearance="standard">
-
+<mat-card class="container">
+  <form [formGroup]="form" appearance="standard">
     <mat-card-header>
-      <mat-card-title>Formulario Curso</mat-card-title>
+      <mat-card-title>Formulario Cursos</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-      <div class="datos">
-        <div class="row">
-          <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>Titulo</mat-label>
-            <input
-              matInput
-              autocomplete="off"
-              formControlName="titulo"
-              [(ngModel)]="lista.titulo"
-            />
-          </mat-form-field>
-        </div>
-        <div class="row">
-          <mat-form-field
-            class="full-width"
-            style="height: 200px"
-            appearance="legacy"
-          >
-            <mat-label>Descripcion</mat-label>
-            <textarea
-              matInput
-              autocomplete="off"
-              formControlName="descripcion"
-              [(ngModel)]="lista.descripcion"
-            ></textarea>
-          </mat-form-field>
-        </div>
+      <mat-form-field style="width: 500px" appearance="legacy">
+        <mat-label>Titulo</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="titulo"
+          [(ngModel)]="lista.titulo"
+        />
+      </mat-form-field>
 
-        <table>
-          <TR>
-            <TD>
-              <mat-form-field class="medio-width" appearance="legacy">
-                <mat-label>Categoria</mat-label>
-                <input
-                  matInput
-                  autocomplete="off"
-                  formControlName="categoria"
-                  [(ngModel)]="lista.categoria"
-                />
-              </mat-form-field>
+      <mat-form-field style="width: 500px" appearance="legacy">
+        <mat-label>Descripcion</mat-label>
+        <textarea
+          matInput
+          autocomplete="off"
+          formControlName="descripcion"
+          [(ngModel)]="lista.descripcion"
+        ></textarea>
+      </mat-form-field>
 
-              <mat-form-field class="medio-width" appearance="legacy">
-                <mat-label>Cupos</mat-label>
-                <input
-                  matInput
-                  type="number"
-                  autocomplete="off"
-                  formControlName="cupos"
-                  [(ngModel)]="lista.cupos"
-                />
-              </mat-form-field>
+      <mat-form-field style="width: 200px" appearance="legacy">
+        <mat-label>Categoria</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="categoria"
+          [(ngModel)]="lista.categoria"
+        />
+      </mat-form-field>
+      <mat-form-field style="width: 400px" appearance="legacy">
+        <mat-label>Catalogo</mat-label>
+        <input matInput autocomplete="off" />{{ catalogos.nombre }}
+      </mat-form-field>
+      <mat-form-field style="width: 100px" appearance="legacy">
+        <mat-label>Cupos</mat-label>
+        <input
+          matInput
+          type="number"
+          autocomplete="off"
+          formControlName="cupos"
+          [(ngModel)]="lista.cupos"
+        />
+      </mat-form-field>
 
-              <mat-form-field class="medio-width" appearance="legacy">
-                <mat-label>Duracion</mat-label>
-                <input
-                  matInput
-                  type="number"
-                  autocomplete="off"
-                  formControlName="duracion"
-                  [(ngModel)]="lista.duracion"
-                />
-              </mat-form-field>
-            </TD>
+      <mat-form-field style="width: 100px" appearance="legacy">
+        <mat-label>Duracion</mat-label>
+        <input
+          matInput
+          type="number"
+          autocomplete="off"
+          formControlName="duracion"
+          [(ngModel)]="lista.duracion"
+        />
+      </mat-form-field>
 
-            <TD>
-              <mat-form-field appearance="legacy">
-                <mat-label>Fecha de inscripcion</mat-label>
-                <input
-                  matInput
-                  [matDatepicker]="myDatepicker1"
-                  autocomplete="off"
-                  formControlName="fechaInscripcion"
+      <mat-form-field style="width: 200px" appearance="legacy">
+        <mat-label>Fecha de inscripcion</mat-label>
+        <input
+          matInput
+          [matDatepicker]="myDatepicker1"
+          autocomplete="off"
+          formControlName="fechaInscripcion"
+          [(ngModel)]="lista.fechaInscripcion"
+        />  </mat-form-field>
 
-                  [(ngModel)]="lista.fechaInscripcion"
-                />
-              </mat-form-field>
-              <mat-datepicker-toggle
-                [for]="myDatepicker1"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #myDatepicker1></mat-datepicker>
+        <mat-datepicker-toggle [for]="myDatepicker1"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker1></mat-datepicker>
+    
+      <mat-form-field style="width: 200px" appearance="legacy">
+        <mat-label>Fecha inicio</mat-label>
+        <input
+          matInput
+          [matDatepicker]="myDatepicker2"
+          autocomplete="off"
+          formControlName="fechaInicio"
+          [(ngModel)]="lista.fechaInicio"
+        />
+      </mat-form-field>
+        <mat-datepicker-toggle [for]="myDatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker2></mat-datepicker>
+    
 
-              <mat-form-field appearance="legacy">
-                <mat-label>Fecha inicio</mat-label>
-                <input
-                  matInput
-                  [matDatepicker]="myDatepicker2"
-                  autocomplete="off"
-                  formControlName="fechaInicio"
+      <mat-form-field style="width: 200px" appearance="legacy">
+        <mat-label>Fecha fin</mat-label>
+        <input
+          matInput
+          [matDatepicker]="myDatepicker3"
+          autocomplete="off"
+          formControlName="fechaFin"
+          [(ngModel)]="lista.fechaFin"
+        />
+      </mat-form-field>
+        <mat-datepicker-toggle [for]="myDatepicker3"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker3></mat-datepicker>
+     
 
-                  [(ngModel)]="lista.fechaInicio"
-                />
-              </mat-form-field>
-              <mat-datepicker-toggle
-                [for]="myDatepicker2"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #myDatepicker2></mat-datepicker>
+      <mat-form-field style="width: 500px" appearance="legacy">
+        <mat-label>Seminarios</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="seminarios"
+          [(ngModel)]="lista.seminarios"
+        />
+      </mat-form-field>
 
-              <mat-form-field appearance="legacy">
-                <mat-label>Fecha fin</mat-label>
-                <input
-                  matInput
-                  [matDatepicker]="myDatepicker3"
-                  autocomplete="off"
-                  formControlName="fechaFin"
+      <mat-form-field style="width: 400px" appearance="legacy">
+        <mat-label>Horario</mat-label>
+        <mat-select
+          matInput
+          autocomplete="off"
+          formControlName="horario"
+          [compareWith]="compareHorario"
+          [(ngModel)]="lista.horario"
+        >
+          <mat-option *ngFor="let x of listaHorarios" [value]="x"
+            >{{ x.dias }} {{ x.horaInicio }} {{ x.HoraFin }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-                  [(ngModel)]="lista.fechaFin"
-                />
-              </mat-form-field>
-              <mat-datepicker-toggle
-                [for]="myDatepicker3"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #myDatepicker3></mat-datepicker>
-            </TD>
-          </TR>
-        </table>
-        <div class="row">
-          <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>Seminarios</mat-label>
-            <input
-              matInput
-              autocomplete="off"
-              formControlName="seminarios"
-              [(ngModel)]="lista.seminarios"
-            />
-          </mat-form-field>
-        </div>
+      <mat-form-field style="width: 300px" appearance="legacy">
+        <mat-label>Docente</mat-label>
+        <mat-select
+          matInput
+          autocomplete="off"
+          formControlName="docente"
+          [compareWith]="compareDocente"
+          [(ngModel)]="lista.docente"
+        >
+          <mat-option *ngFor="let x of listaDocentes" [value]="x"
+            >{{ x.nombrePrimer }} {{ x.apellidoPrimer }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado" [(ngModel)]="lista.estado">
+          <mat-option value="Activo">Inscripcion</mat-option>
+          <mat-option value="En pausa">Inicio</mat-option>
+          <mat-option value="Cancelado">Finalizado</mat-option>
+        </mat-select>
+      </mat-form-field>
 
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label>Valor Matricula</mat-label>
+        <input
+          matInput
+          type="number"
+          autocomplete="off"
+          formControlName="titulo"
+          [(ngModel)]="lista.valorMatricula"
+        />
+      </mat-form-field>
 
-        <div class="row">
-          <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>Horario</mat-label>
-            <mat-select
-              matInput
-              autocomplete="off"
-              formControlName="horario"
-              [compareWith]="compareHorario"
-              [(ngModel)]="lista.horario"
-            >
-              <mat-option
-                *ngFor="let x of listaHorarios"
-                [value]="x"
-                >{{ x.dias }} {{ x.horaInicio }}
-                {{ x.HoraFin }}</mat-option
-              >
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="anexos">
-        <div class="row">
-          <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>Docente</mat-label>
-            <mat-select
-              matInput
-              autocomplete="off"
-              formControlName="docente"
-              [compareWith]="compareDocente"
-              [(ngModel)]="lista.docente"
-            >
-              <mat-option
-                *ngFor="let x of listaDocentes"
-                [value]="x"
-                >{{ x.nombrePrimer }}
-                {{ x.apellidoPrimer }}</mat-option
-              >
-            </mat-select>
-          </mat-form-field>
-          
-          <div class="row">
-            <mat-form-field appearance="legacy">
-              <mat-label>Estado</mat-label>
-              <mat-select formControlName="estado" [(ngModel)]="lista.estado">
-                <mat-option value="Activo">Inscripcion</mat-option>
-                <mat-option value="En pausa">Inicio</mat-option>
-                <mat-option value="Cancelado">Finalizado</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-            <div class="row">
-              <mat-form-field class="full-width" appearance="legacy">
-                <mat-label>Valor Matricula</mat-label>
-                <input
-                  matInput
-                  autocomplete="off"
-                  formControlName="titulo"
-                  [(ngModel)]="lista.valorMatricula"
-                />
-              </mat-form-field>
-            </div>
-            <div class="row">
-              <mat-form-field class="full-width" appearance="legacy">
-                <mat-label>Valor Curso</mat-label>
-                <input
-                  matInput
-                  autocomplete="off"
-                  formControlName="titulo"
-                  [(ngModel)]="lista.valorCurso"
-                />
-              </mat-form-field>
-            </div>
-        </div>
-
-
-
-    <div class="row">
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label>Valor Curso</mat-label>
+        <input
+          matInput
+          type="number"
+          autocomplete="off"
+          formControlName="titulo"
+          [(ngModel)]="lista.valorCurso"
+        />
+      </mat-form-field>
+      <mat-form-field style="width: 300px" appearance="legacy">
+        <mat-label>Sucursal</mat-label>
+        <mat-select
+          matInput
+          autocomplete="off"
+          formControlName="sucursal"
+          [compareWith]="compareSucursal"
+          [(ngModel)]="lista.sucursal"
+        >
+          <mat-option *ngFor="let x of listaSucursal" [value]="x"
+            >{{ x.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <div style="text-align: center">
         <button
           mat-raised-button
@@ -232,8 +204,6 @@
           Guardar
         </button>
       </div>
-    </div>
-    </div>
-  </mat-card-content>
-</form>
+    </mat-card-content>
+  </form>
 </mat-card>

@@ -15,6 +15,7 @@ import { CursosService } from 'src/app/services/cursos.service';
 import { DocenteService } from 'src/app/services/docente.service';
 import { HorarioService } from 'src/app/services/horario.service';
 import { ParaleloService } from 'src/app/services/paralelo.service';
+import { SucursalService } from 'src/app/services/sucursal.service';
 
 @Component({
   selector: 'app-crear-curso',
@@ -28,9 +29,9 @@ export class CrearCursoComponent implements OnInit {
   listaDocentes: Docente[] = [];
   listaHorarios: Horario[] = [];
   listaSucursal: Sucursal[] = [];
-  listaCatalogo: Catalogo[] = [];
   listaParalelos: Paralelo[] = [];
 
+  catalogos= new Catalogo();
   idEdit!: string | null;
 
   form!: FormGroup;
@@ -45,6 +46,7 @@ export class CrearCursoComponent implements OnInit {
     private catalogoServicio: CatalogoService,
     private docenteServicio: DocenteService,
     private horarioservicio: HorarioService,
+    private sucursalesServicio:SucursalService,
     private miDatePipe: DatePipe
   ) {
     this.validar();
@@ -52,6 +54,7 @@ export class CrearCursoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarlistas();
+    this.route.params.subscribe(({ idC }) => this.getCatalogo(idC));
 
     this.route.paramMap.subscribe((p: ParamMap) => {
       this.idEdit = p.get('id');
@@ -59,19 +62,29 @@ export class CrearCursoComponent implements OnInit {
     this.cargarDatos(Number(this.idEdit));
   }
 
+  private getCatalogo(idC: number) {
+    if (!idC) {
+      return;
+    }
+    this.catalogoServicio.getById(idC).subscribe((x:any) => {
+      this.catalogos = x;
+    });
+  }
+
   cargarlistas() {
     this.paraleloServicio.listar().subscribe((p: any) => {
       this.listaParalelos = p;
     });
 
-    this.catalogoServicio.listar().subscribe((p: any) => {
-      this.listaCatalogo = p;
-    });
+
     this.docenteServicio.listar().subscribe((p: any) => {
       this.listaDocentes = p;
     });
     this.horarioservicio.listar().subscribe((p: any) => {
       this.listaHorarios = p;
+    });
+    this.sucursalesServicio.listar().subscribe((p: any) => {
+      this.listaSucursal = p;
     });
   }
 
@@ -88,6 +101,9 @@ export class CrearCursoComponent implements OnInit {
       horario: ['', Validators.required],
       seminarios: ['', Validators.required],
       titulo: ['', Validators.required],
+      sucursal: ['', Validators.required],
+
+      estado:['',Validators.required]
     });
   }
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
@@ -166,6 +182,9 @@ export class CrearCursoComponent implements OnInit {
   }
   compareParalelo(x: Paralelo, y: Paralelo): boolean {
     return x && y ? x.idParalelo === y.idParalelo : x === y;
+  }
+  compareCatalogo(x: Catalogo, y: Catalogo): boolean {
+    return x && y ? x.idCatalogo === y.idCatalogo : x === y;
   }
   irLista() {
     this.router.navigateByUrl('/dashboard/listar-cursos');

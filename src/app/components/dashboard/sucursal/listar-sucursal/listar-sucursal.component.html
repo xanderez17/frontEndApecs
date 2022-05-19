@@ -1,0 +1,67 @@
+<mat-toolbar>
+  <div class="col-md-10 text-left">Lista de Sucursales</div>
+  <div class="col-md-2 text-right">
+    <button mat-raised-button color="accent" routerLink="/dashboard/crear-sucursal">
+      Nueva Sucursal
+    </button>
+  </div>
+</mat-toolbar>
+<mat-card class="container">
+  <mat-form-field appearance="standard">
+    <mat-label>Buscar por nombre</mat-label>
+    <input matInput (keyup)="filtrar($event)" autocomplete="off" #input />
+    <div id="example23_filter" class="dataTables_filter"></div>
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="lista" matSort>
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+      </ng-container>
+      <ng-container matColumnDef="direccion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Direccion</th>
+        <td mat-cell *matCellDef="let element">{{ element.direccion }}</td>
+      </ng-container>
+      <ng-container matColumnDef="ubicacion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ubicacion</th>
+        <td mat-cell *matCellDef="let element">{{ element.ubicacion }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefono</th>
+        <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+      </ng-container>
+      <ng-container matColumnDef="especialidad">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Especialidad</th>
+        <td mat-cell *matCellDef="let element">{{ element.especialidad }}</td>
+      </ng-container>
+      <ng-container matColumnDef="sucursal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sucursal</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.sucursal }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <a class="mr-2" mat-button color="primary" [routerLink]="['/dashboard/editar-cursos', element.idCurso]"
+            data-toggle="tooltip" matTooltip="Editar">
+            <mat-icon aria-hidden="true" aria-label="Example home icon">mode_edit</mat-icon>
+          </a>
+          <a class="mr-2" mat-button color="warn" data-toggle="tooltip" (click)="eliminar(element)"
+            matTooltip="Eliminar">
+            <mat-icon aria-hidden="true" aria-label="Example home icon">delete</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      (page)="pageEvent = $event" aria-label="Select page">
+    </mat-paginator>
+  </div>
+</mat-card>

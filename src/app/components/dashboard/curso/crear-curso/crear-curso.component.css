@@ -1,25 +1,6 @@
-.medio-width {
-  width: 120px;
-  height: 60px;
-
-
+.container{
+  display: flex;
 }
-
-.datos {
-  margin-right: 10;
-  text-align: center;
-  width: 400px;
-  display: table-cell;
-
-}
-.anexos {
-  text-align: center;
-  width: 400px;
-  padding: 10px;
-  display: table-cell;
-}
-.row{
-  height: 60px;
-  pad: 10px;
-margin-left: 3px;
+.mat-form-field{
+  padding: 20px;
 }

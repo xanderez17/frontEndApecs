@@ -1,11 +1,11 @@
 <mat-card class="container">
   <form [formGroup]="form" appearance="standard">
     <mat-card-header>
-      <mat-card-title>Formulario Catálogos</mat-card-title>
+      <mat-card-title>Formulario Sucursales</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-      <mat-form-field style="width: 500px" appearance="legacy">
+      <mat-form-field style="width: 300px" appearance="legacy">
         <mat-label>Nombre</mat-label>
         <input
           matInput
@@ -15,33 +15,34 @@
         />
       </mat-form-field>
 
-      <mat-form-field style="width: 500px" appearance="legacy">
-        <mat-label>Descripcion</mat-label>
+      <mat-form-field style="width: 200px" appearance="legacy">
+        <mat-label>Cuidad</mat-label>
         <textarea
           matInput
           autocomplete="off"
-          formControlName="descripcion"
-          [(ngModel)]="lista.descripcion"
+          formControlName="ubicacion"
+          [(ngModel)]="lista.ubicacion"
         ></textarea>
       </mat-form-field>
 
       <mat-form-field appearance="legacy">
-        <mat-label>Imagen</mat-label>
+        <mat-label>Teléfono</mat-label>
         <input
           matInput
+          type="number"
           autocomplete="off"
-          formControlName="img"
-          [(ngModel)]="lista.img"
+          formControlName="telefono"
+          [(ngModel)]="lista.telefono"
         />
       </mat-form-field>
 
       <mat-form-field appearance="legacy">
-        <mat-label>PDF</mat-label>
+        <mat-label>Direccion</mat-label>
         <input
           matInput
           autocomplete="off"
-          formControlName="pdf"
-          [(ngModel)]="lista.pdf"
+          formControlName="direccion"
+          [(ngModel)]="lista.direccion"
         />
       </mat-form-field>
 
