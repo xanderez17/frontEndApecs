@@ -1,120 +1,70 @@
-<mat-card>
-  <form [formGroup]="formContrato" appearance="standard">
+<mat-card class="container">
+  <form [formGroup]="form" appearance="standard">
     <mat-card-header>
       <mat-card-title>Formulario Contrato</mat-card-title>
     </mat-card-header>
+
     <mat-card-content>
-      <div class="row">
-        <mat-label>Contrato Nº {{ numContrato }}</mat-label>
-      </div>
+      <mat-label>Contrato Nº {{ numContrato +1}}</mat-label>
+      <mat-form-field appearance="legacy">
+        <mat-label>Fecha Contrato</mat-label>
+        <input matInput [matDatepicker]="myDatepicker" autocomplete="off" formControlName="fechaContrato"
+          [(ngModel)]="lista.fechaContrato" />
+      </mat-form-field>
+      <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker></mat-datepicker>
 
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Fecha Contrato</mat-label>
-          <input
-            matInput
-            [matDatepicker]="myDatepicker"
-            autocomplete="off"
-            formControlName="fechaContrato"
-            [(ngModel)]="lista.fechaContrato"
-          />
-        </mat-form-field>
-        <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #myDatepicker></mat-datepicker>
-      </div>
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Alumno</mat-label>
-          <mat-select
-            matInput
-            autocomplete="off"
-            formControlName="alumno"
-            [compareWith]="compareAlumno"
-            [(ngModel)]="lista.alumno"
-          >
-            <mat-option *ngFor="let x of listaAlumnos" [value]="x"
-              >{{ x.apellidoPrimer }} {{ x.nombrePrimer }}</mat-option
-            >
-          </mat-select>
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="legacy">
+        <mat-label>Alumno</mat-label>
+        <mat-select matInput autocomplete="off" formControlName="alumno" [compareWith]="compareAlumno"
+          [(ngModel)]="lista.alumno">
+          <mat-option *ngFor="let x of listaAlumnos" [value]="x">{{ x.apellidoPrimer }} {{ x.nombrePrimer }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Representante</mat-label>
-          <mat-select
-            matInput
-            autocomplete="off"
-            formControlName="representante"
-            [compareWith]="compareRepresentante"
-            [(ngModel)]="lista.representante"
-          >
-            <mat-option *ngFor="let x of listaRepresentantes" [value]="x"
-              >{{ x.nombrePrimer }} {{ x.apellidoPrimer }}</mat-option
-            >
-          </mat-select>
-        </mat-form-field>
-      </div>
+      <mat-form-field appearance="legacy">
+        <mat-label>Representante</mat-label>
+        <mat-select matInput autocomplete="off" formControlName="representante" [compareWith]="compareRepresentante"
+          [(ngModel)]="lista.representante">
+          <mat-option *ngFor="let x of listaRepresentantes" [value]="x">{{ x.nombrePrimer }} {{ x.apellidoPrimer }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label>Forma Pago</mat-label>
+        <mat-select formControlName="formaPago" [(ngModel)]="lista.formaPago">
+          <mat-option value="mensual">Mensual</mat-option>
+          <mat-option value="semanal">Semanal</mat-option>
+        </mat-select>
+      </mat-form-field>
 
 
-
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Forma de Pago </mat-label>
-          <mat-select
-            matInput
-            autocomplete="off"
-            formControlName="formaPago"
-            [compareWith]="compareFormaPago"
-            [(ngModel)]="lista.formaPago"
-          >
-            <mat-option *ngFor="let x of listaFormaPago" [value]="x"
-              >{{ x.tipoPago }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div class="row">
-        <mat-form-field appearance="legacy">
-          <mat-label>Estado</mat-label>
-          <mat-select formControlName="estado" [(ngModel)]="lista.estado">
-            <mat-option value="Activo">Activo</mat-option>
-            <mat-option value="En pausa">En pausa</mat-option>
-            <mat-option value="Cancelado">Cancelado</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="row">
+      <mat-form-field appearance="legacy">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado" [(ngModel)]="lista.estado">
+          <mat-option value="Activo">Activo</mat-option>
+          <mat-option value="En pausa">En pausa</mat-option>
+          <mat-option value="Cancelado">Cancelado</mat-option>
+        </mat-select>
+      </mat-form-field>
         <mat-form-field appearance="legacy">
           <mat-label>Observación</mat-label>
-          <textarea
-            matInput
-            autocomplete="off"
-            formControlName="observacion"
-            [(ngModel)]="lista.observacion"
-          ></textarea>
+          <textarea matInput autocomplete="off" formControlName="observacion"
+            [(ngModel)]="lista.observacion"></textarea>
         </mat-form-field>
-      </div>
+
     </mat-card-content>
     <mat-card-actions>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="irLista()"
-        style="margin-right: 20px"
-      >
+      <button mat-raised-button color="primary" (click)="irLista()" style="margin-right: 20px">
         Volver
       </button>
-      <button
-        type="submit"
-        [disabled]="formContrato.invalid"
-        mat-raised-button
-        color="accent"
-        (click)="agregar()"
-      >
+      <button type="submit" [disabled]="form.invalid" mat-raised-button color="accent" (click)="agregar()">
         Guardar
       </button>
+
     </mat-card-actions>
   </form>
 </mat-card>
