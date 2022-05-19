@@ -34,7 +34,6 @@ crear(curso: Curso): Observable<Curso> {
     })
   );
 }
-
 //Editar 
 editar(curso: Curso, idCurso: number): Observable<Curso> {
   return this.http.put<Curso>(`http://localhost:9898/api/curso/actualizarCurso/${idCurso}`, curso).pipe(

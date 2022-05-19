@@ -1,0 +1,59 @@
+<mat-card class="container">
+  <form [formGroup]="form" appearance="standard">
+    <mat-card-header>
+      <mat-card-title>Formulario Horarios</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="legacy">
+        <mat-label>Dias</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="dias"
+          [(ngModel)]="lista.dias"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Hora Inicio</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="horaInicio"
+          [(ngModel)]="lista.horaInicio"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Hora Fin</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          formControlName="horaFin"
+          [(ngModel)]="lista.horaFin"
+        />
+      </mat-form-field>
+    </mat-card-content>
+
+
+    <mat-card-actions style="text-align: center">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="irLista()"
+        style="margin-right: 20px"
+      >
+        Volver
+      </button>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        mat-raised-button
+        color="accent"
+        (click)="agregar()"
+      >
+        Guardar
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

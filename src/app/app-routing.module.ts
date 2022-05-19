@@ -19,6 +19,8 @@ import { ListarSucursalComponent } from './components/dashboard/sucursal/listar-
 import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-sucursal/crear-sucursal.component';
 import { CrearDocenteComponent } from './components/dashboard/docente/crear-docente/crear-docente.component';
 import { ListarDocentesComponent } from './components/dashboard/docente/listar-docentes/listar-docentes.component';
+import { CrearHorarioComponent } from './components/dashboard/horario/crear-horario/crear-horario.component';
+import { ListarHorarioComponent } from './components/dashboard/horario/listar-horario/listar-horario.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
@@ -57,6 +59,11 @@ const routes: Routes = [
   {path:'dashboard/crear-sucursal',component:CrearSucursalComponent},
   {path:'dashboard/editar-sucursal/:id',component:CrearSucursalComponent},
   {path:'dashboard/listar-sucursales',component:ListarSucursalComponent},
+
+
+  {path:'dashboard/crear-horario',component:CrearHorarioComponent},
+  {path:'dashboard/editar-horario/:id',component:CrearHorarioComponent},
+  {path:'dashboard/listar-horarios',component:ListarHorarioComponent},
 
 
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}

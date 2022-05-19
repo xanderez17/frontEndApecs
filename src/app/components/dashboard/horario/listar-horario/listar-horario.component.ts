@@ -2,36 +2,24 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Curso } from 'src/app/models/Curso';
-import { CursosService } from 'src/app/services/cursos.service';
+import { Horario } from 'src/app/models/Horario';
+import { HorarioService } from 'src/app/services/horario.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-listar-cursos',
-  templateUrl: './listar-cursos.component.html',
-  styleUrls: ['./listar-cursos.component.css'],
+  selector: 'app-listar-horario',
+  templateUrl: './listar-horario.component.html',
+  styleUrls: ['./listar-horario.component.css']
 })
-export class ListarCursosComponent implements OnInit {
+export class ListarHorarioComponent implements OnInit {
   public lista!: MatTableDataSource<any>;
-  lista1: Curso[] = [];
+ horario:Horario[] = [];
   //datos encabezado tablas
   displayedColumns: string[] = [
-    'categoria',
-    'catalogo',
-    'docente',
-    'cupos',
-    'descripcion',
-    'duracion',
-    'estado',
-    'fechaInicio',
-    'fechaFin',
-    'fechaInscripcion',
+    'horaInicio',
 
-    'horario',
-    'sucursal',
-    'titulo',
-    'valorCurso',
-    'valorMatricula',
+    'dias',
+    'horaFin',
     'acciones'
   ];
 
@@ -45,10 +33,10 @@ export class ListarCursosComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginador!: MatPaginator;
   @ViewChild(MatSort) marSort!: MatSort;
 
-  constructor(private cursoServicio: CursosService) {}
+  constructor(private servicio: HorarioService) {}
 
   ngOnInit() {
-    this.cursoServicio.listar().subscribe((response) => {
+    this.servicio.listar().subscribe((response) => {
       this.lista = new MatTableDataSource(response);
       this.lista.paginator = this.paginador;
       this.lista.sort = this.marSort;
@@ -65,7 +53,7 @@ export class ListarCursosComponent implements OnInit {
   }
 
   //emininar
-  eliminar(curso: Curso) {
+  eliminar(horario: Horario) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -77,7 +65,7 @@ export class ListarCursosComponent implements OnInit {
     swalWithBootstrapButtons
       .fire({
         title: '¿Estas  seguro?',
-        text: `¿Seguro que quieres eliminar ${curso.titulo} ?`,
+        text: `¿Seguro que quieres eliminar ${horario.dias} ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar!',
@@ -86,10 +74,10 @@ export class ListarCursosComponent implements OnInit {
       })
       .then((result) => {
         if (result.value) {
-          this.cursoServicio.eliminar(curso.idCurso).subscribe((resp) => {
+          this.servicio.eliminar(horario.idHorario).subscribe((resp) => {
             swalWithBootstrapButtons.fire(
               'Eliminada!',
-              `${curso.titulo} ha  sido eliminado correctamente!`,
+              `${horario.dias} ha  sido eliminado correctamente!`,
               'success'
             );
           });

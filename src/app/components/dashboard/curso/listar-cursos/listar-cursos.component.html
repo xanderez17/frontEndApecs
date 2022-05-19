@@ -28,6 +28,8 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Catalogo</th>
           <td mat-cell *matCellDef="let element">{{ element.catalogo.nombre }}</td>
         </ng-container>
+
+
         <ng-container matColumnDef="descripcion">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
           <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
@@ -45,19 +47,17 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Duracion</th>
           <td mat-cell *matCellDef="let element">{{ element.duracion }}</td>
         </ng-container>
-        <ng-container matColumnDef="seminarios">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Seminarios</th>
-          <td mat-cell *matCellDef="let element">{{ element.seminarios }}</td>
-        </ng-container>
+
         <ng-container matColumnDef="docente">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Docente</th>
           <td mat-cell *matCellDef="let element">{{ element.docente.apellidoPrimer }} {{ element.docente.nombrePrimer }}</td>
         </ng-container>
 
+
         <ng-container matColumnDef="sucursal">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Sucursal</th>
           <td mat-cell *matCellDef="let element">
-            {{ element.sucursal }}
+            {{ element.sucursal.nombre }}
           </td>
         </ng-container>
         <ng-container matColumnDef="fechaInscripcion">

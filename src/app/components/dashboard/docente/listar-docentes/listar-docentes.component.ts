@@ -21,7 +21,7 @@ export class ListarDocentesComponent implements OnInit {
     'apellido',
     'especialidad',
     'sucursal',
-    'acciones',
+    'acciones'
   ];
 
   //varibel paginador

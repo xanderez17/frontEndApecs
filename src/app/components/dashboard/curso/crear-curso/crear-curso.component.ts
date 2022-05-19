@@ -31,7 +31,7 @@ export class CrearCursoComponent implements OnInit {
   listaSucursal: Sucursal[] = [];
   listaParalelos: Paralelo[] = [];
 
-  catalogos= new Catalogo();
+  catalogos = new Catalogo();
   idEdit!: string | null;
 
   form!: FormGroup;
@@ -46,7 +46,7 @@ export class CrearCursoComponent implements OnInit {
     private catalogoServicio: CatalogoService,
     private docenteServicio: DocenteService,
     private horarioservicio: HorarioService,
-    private sucursalesServicio:SucursalService,
+    private sucursalesServicio: SucursalService,
     private miDatePipe: DatePipe
   ) {
     this.validar();
@@ -54,6 +54,7 @@ export class CrearCursoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarlistas();
+
     this.route.params.subscribe(({ idC }) => this.getCatalogo(idC));
 
     this.route.paramMap.subscribe((p: ParamMap) => {
@@ -66,7 +67,7 @@ export class CrearCursoComponent implements OnInit {
     if (!idC) {
       return;
     }
-    this.catalogoServicio.getById(idC).subscribe((x:any) => {
+    this.catalogoServicio.getById(idC).subscribe((x: any) => {
       this.catalogos = x;
     });
   }
@@ -75,7 +76,6 @@ export class CrearCursoComponent implements OnInit {
     this.paraleloServicio.listar().subscribe((p: any) => {
       this.listaParalelos = p;
     });
-
 
     this.docenteServicio.listar().subscribe((p: any) => {
       this.listaDocentes = p;
@@ -99,11 +99,14 @@ export class CrearCursoComponent implements OnInit {
       fechaFin: ['', Validators.required],
       fechaInscripcion: ['', Validators.required],
       horario: ['', Validators.required],
+      modalidad: ['', Validators.required],
       seminarios: ['', Validators.required],
       titulo: ['', Validators.required],
-      sucursal: ['', Validators.required],
-
-      estado:['',Validators.required]
+     
+      estado: ['', Validators.required],
+      valorMatricula: ['', Validators.required],
+      valorCurso: ['', Validators.required],
+      sucursal: ['', Validators.required]
     });
   }
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
@@ -130,7 +133,25 @@ export class CrearCursoComponent implements OnInit {
   agregar() {
     if (this.idEdit) {
       this.cursoServicio
-        .editar(this.lista, Number(this.idEdit))
+      const fechaInicio = this.miDatePipe.transform(
+        this.lista.fechaInicio,
+        'yyyy-MM-dd'
+      );
+      this.lista.fechaInicio = fechaInicio;
+
+      const fechaInscripcion = this.miDatePipe.transform(
+        this.lista.fechaInscripcion,
+        'yyyy-MM-dd'
+      );
+      this.lista.fechaInscripcion = fechaInscripcion;
+
+      const fechaFin = this.miDatePipe.transform(
+        this.lista.fechaFin,
+        'yyyy-MM-dd'
+      );
+      this.lista.fechaFin = fechaFin;
+    
+       this.cursoServicio.editar(this.lista, Number(this.idEdit))
         .subscribe((ma) => {
           this._snackBar.open('Curso editado!', '', {
             duration: 2500,
@@ -150,21 +171,22 @@ export class CrearCursoComponent implements OnInit {
         this.lista.fechaInscripcion,
         'yyyy-MM-dd'
       );
-      this.lista.fechaInicio = fechaInscripcion;
+      this.lista.fechaInscripcion = fechaInscripcion;
 
       const fechaFin = this.miDatePipe.transform(
         this.lista.fechaFin,
         'yyyy-MM-dd'
       );
       this.lista.fechaFin = fechaFin;
-
+      this.lista.catalogo = this.catalogos;
+      console.log(this.lista)
       this.cursoServicio.crear(this.lista).subscribe((m) => {
         this._snackBar.open('Curso creada!', '', {
           duration: 2500,
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
-        this.irLista();
+
       });
 
       this.irLista();
@@ -186,6 +208,7 @@ export class CrearCursoComponent implements OnInit {
   compareCatalogo(x: Catalogo, y: Catalogo): boolean {
     return x && y ? x.idCatalogo === y.idCatalogo : x === y;
   }
+
   irLista() {
     this.router.navigateByUrl('/dashboard/listar-cursos');
   }

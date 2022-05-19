@@ -40,6 +40,8 @@ import { CrearCatalogoComponent } from './components/dashboard/catalogo/crear-ca
 import { ListarCatalogoComponent } from './components/dashboard/catalogo/listar-catalogo/listar-catalogo.component';
 import { ListarSucursalComponent } from './components/dashboard/sucursal/listar-sucursal/listar-sucursal.component';
 import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-sucursal/crear-sucursal.component';
+import { CrearHorarioComponent } from './components/dashboard/horario/crear-horario/crear-horario.component';
+import { ListarHorarioComponent } from './components/dashboard/horario/listar-horario/listar-horario.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-su
     CrearCatalogoComponent,
     ListarCatalogoComponent,
     ListarSucursalComponent,
-    CrearSucursalComponent
+    CrearSucursalComponent,
+    CrearHorarioComponent,
+    ListarHorarioComponent
   ],
   imports: [
     BrowserModule,
