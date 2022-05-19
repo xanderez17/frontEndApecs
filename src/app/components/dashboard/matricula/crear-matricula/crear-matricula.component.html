@@ -1,1 +1,93 @@
-<p>crear-matricula works!</p>
+<mat-card class="container">
+  <form [formGroup]="form" appearance="standard">
+    <mat-card-header>
+      <mat-card-title>Formulario Matrícula</mat-card-title>
+    </mat-card-header>
+
+
+    <mat-card-content>
+      <div class="row">
+        <mat-label>Matrícula Nº {{ numMatricula }}</mat-label>
+      </div>
+
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Fecha Matrícula</mat-label>
+        <input
+          matInput
+          [matDatepicker]="myDatepicker"
+          autocomplete="off"
+          formControlName="fechaContrato"
+          [(ngModel)]="lista.fechaMatricula"
+        />
+      </mat-form-field>
+      <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker></mat-datepicker>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Alumno</mat-label>
+        <mat-select
+          matInput
+          autocomplete="off"
+          formControlName="alumno"
+          [compareWith]="compareAlumno"
+          [(ngModel)]="lista.alumno"
+        >
+          <mat-option *ngFor="let x of listaAlumnos" [value]="x"
+          >{{ x.apellidoPrimer }} {{ x.nombrePrimer }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Curso</mat-label>
+        <mat-select
+          matInput
+          autocomplete="off"
+          formControlName="curso"
+          [compareWith]="compareCurso"
+          [(ngModel)]="lista.curso.titulo"
+        >
+          <mat-option *ngFor="let x of listaCursos" [value]="x"
+          >{{x.titulo}}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Paralelo</mat-label>
+        <mat-select
+          matInput
+          autocomplete="off"
+          formControlName="representante"
+          [compareWith]="compareParalelo"
+          [(ngModel)]="lista.paralelo"
+        >
+          <mat-option *ngFor="let x of listaParalelos" [value]="x"
+          >{{x.nombre}}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="irLista()"
+        style="margin-right: 20px"
+      >
+        Volver
+      </button>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        mat-raised-button
+        color="accent"
+        (click)="agregar()"
+      >
+        Guardar
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

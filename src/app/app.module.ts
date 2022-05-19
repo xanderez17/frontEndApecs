@@ -41,6 +41,7 @@ import { ListarCatalogoComponent } from './components/dashboard/catalogo/listar-
 import { ListarSucursalComponent } from './components/dashboard/sucursal/listar-sucursal/listar-sucursal.component';
 import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-sucursal/crear-sucursal.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ListarMatriculasComponent } from './components/dashboard/matricula/listar-matriculas/listar-matriculas.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { HeaderComponent } from './components/header/header.component';
     ListarCatalogoComponent,
     ListarSucursalComponent,
     CrearSucursalComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListarMatriculasComponent
   ],
   imports: [
     BrowserModule,
