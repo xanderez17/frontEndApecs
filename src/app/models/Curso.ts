@@ -15,6 +15,7 @@ export class Curso {
   fechaInicio: any;
   fechaFin: any;
   fechaInscripcion: any;
+  modalidad: any;
   seminarios: any;
   horario: Horario= new Horario();
   sucursal: Sucursal = new Sucursal();

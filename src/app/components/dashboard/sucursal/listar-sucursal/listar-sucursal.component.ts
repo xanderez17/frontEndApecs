@@ -19,7 +19,8 @@ export class ListarSucursalComponent implements OnInit {
     'direccion',
     'nombre',
     'telefono',
-    'ubicacion'
+    'ubicacion',
+    'acciones'
   ];
 
   //varibel paginador

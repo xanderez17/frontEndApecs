@@ -19,9 +19,9 @@ constructor(private http:HttpClient){
 
   //Obtener lista por id
   getById(id: number): Observable<Horario> {
-    return this.http.get<Horario>(`http://localhost:9898/api/horario/listar-horario/${id}`);
+    return this.http.get<Horario>(`http://localhost:9898/api/horario/listar-horiario/${id}`);
   }
-//Crear  nuevo 
+//Crear  nuevo
 crear(horario: Horario): Observable<Horario> {
   return this.http.post<Horario>(`http://localhost:9898/api/horario/`, horario).pipe(
     map((response: any) => response.horario as Horario),
@@ -35,7 +35,7 @@ crear(horario: Horario): Observable<Horario> {
   );
 }
 
-//Editar 
+//Editar
 editar(horario: Horario, idHorario: number): Observable<Horario> {
   return this.http.put<Horario>(`http://localhost:9898/api/horario/actualizarHorario/${idHorario}`, horario).pipe(
     map((response: any) => response.horario as Horario),

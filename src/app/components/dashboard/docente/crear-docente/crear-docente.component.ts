@@ -75,8 +75,20 @@ export class CrearDocenteComponent implements OnInit {
   });
 }
  agregar() {
+  if (this.idEdit) {
+    this.servicio .editar(this.lista, Number(this.idEdit))
+      .subscribe((ma) => {
+        this._snackBar.open('Docente editado!', '', {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+        this.irLista();
+      });
+      
+  } else {
    this.servicio.crear(this.lista).subscribe((m) => {
-     this._snackBar.open('Docente creada!', '', {
+     this._snackBar.open('Docente creado!', '', {
        duration: 2500,
        horizontalPosition: 'center',
        verticalPosition: 'bottom',
@@ -84,12 +96,14 @@ export class CrearDocenteComponent implements OnInit {
      this.irLista();
    });
 
-   this.irLista();
+  
  }
+}
  compareSucursal(x: Sucursal, y: Sucursal): boolean {
   return x && y ? x.idSucursal === y.idSucursal : x === y;
 }
  irLista() {
    this.router.navigateByUrl('dashboard/listar-docentes');
+  
  }
 }
