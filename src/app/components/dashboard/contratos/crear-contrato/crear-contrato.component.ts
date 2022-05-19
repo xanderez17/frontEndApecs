@@ -39,7 +39,7 @@ export class CrearContratoComponent implements OnInit {
   listaMatricula: Matricula[] = [];
   listaRepresentantes: Representante[] = [];
 
-  form!: FormGroup;
+  formContrato!: FormGroup;
   idEdit!: string | null;
 
   constructor(
@@ -56,7 +56,7 @@ export class CrearContratoComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private miDatePipe: DatePipe
   ) {
-    this.form = this.fb.group({
+    this.formContrato = this.fb.group({
       alumno: ['', Validators.required],
       estado: ['', Validators.required],
       fechaContrato: ['', Validators.required],

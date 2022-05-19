@@ -32,7 +32,16 @@
         </mat-select>
       </mat-form-field>
 
-     
+      <mat-form-field style="width: 500px" appearance="legacy">
+        <mat-label>Descripcion</mat-label>
+        <textarea
+          matInput
+          autocomplete="off"
+          formControlName="descripcion"
+          [(ngModel)]="lista.descripcion"
+        ></textarea>
+      </mat-form-field>
+
       <mat-form-field style="width: 200px" appearance="legacy">
         <mat-label>Categoria</mat-label>
         <input
@@ -117,7 +126,20 @@
         />
       </mat-form-field>
 
-     
+      <mat-form-field style="width: 300px" appearance="legacy">
+        <mat-label>Horario</mat-label>
+        <mat-select
+          matInput
+          autocomplete="off"
+          formControlName="horario"
+          [compareWith]="compareHorario"
+          [(ngModel)]="lista.horario"
+        >
+          <mat-option *ngFor="let x of listaHorarios" [value]="x"
+            >{{ x.dias }} {{ x.horaInicio }} {{ x.horaFin }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <mat-form-field style="width: 300px" appearance="legacy">
         <mat-label>Docente</mat-label>
@@ -143,8 +165,27 @@
         </mat-select>
       </mat-form-field>
 
-     
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label>Valor Matricula</mat-label>
+        <input
+          matInput
+          type="number"
+          autocomplete="off"
+          formControlName="valorMatricula"
+          [(ngModel)]="lista.valorMatricula"
+        />
+      </mat-form-field>
 
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label>Valor Curso</mat-label>
+        <input
+          matInput
+          type="number"
+          autocomplete="off"
+          formControlName="valorCurso"
+          [(ngModel)]="lista.valorCurso"
+        />
+      </mat-form-field>
       <mat-form-field style="width: 200px" appearance="legacy">
         <mat-label>Sucursal</mat-label>
         <mat-select

@@ -8,7 +8,7 @@ export class Contrato {
   idContrato: any;
   estado: any;
   fechaContrato: any;
-  formaPago:any;
+  formaPago: FormaPago = new FormaPago();
   matricula: Matricula = new Matricula();
   observacion: any;
   representante: Representante = new Representante();

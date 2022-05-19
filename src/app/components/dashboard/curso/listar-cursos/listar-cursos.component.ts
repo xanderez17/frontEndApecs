@@ -20,17 +20,18 @@ export class ListarCursosComponent implements OnInit {
     'catalogo',
     'docente',
     'cupos',
-  
+    'descripcion',
     'duracion',
     'estado',
     'fechaInicio',
     'fechaFin',
     'fechaInscripcion',
 
-   
+    'horario',
     'sucursal',
     'titulo',
-    
+    'valorCurso',
+    'valorMatricula',
     'acciones'
   ];
 
