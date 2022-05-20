@@ -1,18 +1,12 @@
-<div class="container">
-  <mat-toolbar>
-    <span>Lista de Alumnos</span>
-  </mat-toolbar>
-
-  <div class="dt-buttons">
-    <button
-      mat-raised-button
-      color="accent"
-      routerLink="/inscripcion"
-      style="margin-right: 20px"
-    >
-      Nuevo Alumno
+<mat-toolbar>
+  <div class="col-md-10 text-left">Lista de Representantes</div>
+  <div class="col-md-2 text-right">
+    <button mat-raised-button color="accent" routerLink="/dashboard/crear-representante">
+      Nuevo Representante
     </button>
   </div>
+</mat-toolbar>
+<mat-card class="container">
   <mat-form-field appearance="standard">
     <mat-label>Buscar por nombre</mat-label>
     <input matInput (keyup)="filtrar($event)" autocomplete="off" #input />
@@ -20,21 +14,25 @@
   </mat-form-field>
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="lista" matSort>
-
-
       <ng-container matColumnDef="identificacion">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Identificacion</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Identificacion
+        </th>
         <td mat-cell *matCellDef="let element">{{ element.identificacion }}</td>
       </ng-container>
 
       <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-        <td mat-cell *matCellDef="let element">{{ element.nombrePrimer }} {{ element.nombreSegundo }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.nombrePrimer }} {{ element.nombreSegundo }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="apellido">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</th>
-        <td mat-cell *matCellDef="let element">{{ element.apellidoPrimer }} {{ element.apellidoSegundo }}  </td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.apellidoPrimer }} {{ element.apellidoSegundo }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="telefono">
@@ -51,29 +49,13 @@
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let element">
-          <a
-            class="mr-2"
-            mat-button
-            color="primary"
-            [routerLink]="['/dashboard/editar-alumno', element.id]"
-            data-toggle="tooltip"
-            matTooltip="Editar"
-          >
-            <mat-icon aria-hidden="true" aria-label="Example home icon"
-              >mode_edit</mat-icon
-            >
+          <a class="mr-2" mat-button color="primary" [routerLink]="['/dashboard/editar-representante', element.id]"
+            data-toggle="tooltip" matTooltip="Editar">
+            <mat-icon aria-hidden="true" aria-label="Example home icon">mode_edit</mat-icon>
           </a>
-          <a
-            class="mr-2"
-            mat-button
-            color="warn"
-            data-toggle="tooltip"
-            (click)="eliminar(element)"
-            matTooltip="Eliminar"
-          >
-            <mat-icon aria-hidden="true" aria-label="Example home icon"
-              >delete</mat-icon
-            >
+          <a class="mr-2" mat-button color="warn" data-toggle="tooltip" (click)="eliminar(element)"
+            matTooltip="Eliminar">
+            <mat-icon aria-hidden="true" aria-label="Example home icon">delete</mat-icon>
           </a>
         </td>
       </ng-container>
@@ -82,13 +64,8 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
-    <mat-paginator
-      [length]="length"
-      [pageSize]="pageSize"
-      [pageSizeOptions]="pageSizeOptions"
-      (page)="pageEvent = $event"
-      aria-label="Select page"
-    >
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      (page)="pageEvent = $event" aria-label="Select page">
     </mat-paginator>
   </div>
-</div>
+</mat-card>

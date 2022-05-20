@@ -4,3 +4,10 @@
 .ng-container{
   padding: 10px;
 }
+.mat-header-cell {
+  text-align: center;
+ 
+}
+.mat-cell{
+  padding-right: 10px;
+}

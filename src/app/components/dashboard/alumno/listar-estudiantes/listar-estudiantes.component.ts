@@ -62,7 +62,7 @@ export class ListarEstudiantesComponent implements OnInit {
       buttonsStyling: false,
     });
 
-    console.log(this.lista);
+
 
     swalWithBootstrapButtons
       .fire({
