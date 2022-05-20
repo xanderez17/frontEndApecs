@@ -1,71 +1,97 @@
-*{
+body{
+  background: #dedede;
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
-body{
-  background: #083177;
+.dropdwn{
+  margin: 0 auto;
 }
 
-header{
-	width: 40px;
-  width: 100%;
+nav{
+  background: #0e375d;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
 }
 
-.navegacion{
-	width: 1000px;
-	margin: 30px auto;
-  color: #fff;
-  height: 50px;
+
+nav ul{
+  padding: 0;
+  margin: 0;
+  float: right;
+  margin-right: 30px;
+}
+
+nav ul li{
+  background: #0e375d;
+  position: relative;
+  list-style: none;
+  display: inline-block;
+}
+
+nav ul li a{
+  display: block;
+  padding: 0 15px;
+  color: white;
+  text-decoration: none;
+  line-height: 60px;
+  font-size: 20px;
+}
+
+nav ul li a:hover{
+  background: #0e375d;
+}
+
+nav ul ul{
+  position: absolute;
+  top: 60px;
+  display: none;
+}
+
+nav ul li:hover > ul{
+  display: block;
 
 }
 
-.navegacion ul{
-	list-style: none;
-  height:  50px;
+nav ul ul li{
+  width: 150px;
+  float: none;
+  display: list-item;
+  position: relative;
 }
 
-.menu > li{
-	position: relative;
-	display: inline-block;
+nav ul ul ul li{
+  position: relative;
+  top: -60px;
+  left: 150px;
 }
 
-.menu > li > a{
-	display: block;
-	padding: 15px 20px;
-	color: #fff;
-	font-family: 'Open sans';
-	text-decoration: none;
+.logo{
+  width: 120px;
+  height: 60px;
 }
 
-.menu li a:hover{
-	color: gainsboro;
-	transition: all .3s;
+.icono{
+  margin-right: auto;
 }
 
-/* Submenu*/
-
-.submenu{
-	position: absolute;
-	background: #083177;
-	width: 160%;
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 1.5s;
+.botones{
+  margin-right: 30px;
 }
 
-.submenu li a{
-	display: block;
-	padding: 15px;
-	color: #fff;
-	font-family: 'Open sans';
-	text-decoration: none;
+.example-spacer {
+  flex: 1 1 auto;
 }
 
-.menu li:hover .submenu{
-	visibility: visible;
-	opacity: 1;
+.login{
+  color: white;
 }
+
+/*
+*/
+
+.dropdwn{
+  margin: 0 auto;
+}
+
+
+
