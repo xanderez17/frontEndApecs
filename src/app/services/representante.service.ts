@@ -11,12 +11,21 @@ import {Representante} from "../models/Representante";
 })
 export class RepresentanteService {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
+   //Obtener lista por id
+   getById(id: number): Observable<Representante> {
+    return this.http.get<Representante>(`http://localhost:9898/api/representante/listar-representante/${id}`);
+  }
+    //Listar Representantes
+    listar(): Observable<Representante[]> {
+      return this.http.get<Representante[]>(`http://localhost:9898/api/representante/listarRepresentantes`);
+    }
+
   //Crear Representante
-  crearRepresentante(representante: Representante): Observable<Representante> {
-    return this.httpClient.post<Representante>(`http://localhost:9898/api/representante/crearRepresentantes`, representante).pipe(
+  crear(representante: Representante): Observable<Representante> {
+    return this.http.post<Representante>(`http://localhost:9898/api/representante/`, representante).pipe(
       map((response: any) => response.representante as Representante),
       catchError((e) => {
         if (e.status == 400) {
@@ -29,8 +38,8 @@ export class RepresentanteService {
   }
 
   //Editar Representante
-  editarRepresentante(representante: Representante, id: number): Observable<Representante> {
-    return this.httpClient.put<Representante>(`http://localhost:9898/api/representante/actualizarRepresentante/${id}`, representante).pipe(
+  editar(representante: Representante, id: number): Observable<Representante> {
+    return this.http.put<Representante>(`http://localhost:9898/api/representante/actualizarRepresentante/${id}`, representante).pipe(
       map((response: any) => response.representante as Representante),
       catchError((e) => {
         if (e.status == 400) {
@@ -43,8 +52,8 @@ export class RepresentanteService {
   }
 
   //Eliminar Representante
-  eliminarRepresentante(id: number): Observable<Representante> {
-    return this.httpClient.delete<Representante>(`http://localhost:9898/api/representante/eliminarRepresentante/${id}`).pipe(
+  eliminar(id: number): Observable<Representante> {
+    return this.http.delete<Representante>(`http://localhost:9898/api/representante/eliminarRepresentante/${id}`).pipe(
       catchError((e) => {
         Swal.fire(e.error.mensaje, e.error.error, "error");
         return throwError(e);
@@ -52,8 +61,5 @@ export class RepresentanteService {
     );
   }
 
-  //Listar Representantes
-  listarRepresentante(): Observable<Representante[]> {
-    return this.httpClient.get<Representante[]>(`http://localhost:9898/api/representante/listarRepresentantes`);
-  }
+
 }

@@ -4,14 +4,14 @@
       <mat-card-title>Formulario Contrato</mat-card-title>
     </mat-card-header>
 
-
     <mat-card-content>
       <div class="row">
-        <mat-label>Contrato Nº {{ numContrato }}</mat-label>
+        <mat-label
+          ><strong>Contrato Nº {{ numContrato }}</strong></mat-label
+        >
       </div>
 
-
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 150px" appearance="legacy">
         <mat-label>Fecha Contrato</mat-label>
         <input
           matInput
@@ -23,34 +23,148 @@
       </mat-form-field>
       <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
       <mat-datepicker #myDatepicker></mat-datepicker>
-
-      <mat-form-field appearance="legacy">
-        <mat-label>Alumno</mat-label>
-        <mat-select
-          matInput
-          autocomplete="off"
-          formControlName="alumno"
-          [compareWith]="compareAlumno"
-          [(ngModel)]="lista.alumno"
-        >
-          <mat-option *ngFor="let x of listaAlumnos" [value]="x"
-          >{{ x.apellidoPrimer }} {{ x.nombrePrimer }}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+     
+     
+      <mat-label><strong>Representante</strong><br /></mat-label>
 
       
+      <mat-form-field appearance="standard">
+        <mat-label>Buscar representante por cédula</mat-label>
+        <input matInput (keyup)="filtrarRepre($event)" autocomplete="off" #input />
+        <div id="example23_filter" class="dataTables_filter"></div>
+      </mat-form-field>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 400px" appearance="legacy">
+        <mat-label>Nombre: </mat-label>
+        <input matInput />
+        {{ representante.apellidoPrimer }}
+        {{ representante.apellidoSegundo }}
+        {{ representante.nombrePrimer }}
+        {{ representante.nombreSegundo }}
+      </mat-form-field>
+
+  
+    </mat-card-content>
+    <mat-card-content>
+      <mat-label><strong>Alumno</strong><br /></mat-label>
+      <mat-form-field style="width: 130px" appearance="legacy">
+        <mat-label>Cedula: </mat-label>
+
+        <input matInput /> {{ matricula.alumno.identificacion }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 400px" appearance="legacy">
+        <mat-label>Nombre: </mat-label>
+        <input matInput />
+        {{ matricula.alumno.apellidoPrimer }}
+        {{ matricula.alumno.apellidoSegundo }}
+        {{ matricula.alumno.nombrePrimer }}
+        {{ matricula.alumno.nombreSegundo }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 180px" appearance="legacy">
+        <mat-label> Fecha de Nacimiento: </mat-label>
+        <input matInput />
+        {{ matricula.alumno.fechaNacimiento }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 110px" appearance="legacy">
+        <mat-label> Sexo: </mat-label>
+        <input matInput />
+        {{ matricula.alumno.sexo }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 300px" appearance="legacy">
+        <mat-label> Direccion </mat-label>
+        <input matInput />
+        {{ matricula.alumno.direccion }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 120px" appearance="legacy">
+        <mat-label> Teléfono: </mat-label>
+        <input matInput />
+        {{ matricula.alumno.telefono }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 250px" appearance="legacy">
+        <mat-label> Ocupación: </mat-label>
+        <input matInput />
+        {{ matricula.alumno.ocupacion }}
+      </mat-form-field>
+      <mat-form-field style="width: 250px" appearance="legacy">
+        <mat-label> Cargo: </mat-label>
+        <input matInput />
+        {{ matricula.alumno.cargo }}
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-label><strong>Materia</strong><br /></mat-label>
+
+      <mat-form-field style="width: 250px" appearance="legacy">
+        <mat-label> Curso: </mat-label>
+        <input matInput />
+        {{ matricula.curso.titulo }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 500px" appearance="legacy">
+        <mat-label> Descripción: </mat-label>
+        <input matInput />
+        {{ matricula.curso.descripcion }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 500px" appearance="legacy">
+        <mat-label> Seminarios: </mat-label>
+        <input matInput />
+        {{ matricula.curso.seminarios }}
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-label><strong>Horarios</strong><br /></mat-label>
+      <mat-form-field style="width: 350px" appearance="legacy">
+        <mat-label> Dias: </mat-label>
+        <input matInput />
+        {{ matricula.curso.horario.dias }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label> Hora Inicio: </mat-label>
+        <input matInput />
+        {{ matricula.curso.horario.horaInicio }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label> Hora Fin: </mat-label>
+        <input matInput />
+        {{ matricula.curso.horario.horaFin }}
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-label><strong>Pensiones</strong><br /></mat-label>
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label> Valor Matricula: </mat-label>
+        <input matInput />
+        {{ matricula.curso.valorMatricula }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label> Valor Curso: </mat-label>
+        <input matInput />
+        {{ matricula.curso.valorCurso }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 160px" appearance="legacy">
         <mat-label>Forma de pago</mat-label>
         <mat-select formControlName="formaPago" [(ngModel)]="lista.formaPago">
           <mat-option value="mensual">Mensual</mat-option>
           <mat-option value="Semanal">Semanal</mat-option>
         </mat-select>
       </mat-form-field>
-
-
-      <mat-form-field appearance="legacy">
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field style="width: 130px" appearance="legacy">
         <mat-label>Estado</mat-label>
         <mat-select formControlName="estado" [(ngModel)]="lista.estado">
           <mat-option value="Activo">Activo</mat-option>
@@ -59,22 +173,21 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
-        <mat-label>Observación</mat-label>
-        <textarea
+      <mat-form-field style="width: 400px" appearance="legacy">
+        <mat-label> Observacion </mat-label>
+        <input
           matInput
           autocomplete="off"
           formControlName="observacion"
           [(ngModel)]="lista.observacion"
-        ></textarea>
+        />
       </mat-form-field>
-
     </mat-card-content>
     <mat-card-actions>
       <button
         mat-raised-button
         color="primary"
-        (click)="irLista()"
+        routerLink="/dashboard/listar-matriculas"
         style="margin-right: 20px"
       >
         Volver

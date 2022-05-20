@@ -24,6 +24,8 @@ import {  ListarMatriculasComponent} from "./components/dashboard/matricula/list
 
 import { CrearHorariosComponent } from './components/dashboard/horario/crear-horarios/crear-horarios.component';
 import { ListarHorariosComponent } from './components/dashboard/horario/listar-horarios/listar-horarios.component';
+import { CrearRepresentanteComponent } from './components/dashboard/Representante/crear-representante/crear-representante.component';
+import { ListarRepresentanteComponent } from './components/dashboard/Representante/listar-representante/listar-representante.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
@@ -72,6 +74,13 @@ const routes: Routes = [
   {path:'dashboard/listar-horarios',component:ListarHorariosComponent},
 
 
+  {path:'dashboard/crear-contrato/:idM',component:CrearContratoComponent},
+  {path:'dashboard/editar-contrato/:id',component:CrearContratoComponent},
+  {path:'dashboard/listar-contato',component:ListarContratosComponent},
+
+  {path:'dashboard/crear-representante',component:CrearRepresentanteComponent},
+  {path:'dashboard/editar-representante/:id',component:CrearRepresentanteComponent},
+  {path:'dashboard/listar-representante',component:ListarRepresentanteComponent},
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
 
 ];

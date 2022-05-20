@@ -24,7 +24,7 @@ export class ContratoService {
   }
   //Crear Contrato
   crearContrato(contrato:Contrato): Observable<Contrato>{
-    return this.http.post<Contrato>('http://localhost:9898/api/contrato/crearContrato', contrato).pipe(
+    return this.http.post<Contrato>('http://localhost:9898/api/contrato/', contrato).pipe(
       map((response: any) => response.contrato as Contrato),
       catchError((e) => {
         if (e.status == 400) {

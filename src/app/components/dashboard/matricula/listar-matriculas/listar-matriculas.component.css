@@ -1,6 +1,13 @@
 .mat-table{
   width: 100%;
 }
+.ng-container{
+  padding: 10px;
+}
+.mat-header-cell {
+  text-align: center;
+ 
+}
 .mat-cell{
-  padding: auto;
+  padding-right: 10px;
 }
