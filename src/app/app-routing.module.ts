@@ -64,7 +64,7 @@ const routes: Routes = [
   {path:'dashboard/listar-sucursales',component:ListarSucursalComponent},
 
   {path:'dashboard/crear-matricula',component:CrearMatriculaComponent},
-  {path:'dashboard/editar-sucursal/:id',component:CrearMatriculaComponent},
+  {path:'dashboard/editar-matricula/:id',component:CrearMatriculaComponent},
   {path:'dashboard/listar-matriculas',component:ListarMatriculasComponent},
 
   {path:'dashboard/crear-horario',component:CrearHorariosComponent},

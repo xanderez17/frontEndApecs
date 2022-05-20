@@ -60,11 +60,11 @@ export class MatriculaService {
   eliminar(id: number): Observable<Matricula> {
     return this.http
       .delete<Matricula>(
-        `http://localhost:9898/api/matricula/elminarMatricula/${id}`
+        `http://localhost:9898/api/matricula/eliminarMatricula/${id}`
       )
       .pipe(
         catchError((e) => {
-          Swal.fire(e.error.mensaje, e.error.error, 'error');
+          Swal.fire(e.error.mensaje, e.error.error, 'error' );
           return throwError(e);
         })
       );
