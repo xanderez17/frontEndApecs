@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {Matricula} from "../../../../models/Matricula";
-import {Alumno} from "../../../../models/Alumno";
-import {Curso} from "../../../../models/Curso";
-import {Paralelo} from "../../../../models/Paralelo";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AlumnoService} from "../../../../services/alumno.service";
-import {CursosService} from "../../../../services/cursos.service";
-import {ParaleloService} from "../../../../services/paralelo.service";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {DatePipe} from "@angular/common";
-import {MatriculaService} from "../../../../services/matricula.service";
-import {Representante} from "../../../../models/Representante";
+import { Matricula } from '../../../../models/Matricula';
+import { Alumno } from '../../../../models/Alumno';
+import { Curso } from '../../../../models/Curso';
+import { Paralelo } from '../../../../models/Paralelo';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlumnoService } from '../../../../services/alumno.service';
+import { CursosService } from '../../../../services/cursos.service';
+import { ParaleloService } from '../../../../services/paralelo.service';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DatePipe } from '@angular/common';
+import { MatriculaService } from '../../../../services/matricula.service';
 
 @Component({
   selector: 'app-crear-matricula',
@@ -20,7 +19,6 @@ import {Representante} from "../../../../models/Representante";
   providers: [DatePipe],
 })
 export class CrearMatriculaComponent implements OnInit {
-
   numMatricula: any;
   lista = new Matricula();
 
@@ -79,18 +77,24 @@ export class CrearMatriculaComponent implements OnInit {
     this.cursoServicio.listar().subscribe((p: any) => {
       this.listaCursos = p;
     });
-    this.paraleloServicio.listar().subscribe((p:any)=>{
+    this.paraleloServicio.listar().subscribe((p: any) => {
       this.listaParalelos = p;
+    });
+    this.matriculaServicio.listar().subscribe((p: any) => {
+      this.listaMatriculas = p;
+      this.numMatricula = this.listaMatriculas.length;
     });
   }
 
   agregar() {
-    if (this.idEdit) {
-      const fechaMatricula = this.miDatePipe.transform(
+    console.log(this.lista);
+        if (this.idEdit) {
+      const fecha = this.miDatePipe.transform(
         this.lista.fechaMatricula,
         'yyyy-MM-dd'
       );
-      this.lista.fechaMatricula = fechaMatricula;
+      this.lista.fechaMatricula = fecha;
+      
       this.matriculaServicio
         .editar(this.lista, Number(this.idEdit))
         .subscribe((ma) => {
@@ -102,11 +106,12 @@ export class CrearMatriculaComponent implements OnInit {
           this.irLista();
         });
     } else {
-      const fechaMatricula = this.miDatePipe.transform(
+      const fecha = this.miDatePipe.transform(
         this.lista.fechaMatricula,
         'yyyy-MM-dd'
       );
-      this.lista.fechaMatricula = fechaMatricula;
+      this.lista.fechaMatricula = fecha;
+      this.lista.contrato=false;
       this.matriculaServicio.crear(this.lista).subscribe((m) => {
         this._snackBar.open('Matrícula creada!', '', {
           duration: 2500,

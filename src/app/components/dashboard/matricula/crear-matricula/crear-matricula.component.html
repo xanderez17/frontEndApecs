@@ -4,12 +4,10 @@
       <mat-card-title>Formulario Matrícula</mat-card-title>
     </mat-card-header>
 
-
     <mat-card-content>
       <div class="row">
         <mat-label>Matrícula Nº {{ numMatricula }}</mat-label>
       </div>
-
 
       <mat-form-field appearance="legacy">
         <mat-label>Fecha Matrícula</mat-label>
@@ -17,7 +15,7 @@
           matInput
           [matDatepicker]="myDatepicker"
           autocomplete="off"
-          formControlName="fechaContrato"
+          formControlName="fechaMatricula"
           [(ngModel)]="lista.fechaMatricula"
         />
       </mat-form-field>
@@ -34,7 +32,7 @@
           [(ngModel)]="lista.alumno"
         >
           <mat-option *ngFor="let x of listaAlumnos" [value]="x"
-          >{{ x.apellidoPrimer }} {{ x.nombrePrimer }}</mat-option
+            >{{ x.apellidoPrimer }} {{ x.nombrePrimer }}</mat-option
           >
         </mat-select>
       </mat-form-field>
@@ -46,11 +44,11 @@
           autocomplete="off"
           formControlName="curso"
           [compareWith]="compareCurso"
-          [(ngModel)]="lista.curso.titulo"
+          [(ngModel)]="lista.curso"
         >
-          <mat-option *ngFor="let x of listaCursos" [value]="x"
-          >{{x.titulo}}</mat-option
-          >
+          <mat-option *ngFor="let x of listaCursos" [value]="x">{{
+            x.titulo
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -59,16 +57,15 @@
         <mat-select
           matInput
           autocomplete="off"
-          formControlName="representante"
+          formControlName="paralelo"
           [compareWith]="compareParalelo"
           [(ngModel)]="lista.paralelo"
         >
-          <mat-option *ngFor="let x of listaParalelos" [value]="x"
-          >{{x.nombre}}</mat-option
-          >
+          <mat-option *ngFor="let x of listaParalelos" [value]="x">{{
+            x.nombre
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
-
     </mat-card-content>
     <mat-card-actions>
       <button

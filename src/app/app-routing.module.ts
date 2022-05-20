@@ -20,9 +20,10 @@ import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-su
 import { CrearDocenteComponent } from './components/dashboard/docente/crear-docente/crear-docente.component';
 import { ListarDocentesComponent } from './components/dashboard/docente/listar-docentes/listar-docentes.component';
 import {CrearMatriculaComponent} from "./components/dashboard/matricula/crear-matricula/crear-matricula.component";
-import {
-  ListarMatriculasComponent
-} from "./components/dashboard/matricula/listar-matriculas/listar-matriculas.component";
+import {  ListarMatriculasComponent} from "./components/dashboard/matricula/listar-matriculas/listar-matriculas.component";
+
+import { CrearHorariosComponent } from './components/dashboard/horario/crear-horarios/crear-horarios.component';
+import { ListarHorariosComponent } from './components/dashboard/horario/listar-horarios/listar-horarios.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
@@ -65,6 +66,10 @@ const routes: Routes = [
   {path:'dashboard/crear-matricula',component:CrearMatriculaComponent},
   {path:'dashboard/editar-sucursal/:id',component:CrearMatriculaComponent},
   {path:'dashboard/listar-matriculas',component:ListarMatriculasComponent},
+
+  {path:'dashboard/crear-horario',component:CrearHorariosComponent},
+  {path:'dashboard/editar-horario/:id',component:CrearHorariosComponent},
+  {path:'dashboard/listar-horarios',component:ListarHorariosComponent},
 
 
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}

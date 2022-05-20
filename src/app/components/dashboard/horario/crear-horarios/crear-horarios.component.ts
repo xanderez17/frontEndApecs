@@ -6,11 +6,12 @@ import { Horario } from 'src/app/models/Horario';
 import { HorarioService } from 'src/app/services/horario.service';
 
 @Component({
-  selector: 'app-crear-horario',
-  templateUrl: './crear-horario.component.html',
-  styleUrls: ['./crear-horario.component.css']
+  selector: 'app-crear-horarios',
+  templateUrl: './crear-horarios.component.html',
+  styleUrls: ['./crear-horarios.component.css']
 })
-export class CrearHorarioComponent implements OnInit {
+export class CrearHorariosComponent implements OnInit {
+
   lista = new Horario();
 
   form!: FormGroup;

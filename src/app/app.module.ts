@@ -42,6 +42,8 @@ import { ListarSucursalComponent } from './components/dashboard/sucursal/listar-
 import { CrearSucursalComponent } from './components/dashboard/sucursal/crear-sucursal/crear-sucursal.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ListarMatriculasComponent } from './components/dashboard/matricula/listar-matriculas/listar-matriculas.component';
+import { CrearHorariosComponent } from './components/dashboard/horario/crear-horarios/crear-horarios.component';
+import { ListarHorariosComponent } from './components/dashboard/horario/listar-horarios/listar-horarios.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { ListarMatriculasComponent } from './components/dashboard/matricula/list
     ListarSucursalComponent,
     CrearSucursalComponent,
     HeaderComponent,
-    ListarMatriculasComponent
+    ListarMatriculasComponent,
+    CrearHorariosComponent,
+    ListarHorariosComponent
   ],
   imports: [
     BrowserModule,

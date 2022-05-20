@@ -17,7 +17,7 @@ export class ListarMatriculasComponent implements OnInit {
   public lista!: MatTableDataSource<any>;
 
   //Encabezados de Tabla
-  displayedColumns: string[] = ['idMatricula', 'fechaMatricula', 'alumno', 'curso','paralelo','acciones'];
+  displayedColumns: string[] = ['idMatricula', 'fechaMatricula', 'alumno', 'curso','paralelo', 'contrato','acciones'];
 
   //Variables paginador
   length = 100;

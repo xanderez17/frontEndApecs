@@ -7,11 +7,11 @@ import { HorarioService } from 'src/app/services/horario.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-listar-horario',
-  templateUrl: './listar-horario.component.html',
-  styleUrls: ['./listar-horario.component.css']
+  selector: 'app-listar-horarios',
+  templateUrl: './listar-horarios.component.html',
+  styleUrls: ['./listar-horarios.component.css']
 })
-export class ListarHorarioComponent implements OnInit {
+export class ListarHorariosComponent implements OnInit {
   public lista!: MatTableDataSource<any>;
  horario:Horario[] = [];
   //datos encabezado tablas

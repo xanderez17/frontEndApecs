@@ -39,20 +39,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
-        <mat-label>Representante</mat-label>
-        <mat-select
-          matInput
-          autocomplete="off"
-          formControlName="representante"
-          [compareWith]="compareRepresentante"
-          [(ngModel)]="lista.representante"
-        >
-          <mat-option *ngFor="let x of listaRepresentantes" [value]="x"
-          >{{ x.nombrePrimer }} {{ x.apellidoPrimer }}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
+      
 
       <mat-form-field appearance="legacy">
         <mat-label>Forma de pago</mat-label>

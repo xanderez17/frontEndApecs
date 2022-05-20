@@ -25,10 +25,7 @@ export class MatriculaService {
   //Crear Matricula
   crear(matricula: Matricula): Observable<Matricula> {
     return this.http
-      .post<Matricula>(
-        `http://localhost:9898/api/matricula/crearMatricula`,
-        matricula
-      )
+      .post<Matricula>(`http://localhost:9898/api/matricula/`, matricula)
       .pipe(
         map((response: any) => response.matricula as Matricula),
         catchError((e) => {
