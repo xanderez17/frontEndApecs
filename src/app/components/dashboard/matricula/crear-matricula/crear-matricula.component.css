@@ -1,6 +1,11 @@
 .container{
   display: flex;
 }
+.mat-cell{
+ text-align: left;
+padding: 5px;
+
+}
 .mat-form-field{
   padding: 20px;
 }

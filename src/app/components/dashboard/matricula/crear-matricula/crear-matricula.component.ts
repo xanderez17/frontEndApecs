@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Matricula } from '../../../../models/Matricula';
 import { Alumno } from '../../../../models/Alumno';
-import { Curso } from '../../../../models/Curso';
+
 import { Paralelo } from '../../../../models/Paralelo';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlumnoService } from '../../../../services/alumno.service';
@@ -14,6 +14,7 @@ import { MatriculaService } from '../../../../services/matricula.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { Curso } from '../../../../models/Curso';
 
 @Component({
   selector: 'app-crear-matricula',
@@ -22,13 +23,12 @@ import { MatSort } from '@angular/material/sort';
   providers: [DatePipe],
 })
 export class CrearMatriculaComponent implements OnInit {
-
-
   public listaCurso!: MatTableDataSource<any>;
 
   numMatricula: any;
   lista = new Matricula();
   alumno = new Alumno();
+  curso = new Curso();
   listaAlumnos: Alumno[] = [];
   listaParalelos: Paralelo[] = [];
   listaMatriculas: Matricula[] = [];
@@ -38,19 +38,15 @@ export class CrearMatriculaComponent implements OnInit {
 
   displayedColumns: string[] = [
     'titulo',
-
     'categoria',
     'docente',
-
     'duracion',
     'estado',
     'fechaInicio',
-
     'horario',
     'sucursal',
-
-
-
+    'estado',
+    'acciones',
   ];
 
   //varibel paginador
@@ -76,12 +72,9 @@ export class CrearMatriculaComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       fechaMatricula: ['', Validators.required],
-      alumno: ['', Validators.required],
-      curso: ['', Validators.required],
+
       paralelo: ['', Validators.required],
     });
-
-
   }
 
   ngOnInit() {
@@ -102,7 +95,6 @@ export class CrearMatriculaComponent implements OnInit {
     this.paginador._intl.previousPageLabel = 'Anterior';
     this.paginador._intl.firstPageLabel = 'Primera Página';
     this.paginador._intl.lastPageLabel = 'Última Página';
-
   }
 
   cargarDatos(id: number) {
@@ -135,7 +127,6 @@ export class CrearMatriculaComponent implements OnInit {
     this.listaCurso.filter = $event.target.value;
   }
 
-
   //Filtrar Matrícula
   filtrar($event: any) {
     this.alumno = new Alumno();
@@ -143,64 +134,59 @@ export class CrearMatriculaComponent implements OnInit {
     for (let index = 0; index < this.listaAlumnos.length; index++) {
       if ($event.target.value == this.listaAlumnos[index].identificacion) {
         this.alumno = this.listaAlumnos[index];
-
       }
-      console.log(this.alumno)
     }
-
-
-
   }
-  agregar() {
+  seleccionarCurso(curso: any) {
+   this.curso=curso;
+  }
+    agregar() {
+      if (this.idEdit) {
+        const fecha = this.miDatePipe.transform(
+          this.lista.fechaMatricula,
+          'yyyy-MM-dd'
+        );
+        this.lista.fechaMatricula = fecha;
 
-    if (this.idEdit) {
-      const fecha = this.miDatePipe.transform(
-        this.lista.fechaMatricula,
-        'yyyy-MM-dd'
-      );
-      this.lista.fechaMatricula = fecha;
+        this.matriculaServicio
+          .editar(this.lista, Number(this.idEdit))
+          .subscribe((ma) => {
+            this._snackBar.open('Matricula editada!', '', {
+              duration: 2500,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+            });
+            this.irLista();
+          });
+      } else {
+        const fecha = this.miDatePipe.transform(
+          this.lista.fechaMatricula,
+          'yyyy-MM-dd'
+        );
+        this.lista.fechaMatricula = fecha;
+        this.lista.contrato = false;
+        this.lista.alumno = this.alumno;
+        this.lista.curso = this.curso;
 
-      this.matriculaServicio
-        .editar(this.lista, Number(this.idEdit))
-        .subscribe((ma) => {
-          this._snackBar.open('Matricula editada!', '', {
+        this.matriculaServicio.crear(this.lista).subscribe((m) => {
+          this._snackBar.open('Matrícula creada!', '', {
             duration: 2500,
             horizontalPosition: 'center',
             verticalPosition: 'bottom',
           });
           this.irLista();
         });
-    } else {
-      const fecha = this.miDatePipe.transform(
-        this.lista.fechaMatricula,
-        'yyyy-MM-dd'
-      );
-      this.lista.fechaMatricula = fecha;
-      this.lista.contrato = false;
-      this.matriculaServicio.crear(this.lista).subscribe((m) => {
-        this._snackBar.open('Matrícula creada!', '', {
-          duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-        this.irLista();
-      });
 
-      this.irLista();
+        this.irLista();
+      }
+    }
+
+    compareParalelo(x: Paralelo, y: Paralelo): boolean {
+      return x && y ? x.idParalelo === y.idParalelo : x === y;
+    }
+
+
+    irLista() {
+      this.router.navigateByUrl('dashboard/listar-matriculas');
     }
   }
-
-  compareParalelo(x: Paralelo, y: Paralelo): boolean {
-    return x && y ? x.idParalelo === y.idParalelo : x === y;
-  }
-
-  compareAlumno(x: Alumno, y: Alumno): boolean {
-    return x && y ? x.id === y.id : x === y;
-  }
-
-
-  irLista() {
-
-    this.router.navigateByUrl('dashboard/listar-matriculas');
-  }
-}

@@ -4,14 +4,9 @@
       <mat-card-title>Formulario Matrícula</mat-card-title>
     </mat-card-header>
 
-    <mat-form-field appearance="standard">
-      <mat-label>Buscar alumno por cédula</mat-label>
-      <input matInput (keyup)="filtrar($event)" autocomplete="off" #input />
-      <div id="example23_filter" class="dataTables_filter"></div>
-    </mat-form-field>
-
     <mat-card-content>
       <mat-label>Matrícula Nº {{ numMatricula }}</mat-label>
+      <br />
 
       <mat-form-field appearance="legacy">
         <mat-label>Fecha Matrícula</mat-label>
@@ -26,26 +21,33 @@
       <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
       <mat-datepicker #myDatepicker></mat-datepicker>
 
-      <mat-form-field appearance="legacy">
-        <mat-label>identificacion</mat-label>
-        <input matInput autocomplete="off" />
+      <br />
+      <mat-form-field appearance="standard">
+        <mat-label>Buscar alumno por cédula</mat-label>
+        <input matInput (keyup)="filtrar($event)" autocomplete="off" #input />
+        <div id="example23_filter" class="dataTables_filter"></div>
+      </mat-form-field>
 
+      <mat-form-field appearance="legacy">
+        <mat-label>Identificacion</mat-label>
+        <input matInput autocomplete="off" >
+{{lista.alumno.identificacion}}
         {{ alumno.identificacion }}
       </mat-form-field>
 
       <mat-form-field appearance="legacy">
         <mat-label>Apellidos</mat-label>
         <input matInput autocomplete="off" />
-
+        {{ lista.alumno.apellidoPrimer }} {{ lista.alumno.apellidoSegundo }}
         {{ alumno.apellidoPrimer }} {{ alumno.apellidoSegundo }}
       </mat-form-field>
       <mat-form-field appearance="legacy">
         <mat-label>Nombres</mat-label>
         <input matInput autocomplete="off" />
-
+        {{ lista.alumno.nombrePrimer }} {{ lista.alumno.nombreSegundo }}
         {{ alumno.nombrePrimer }} {{ alumno.nombreSegundo }}
       </mat-form-field>
-
+      <br />
       <mat-form-field appearance="standard">
         <mat-label>Buscar curso</mat-label>
         <input
@@ -53,9 +55,10 @@
           (keyup)="filtrarCurso($event)"
           autocomplete="off"
           #input
-        />
+        />{{lista.curso.titulo}}
         <div id="example23_filter" class="dataTables_filter"></div>
       </mat-form-field>
+
       <div class="mat-elevation-z8">
         <table mat-table [dataSource]="listaCurso" matSort>
           <ng-container matColumnDef="titulo">
@@ -121,23 +124,17 @@
             <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
           </ng-container>
 
-          <ng-container matColumnDef="valorCurso">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              Valor Curso
-            </th>
-            <td mat-cell *matCellDef="let element">{{ element.valorCurso }}</td>
-          </ng-container>
-          <ng-container matColumnDef="valorMatricula">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              Valor Matricula
-            </th>
+          <ng-container matColumnDef="acciones">
+
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Seleccionar</th>
             <td mat-cell *matCellDef="let element">
-              {{ element.valorMatricula }}
-            </td>
-          </ng-container>
+              <mat-radio-group [(ngModel)]="element.curso"></mat-radio-group>
+              <mat-radio-button (click)="seleccionarCurso(element)" ></mat-radio-button>
+                      </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
         </table>
 
         <mat-paginator
