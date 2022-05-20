@@ -17,7 +17,7 @@ export class ListarContratosComponent implements OnInit {
   public lista!: MatTableDataSource<any>;
 
   //Encabezados de Tabla
-  displayedColumns: string[] = ['idContrato', 'estado', 'fechaContrato', 'observacion', 'curso','alumno','representante','formaPago','matricula','valorCurso','acciones'];
+  displayedColumns: string[] = ['idContrato', 'estado', 'fechaContrato', 'observacion', 'curso','alumno','representante','formaPago','acciones'];
 
   //Variables paginador
   length = 100;

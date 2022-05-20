@@ -114,8 +114,8 @@ export class CrearContratoComponent implements OnInit {
         'yyyy-MM-dd'
       );
       this.lista.fechaContrato = fechaContrato;
-
-      this.lista.alumno = this.matricula.alumno;
+      this.lista.matricula=this.matricula;
+      
       this.lista.representante = this.representante;
 console.log(this.lista);
 
