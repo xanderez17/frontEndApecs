@@ -5,7 +5,7 @@
     </mat-card-header>
 
     <mat-card-content>
-      <div class="row">
+      
         <mat-form-field appearance="legacy">
           <mat-label>Nombre</mat-label>
           <input
@@ -15,9 +15,7 @@
             [(ngModel)]="lista.nombre"
           />
         </mat-form-field>
-      </div>
 
-      <div class="row">
         <mat-form-field appearance="legacy">
           <mat-label>Aula</mat-label>
           <mat-select
@@ -30,7 +28,7 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-      </div>
+   </mat-card-content>
 
       <mat-card-actions style="text-align: center">
         <button
@@ -51,6 +49,6 @@
           Guardar
         </button>
       </mat-card-actions>
-    </mat-card-content>
+
   </form>
 </mat-card>

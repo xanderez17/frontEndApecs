@@ -5,8 +5,8 @@
     </mat-card-header>
 
     <mat-card-content>
-      <div class="row">
-        <mat-form-field appearance="legacy">
+      
+        <mat-form-field style="width: 300px"appearance="legacy">
           <mat-label>Nombre</mat-label>
           <input
             matInput
@@ -15,9 +15,7 @@
             [(ngModel)]="lista.nombre"
           />
         </mat-form-field>
-      </div>
-
-      <div class="row">
+   
         <mat-form-field appearance="legacy">
           <mat-label>Capacidad</mat-label>
           <input
@@ -28,10 +26,8 @@
             [(ngModel)]="lista.capacidad"
           />
         </mat-form-field>
-      </div>
-
-      <div class="row">
-        <mat-form-field appearance="legacy">
+  
+        <mat-form-field style="width: 200px" appearance="legacy">
           <mat-label>Modalidad</mat-label>
           <input
             matInput
@@ -40,10 +36,8 @@
             [(ngModel)]="lista.modalidad"
           />
         </mat-form-field>
-      </div>
 
-      <div class="row">
-        <mat-form-field appearance="legacy">
+        <mat-form-field style="width: 500px" appearance="legacy">
           <mat-label>Ubicacion</mat-label>
           <input
             matInput
@@ -52,8 +46,7 @@
             [(ngModel)]="lista.ubicacion"
           />
         </mat-form-field>
-      </div>
-    </mat-card-content>
+</mat-card-content>
     <mat-card-actions style="text-align: center">
       <button
         mat-raised-button
