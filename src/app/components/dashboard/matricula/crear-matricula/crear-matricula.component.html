@@ -4,10 +4,14 @@
       <mat-card-title>Formulario Matrícula</mat-card-title>
     </mat-card-header>
 
+    <mat-form-field appearance="standard">
+      <mat-label>Buscar alumno por cédula</mat-label>
+      <input matInput (keyup)="filtrar($event)" autocomplete="off" #input />
+      <div id="example23_filter" class="dataTables_filter"></div>
+    </mat-form-field>
+
     <mat-card-content>
-      <div class="row">
-        <mat-label>Matrícula Nº {{ numMatricula }}</mat-label>
-      </div>
+      <mat-label>Matrícula Nº {{ numMatricula }}</mat-label>
 
       <mat-form-field appearance="legacy">
         <mat-label>Fecha Matrícula</mat-label>
@@ -23,34 +27,128 @@
       <mat-datepicker #myDatepicker></mat-datepicker>
 
       <mat-form-field appearance="legacy">
-        <mat-label>Alumno</mat-label>
-        <mat-select
-          matInput
-          autocomplete="off"
-          formControlName="alumno"
-          [compareWith]="compareAlumno"
-          [(ngModel)]="lista.alumno"
-        >
-          <mat-option *ngFor="let x of listaAlumnos" [value]="x"
-            >{{ x.apellidoPrimer }} {{ x.nombrePrimer }}</mat-option
-          >
-        </mat-select>
+        <mat-label>identificacion</mat-label>
+        <input matInput autocomplete="off" />
+
+        {{ alumno.identificacion }}
       </mat-form-field>
 
       <mat-form-field appearance="legacy">
-        <mat-label>Curso</mat-label>
-        <mat-select
-          matInput
-          autocomplete="off"
-          formControlName="curso"
-          [compareWith]="compareCurso"
-          [(ngModel)]="lista.curso"
-        >
-          <mat-option *ngFor="let x of listaCursos" [value]="x">{{
-            x.titulo
-          }}</mat-option>
-        </mat-select>
+        <mat-label>Apellidos</mat-label>
+        <input matInput autocomplete="off" />
+
+        {{ alumno.apellidoPrimer }} {{ alumno.apellidoSegundo }}
       </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Nombres</mat-label>
+        <input matInput autocomplete="off" />
+
+        {{ alumno.nombrePrimer }} {{ alumno.nombreSegundo }}
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Buscar curso</mat-label>
+        <input
+          matInput
+          (keyup)="filtrarCurso($event)"
+          autocomplete="off"
+          #input
+        />
+        <div id="example23_filter" class="dataTables_filter"></div>
+      </mat-form-field>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="listaCurso" matSort>
+          <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</th>
+            <td mat-cell *matCellDef="let element">{{ element.titulo }}</td>
+          </ng-container>
+          <ng-container matColumnDef="categoria">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Categoria</th>
+            <td mat-cell *matCellDef="let element">{{ element.categoria }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Descripcion
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.descripcion }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="cupos">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cupos</th>
+            <td mat-cell *matCellDef="let element">{{ element.cupos }}</td>
+          </ng-container>
+          <ng-container matColumnDef="duracion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Duracion</th>
+            <td mat-cell *matCellDef="let element">{{ element.duracion }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="docente">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Docente</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.docente.apellidoPrimer }}
+              {{ element.docente.nombrePrimer }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="sucursal">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Sucursal</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.sucursal.nombre }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaInicio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Fecha Inicio
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.fechaInicio }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="horario">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Horario</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.horario.dias }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+            <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="valorCurso">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Valor Curso
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.valorCurso }}</td>
+          </ng-container>
+          <ng-container matColumnDef="valorMatricula">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Valor Matricula
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.valorMatricula }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <mat-paginator
+          [length]="length"
+          [pageSize]="pageSize"
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="pageEvent = $event"
+          aria-label="Select page"
+        >
+        </mat-paginator>
+      </div>
 
       <mat-form-field appearance="legacy">
         <mat-label>Paralelo</mat-label>
