@@ -12,4 +12,5 @@ export class Contrato {
   matricula: Matricula = new Matricula();
   observacion: any;
   representante: Representante = new Representante();
+  curso: Curso = new Curso();
 }

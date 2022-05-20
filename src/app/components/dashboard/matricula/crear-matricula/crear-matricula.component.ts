@@ -147,6 +147,8 @@ export class CrearMatriculaComponent implements OnInit {
           'yyyy-MM-dd'
         );
         this.lista.fechaMatricula = fecha;
+        this.lista.alumno = this.alumno;
+        this.lista.curso = this.curso;
 
         this.matriculaServicio
           .editar(this.lista, Number(this.idEdit))

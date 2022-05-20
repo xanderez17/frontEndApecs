@@ -10,23 +10,22 @@ import { Matricula } from '../models/Matricula';
 })
 export class MatriculaService {
   constructor(private http: HttpClient) {}
-  //Obtener  por id
-  getById(idMatricula: number): Observable<Matricula> {
-    return this.http.get<Matricula>(
-      `http://localhost:9898/api/matricula/listar-matricula/${idMatricula}`
-    );
-  }
-  //Listar todo
+
+  //Listar Matricula
   listar(): Observable<Matricula[]> {
-    return this.http.get<Matricula[]>(
-      `http://localhost:9898/api/matricula/listarMatriculas`
+    return this.http.get<Matricula[]>('http://localhost:9898/api/matricula/listarMatriculas');
+  }
+
+  //Obtener  por id
+  getById(id: number): Observable<Matricula> {
+    return this.http.get<Matricula>(
+      `http://localhost:9898/api/matricula/listar-matricula/${id}`
     );
   }
+
   //Crear Matricula
   crear(matricula: Matricula): Observable<Matricula> {
-    return this.http
-      .post<Matricula>(`http://localhost:9898/api/matricula/`, matricula)
-      .pipe(
+    return this.http.post<Matricula>(`http://localhost:9898/api/matricula/`, matricula).pipe(
         map((response: any) => response.matricula as Matricula),
         catchError((e) => {
           if (e.status == 400) {
@@ -40,12 +39,7 @@ export class MatriculaService {
 
   //Editar matricula
   editar(matricula: Matricula, idMatricula: number): Observable<Matricula> {
-    return this.http
-      .put<Matricula>(
-        `http://localhost:9898/api/matricula/actualizarMatricula/${idMatricula}`,
-        matricula
-      )
-      .pipe(
+    return this.http.put<Matricula>(`http://localhost:9898/api/matricula/actualizarMatricula/${idMatricula}`, matricula).pipe(
         map((response: any) => response.matricula as Matricula),
         catchError((e) => {
           if (e.status == 400) {
@@ -56,11 +50,12 @@ export class MatriculaService {
         })
       );
   }
+
   //Eliminar Matricula
-  eliminar(id: number): Observable<Matricula> {
+  eliminar(idMatricula: number): Observable<Matricula> {
     return this.http
       .delete<Matricula>(
-        `http://localhost:9898/api/matricula/eliminarMatricula/${id}`
+        `http://localhost:9898/api/matricula/eliminarMatricula/${idMatricula}`
       )
       .pipe(
         catchError((e) => {

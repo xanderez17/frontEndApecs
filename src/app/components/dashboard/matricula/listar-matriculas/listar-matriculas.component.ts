@@ -3,7 +3,6 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {MatriculaService} from "../../../../services/matricula.service";
-import {Contrato} from "../../../../models/Contrato";
 import Swal from "sweetalert2";
 import {Matricula} from "../../../../models/Matricula";
 
@@ -13,15 +12,22 @@ import {Matricula} from "../../../../models/Matricula";
   styleUrls: ['./listar-matriculas.component.css']
 })
 export class ListarMatriculasComponent implements OnInit {
-
   public lista!: MatTableDataSource<any>;
 
   //Encabezados de Tabla
-  displayedColumns: string[] = ['idMatricula', 'fechaMatricula', 'alumno', 'curso','paralelo', 'contrato','acciones'];
+  displayedColumns: string[] = [
+    'idMatricula',
+    'fechaMatricula',
+    'alumno',
+    'curso',
+    'paralelo',
+    'contrato',
+    'acciones'
+  ];
 
   //Variables paginador
   length = 100;
-  pageSize = 5;
+  pageSize = 25;
   pageSizeOptions: number[] = [10, 25, 100];
 
   // MatPaginator
@@ -30,11 +36,9 @@ export class ListarMatriculasComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginador!: MatPaginator;
   @ViewChild(MatSort) marSort!: MatSort;
 
-  constructor(private matriculaServicio:MatriculaService) {
-    this.matriculaServicio.listar()
-  }
+  constructor(private matriculaServicio:MatriculaService) {}
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.matriculaServicio.listar().subscribe((response) => {
       this.lista = new MatTableDataSource(response);
       this.lista.paginator = this.paginador;
