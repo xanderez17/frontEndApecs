@@ -117,7 +117,7 @@ export class CrearContratoComponent implements OnInit {
       this.lista.matricula=this.matricula;
       
       this.lista.representante = this.representante;
-console.log(this.lista);
+
 
       this.contratoServicio.crearContrato(this.lista).subscribe((m) => {
         this._snackBar.open('Contrato creado!', '', {
