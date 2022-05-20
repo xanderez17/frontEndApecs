@@ -1,35 +1,30 @@
-<div class="container">
-  <header style="background-color: #0e375d"
-    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-      <img class="logo" src="assets/recursos/apecsSlogan.png" />
-    </a>
-
-    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li>
-        <a href="#" style="color: white" class="nav-link px-2 link-secondary">Inicio</a>
-      </li>
-      <li>
-        <a href="#" style="color: white" class="nav-link px-2 link-dark">Ofimática</a>
-      </li>
-      <li>
-        <a href="#" style="color: white" class="nav-link px-2 link-dark">Especializados</a>
-      </li>
-      <li>
-        <a href="#" style="color: white" class="nav-link px-2 link-dark">Diseño</a>
-      </li>
-      <li>
-        <a href="#" style="color: white" class="nav-link px-2 link-dark">Nosotros</a>
-      </li>
-    </ul>
-
-    <div class="col-md-3 text-end">
-      <button type="button" class="btn btn-outline-primary me-2" routerLink="/login">
-        Login
-      </button>
-      <button class="boton" mat-icon-button matTooltip="Login Usuario">
-        <mat-icon (click)="openDialog()"><span class="material-icons">account_circle</span></mat-icon>
-      </button>
-    </div>
-  </header>
-</div>
+<mat-toolbar style="background-color: #0e375d">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span><img class="logo" src="assets/recursos/apecsSlogan.png" /></span>
+  <span class="example-spacer"></span>
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <li>
+      <a href="#" style="color: white" class="nav-link px-2 link-secondary">Inicio</a>
+    </li>
+    <li>
+      <a href="#" style="color: white" class="nav-link px-2 link-dark">Formación</a>
+    </li>
+    <li>
+      <a href="#" style="color: white" class="nav-link px-2 link-dark">Ubicación</a>
+    </li>
+    <li>
+      <a href="#" style="color: white" class="nav-link px-2 link-dark">Nosotros</a>
+    </li>
+    <li>
+      <a href="#" style="color: white" class="nav-link px-2 link-dark">Edu Virtual</a>
+    </li>
+    <li>
+      <a href="#" style="color: white" class="nav-link px-2 link-dark">Contacto</a>
+    </li>
+  </ul>
+  <button mat-icon-button class="login" matTooltip="Login Usuario">
+    <mat-icon (click)="openDialog()"><span class="material-icons">account_circle</span></mat-icon>
+  </button>
+</mat-toolbar>
