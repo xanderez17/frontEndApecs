@@ -1,64 +1,62 @@
-
-<body>
-  <header>
-    <nav class="navegacion">
-      <h1 class="menuLogo">Apecs</h1>
-
-      <ul class="menu">
+<nav>
+<div class="dropdwn">
+<mat-toolbar style="background-color: #0e375d">
+      <span><img class="logo" src="assets/recursos/apecsSlogan.png" /></span>
+      <span class="example-spacer"></span>
+      <ul class="menu nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="">Inicio</a>
+          <a href="/dashboard" style="color: white" class="nav-link px-2 link-secondary">Inicio</a>
         </li>
-        <li> <a href=" ">Personas </a>
-          <ul class="submenu">
+        <li> <a href=" " style="color: white" class="nav-link px-2 link-secondary">Personas <i class="fas fa-caret-down"></i></a>
+          <ul>
             <li>
-              <a href="/inscripcion">Inscribir</a>
+              <a href="/inscripcion" style="color: white" class="nav-link px-2 link-secondary">Inscribir</a>
             </li>
             <li>
-              <a href="/dashboard/listar-alumnos">Ver Estudiantes</a>
+              <a href="/dashboard/listar-alumnos" style="color: white" class="nav-link px-2 link-secondary">Ver Estudiantes</a>
             </li>
             <li>
-              <a href="/dashboard/crear-docente">Agregar Docente</a>
+              <a href="/dashboard/crear-docente" style="color: white" class="nav-link px-2 link-secondary">Agregar Docente</a>
             </li>
             <li>
-              <a href="/dashboard/listar-docentes">Ver Docentes</a>
+              <a href="/dashboard/listar-docentes" style="color: white" class="nav-link px-2 link-secondary">Ver Docentes</a>
             </li>
             <li>
-              <a href="/dashboard/listar-representantes">Ver Representante</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="">Cursos </a>
-          <ul class="submenu">
-            <li>
-              <a href="/dashboard/crear-curso">Crear Cursos</a>
-            </li>
-            <li>
-              <a href="/dashboard/listar-cursos">Ver Cursos</a>
-            </li>
-            <li>
-              <a href="/dashboard/crear-aula">Crear Aula</a>
-            </li>
-            <li>
-              <a href="/dashboard/listar-aulas">Ver Aulas</a>
-            </li>
-            <li>
-              <a href="dashboard/crear-paralelo">Crear Paralelo</a>
-            </li>
-            <li>
-              <a href="/dashboard/listar-paralelos">Ver Paralelos</a>
-            </li>
-            <li>
-              <a href="dashboard/crear-materia">Crear Materia</a>
-            </li>
-            <li>
-              <a href="/dashboard/listar-materias">Ver Materias</a>
+              <a href="/dashboard/listar-representantes" style="color: white" class="nav-link px-2 link-secondary">Ver Representante</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="">Contratos </a>
+          <a href="" style="color: white" class="nav-link px-2 link-secondary">Cursos <i class="fas fa-caret-down"></i></a>
+          <ul >
+            <li>
+              <a href="/dashboard/crear-curso" style="color: white" class="nav-link px-2 link-secondary">Crear Cursos</a>
+            </li>
+            <li>
+              <a href="/dashboard/listar-cursos" style="color: white" class="nav-link px-2 link-secondary">Ver Cursos</a>
+            </li>
+            <li>
+              <a href="/dashboard/crear-aula" style="color: white" class="nav-link px-2 link-secondary">Crear Aula</a>
+            </li>
+            <li>
+              <a href="/dashboard/listar-aulas" style="color: white" class="nav-link px-2 link-secondary">Ver Aulas</a>
+            </li>
+            <li>
+              <a href="dashboard/crear-paralelo" style="color: white" class="nav-link px-2 link-secondary">Crear Paralelo</a>
+            </li>
+            <li>
+              <a href="/dashboard/listar-paralelos" style="color: white" class="nav-link px-2 link-secondary">Ver Paralelos</a>
+            </li>
+            <li>
+              <a href="dashboard/crear-materia" style="color: white" class="nav-link px-2 link-secondary">Crear Materia</a>
+            </li>
+            <li>
+              <a href="/dashboard/listar-materias" style="color: white" class="nav-link px-2 link-secondary">Ver Materias</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="">Contratos <i class="fas fa-caret-down"></i></a>
           <ul class="submenu">
             <li>
               <a href="/dashboard/crear-contrato">Crear Contrato</a>
@@ -68,10 +66,10 @@
             </li>
           </ul>
         </li>
-        <li>
-          <a href="">Home </a>
-        </li>
       </ul>
-    </nav>
-  </header>
-</body>
+</mat-toolbar>
+</div>
+</nav>
+<router-outlet></router-outlet>
+
+
