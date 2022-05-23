@@ -1,3 +1,4 @@
+import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -25,10 +26,31 @@ export class CrearCatalogoComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
+      duracion: ['', Validators.required],
       descripcion: ['', Validators.required],
-      img: ['', Validators.required],
-      pdf: ['', Validators.required],
+      img: [''],
+      pdf: [''],
+
     });
+  }
+  cargarImg(e: any) {
+    let img = e.target.files
+    let reader = new FileReader();
+    reader.readAsDataURL(img[0]);
+    reader.onloadend = () => {
+   
+this.lista.img=reader.result;
+    }
+  }
+
+  cargarPDF(e: any) {
+    let pdf = e.target.files
+    let reader = new FileReader();
+    reader.readAsDataURL(pdf[0]);
+    reader.onloadend = () => {
+   
+this.lista.pdf=reader.result;
+    }
   }
 
   ngOnInit(): void {

@@ -1,11 +1,11 @@
-<mat-card class="container">
+<div class="container">
   <form [formGroup]="form" appearance="standard">
     <mat-card-header>
       <mat-card-title>Formulario Docentes</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 150px" appearance="legacy">
         <mat-label>Primer nombre</mat-label>
         <input
           matInput
@@ -15,7 +15,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 150px" appearance="legacy">
         <mat-label>Segundo nombre</mat-label>
         <input
           matInput
@@ -25,7 +25,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 200px" appearance="legacy">
         <mat-label>Primer Apellido</mat-label>
         <input
           matInput
@@ -35,7 +35,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 200px" appearance="legacy">
         <mat-label>Segundo Apellido</mat-label>
         <input
           matInput
@@ -45,7 +45,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 150px" appearance="legacy">
         <mat-label>Identificación</mat-label>
         <input
           matInput
@@ -57,7 +57,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 300px" appearance="legacy">
         <mat-label>Direccion</mat-label>
         <input
           matInput
@@ -67,7 +67,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 200px" appearance="legacy">
         <mat-label>Correo</mat-label>
         <input
           matInput
@@ -78,7 +78,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 160px" appearance="legacy">
         <mat-label>Fecha de Nacimiento</mat-label>
         <input
           matInput
@@ -91,7 +91,7 @@
       <mat-datepicker-toggle [for]="myDatepicker1"></mat-datepicker-toggle>
       <mat-datepicker #myDatepicker1></mat-datepicker>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 160px" appearance="legacy">
         <mat-label>Teléfono</mat-label>
         <input
           matInput
@@ -101,15 +101,20 @@
           [(ngModel)]="lista.telefono"
         />
       </mat-form-field>
-
-      <mat-radio-group formControlName="sexo" [(ngModel)]="lista.sexo">
-        <br>
-        <label id="example-radio-group-label">Sexo: </label>
-        <mat-radio-button value="Masculino">Masculino</mat-radio-button>
-        <mat-radio-button value="Femenino">Femenino</mat-radio-button>
+      <mat-radio-group
+        style="width: 180px"
+        formControlName="sexo"
+        [(ngModel)]="lista.sexo"
+      >
+        <label
+          >Sexo:
+          <br />
+          <mat-radio-button value="Masculino">Masculino</mat-radio-button>
+          <mat-radio-button value="Femenino">Femenino</mat-radio-button></label
+        >
       </mat-radio-group>
 
-      <mat-form-field appearance="legacy">
+      <mat-form-field style="width: 300px" appearance="legacy">
         <mat-label>Especialidad</mat-label>
         <input
           matInput
@@ -119,17 +124,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="legacy">
-        <mat-label>Curriculum</mat-label>
-        <input
-          matInput
-          autocomplete="off"
-          formControlName="curriculum"
-          [(ngModel)]="lista.curriculum"
-        />
-      </mat-form-field>
-
-      <mat-form-field style="width: 300px" appearance="legacy">
+      <mat-form-field style="width: 200px" appearance="legacy">
         <mat-label>Sucursal</mat-label>
         <mat-select
           matInput
@@ -142,6 +137,16 @@
             >{{ x.nombre }}
           </mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field style="width: 500px" appearance="legacy">
+        <mat-label>Curriculum</mat-label>
+        <textarea
+          matInput
+          autocomplete="off"
+          formControlName="curriculum"
+          [(ngModel)]="lista.curriculum"
+        ></textarea>
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions style="text-align: center">
@@ -164,4 +169,4 @@
       </button>
     </mat-card-actions>
   </form>
-</mat-card>
+</div>

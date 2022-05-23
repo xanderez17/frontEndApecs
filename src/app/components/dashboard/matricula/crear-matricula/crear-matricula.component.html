@@ -55,7 +55,7 @@
           (keyup)="filtrarCurso($event)"
           autocomplete="off"
           #input
-        />{{ lista.curso.titulo }}
+        />{{ lista.curso.catalogo.nombre }}
         <div id="example23_filter" class="dataTables_filter"></div>
       </mat-form-field>
 
@@ -63,7 +63,7 @@
         <table mat-table [dataSource]="listaCurso" matSort>
           <ng-container matColumnDef="titulo">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</th>
-            <td mat-cell *matCellDef="let element">{{ element.titulo }}</td>
+            <td mat-cell *matCellDef="let element">{{ element.catalogo.nombre }}</td>
           </ng-container>
           <ng-container matColumnDef="categoria">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Categoria</th>

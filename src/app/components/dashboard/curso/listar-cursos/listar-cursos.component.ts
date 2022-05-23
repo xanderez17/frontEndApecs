@@ -16,28 +16,23 @@ export class ListarCursosComponent implements OnInit {
   lista1: Curso[] = [];
   //datos encabezado tablas
   displayedColumns: string[] = [
+    'titulo',
     'categoria',
-    'catalogo',
     'docente',
     'cupos',
-    'descripcion',
     'duracion',
     'estado',
-    'fechaInicio',
-   
     'fechaInscripcion',
-
+    'fechaInicio',    
     'horario',
     'sucursal',
-    'titulo',
-   
-    'acciones'
+    'acciones',
   ];
 
   //varibel paginador
   length = 100;
   pageSize = 25;
-  pageSizeOptions: number[] = [ 25,50, 100];
+  pageSizeOptions: number[] = [25, 50, 100];
   // MatPaginator
   pageEvent!: PageEvent;
 
@@ -76,7 +71,7 @@ export class ListarCursosComponent implements OnInit {
     swalWithBootstrapButtons
       .fire({
         title: '¿Estas  seguro?',
-        text: `¿Seguro que quieres eliminar ${curso.titulo} ?`,
+        text: `¿Seguro que quieres eliminar ${curso.catalogo.nombre} ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar!',
@@ -88,7 +83,7 @@ export class ListarCursosComponent implements OnInit {
           this.cursoServicio.eliminar(curso.idCurso).subscribe((resp) => {
             swalWithBootstrapButtons.fire(
               'Eliminada!',
-              `${curso.titulo} ha  sido eliminado correctamente!`,
+              `${curso.catalogo.nombre} ha  sido eliminado correctamente!`,
               'success'
             );
           });

@@ -6,5 +6,5 @@ export class Parentezco{
   idParentezco:any;
   representante:Representante = new Representante();
   alumno: Alumno= new Alumno();
-  parentezco:any;
+  relacionParentezco:any;
 }

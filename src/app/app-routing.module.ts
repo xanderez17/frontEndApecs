@@ -26,6 +26,9 @@ import { CrearHorariosComponent } from './components/dashboard/horario/crear-hor
 import { ListarHorariosComponent } from './components/dashboard/horario/listar-horarios/listar-horarios.component';
 import { CrearRepresentanteComponent } from './components/dashboard/Representante/crear-representante/crear-representante.component';
 import { ListarRepresentanteComponent } from './components/dashboard/Representante/listar-representante/listar-representante.component';
+import { EditarRepresentanteComponent } from './components/dashboard/Representante/editar-representante/editar-representante.component';
+import { CrearParentezcoComponent } from './components/dashboard/parentezco/crear-parentezco/crear-parentezco.component';
+import { ListarParentezcoComponent } from './components/dashboard/parentezco/listar-parentezco/listar-parentezco.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
@@ -78,9 +81,18 @@ const routes: Routes = [
   {path:'dashboard/editar-contrato/:id',component:CrearContratoComponent},
   {path:'dashboard/listar-contato',component:ListarContratosComponent},
 
-  {path:'dashboard/crear-representante',component:CrearRepresentanteComponent},
-  {path:'dashboard/editar-representante/:id',component:CrearRepresentanteComponent},
-  {path:'dashboard/listar-representante',component:ListarRepresentanteComponent},
+
+  {path:'dashboard/crear-representante',component:EditarRepresentanteComponent},
+  {path:'dashboard/editar-representante/:id',component:EditarRepresentanteComponent},
+  {path:'dashboard/listar-representantes',component:ListarRepresentanteComponent},
+
+
+
+  {path:'dashboard/crear-parentezco',component:CrearParentezcoComponent},
+  {path:'dashboard/editar-parentezco/:id',component:CrearParentezcoComponent},
+  {path:'dashboard/listar-parentezco',component:ListarParentezcoComponent},
+
+
   {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
 
 ];

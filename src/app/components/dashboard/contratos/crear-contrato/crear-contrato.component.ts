@@ -9,6 +9,10 @@ import { Representante } from '../../../../models/Representante';
 import { Matricula } from 'src/app/models/Matricula';
 import { MatriculaService } from 'src/app/services/matricula.service';
 import { RepresentanteService } from 'src/app/services/representante.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CrearRepresentanteComponent } from '../../Representante/crear-representante/crear-representante.component';
+import { Parentezco } from 'src/app/models/Perentezco';
+import { ParentezcoService } from 'src/app/services/parentezco.service';
 @Component({
   selector: 'app-crear-contrato',
   templateUrl: './crear-contrato.component.html',
@@ -18,7 +22,7 @@ import { RepresentanteService } from 'src/app/services/representante.service';
 export class CrearContratoComponent implements OnInit {
   numContrato: any;
   lista = new Contrato();
-
+  listaParentezco = new Parentezco();
   matricula = new Matricula();
   representante = new Representante();
   listaRepresentantes: Representante[] = [];
@@ -28,12 +32,14 @@ export class CrearContratoComponent implements OnInit {
   constructor(
     private contratoServicio: ContratoService,
     private matriculaServicio: MatriculaService,
+    private parentezcoServicio: ParentezcoService,
     private representanteServicio: RepresentanteService,
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private _snackBar: MatSnackBar,
-    private miDatePipe: DatePipe
+    private miDatePipe: DatePipe,
+    private dialog: MatDialog
   ) {
     this.validar();
   }
@@ -45,6 +51,9 @@ export class CrearContratoComponent implements OnInit {
       this.idEdit = p.get('id');
     });
     this.cargarDatos(Number(this.idEdit));
+    this.representanteServicio.listar().subscribe((p: any) => {
+      this.listaRepresentantes = p;
+    });
   }
   validar() {
     this.form = this.fb.group({
@@ -52,12 +61,36 @@ export class CrearContratoComponent implements OnInit {
       fechaContrato: ['', Validators.required],
       formaPago: ['', Validators.required],
       observacion: ['', Validators.required],
+      parentezco: [''],
+      Cursoduracion: [''],
+      repreId: [''],
+      repreApellido: [''],
+      repreApellido2: [''],
+      repreNombre: [''],
+      alumnoId: [''],
+      alumnoApellido: [''],
+      alumnoApellido2: [''],
+      alumnoNombre: [''],
+      alumnoNombre2: [''],
+      alumnoSexo: [''],
+      alumnoFechaNa: [''],
+      alumnoDir: [''],
+      alumnoTelf: [''],
+      alumnoCargo: [''],
+      alumnoOcu: [''],
+      cursoNombre: [''],
+      cursoDes: [''],
+      cursoDuracion: [''],
+      cursoSeminarios: [''],
+      cursoDias: [''],
+      cursoHinicio: [''],
+      cursoHfin: [''],
+      cursoValorM: [''],
+      cursoValorC: [''],
     });
   }
   cargarDatos(id: number) {
-    this.representanteServicio.listar().subscribe((p: any) => {
-      this.listaRepresentantes = p;
-    });
+
     if (!id) {
       return;
     }
@@ -83,7 +116,6 @@ export class CrearContratoComponent implements OnInit {
         $event.target.value == this.listaRepresentantes[index].identificacion
       ) {
         this.representante = this.listaRepresentantes[index];
-        console.log(this.representante);
       }
     }
   }
@@ -96,8 +128,6 @@ export class CrearContratoComponent implements OnInit {
       );
       this.lista.fechaContrato = fechaContrato;
 
-      this.lista.alumno = this.matricula.alumno;
-      this.lista.representante = this.representante;
       this.contratoServicio
         .editarContrato(this.lista, Number(this.idEdit))
         .subscribe((ma) => {
@@ -109,29 +139,31 @@ export class CrearContratoComponent implements OnInit {
           this.irLista();
         });
     } else {
+      this.listaParentezco.alumno = this.matricula.alumno;
+      this.listaParentezco.representante = this.representante;
+      this.parentezcoServicio.crear(this.listaParentezco);
+
       const fechaContrato = this.miDatePipe.transform(
         this.lista.fechaContrato,
         'yyyy-MM-dd'
       );
       this.lista.fechaContrato = fechaContrato;
-      this.lista.matricula=this.matricula;
-      
+      this.lista.matricula = this.matricula;
       this.lista.representante = this.representante;
-
-
       this.contratoServicio.crearContrato(this.lista).subscribe((m) => {
         this._snackBar.open('Contrato creado!', '', {
           duration: 2500,
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
-        this.irLista();
       });
 
       this.irLista();
     }
   }
-
+  openDialog() {
+    this.dialog.open(CrearRepresentanteComponent);
+  }
   compareRepresentante(x: Representante, y: Representante): boolean {
     return x && y ? x.id === y.id : x === y;
   }

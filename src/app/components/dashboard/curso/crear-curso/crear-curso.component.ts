@@ -92,17 +92,17 @@ export class CrearCursoComponent implements OnInit {
     this.form = this.fb.group({
       categoria: ['', Validators.required],
       cupos: ['', Validators.required],
-      descripcion: ['', Validators.required],
+      descripcion: [''],
       docente: ['', Validators.required],
-      duracion: ['', Validators.required],
+      duracion: [''],
       fechaInicio: ['', Validators.required],
       fechaFin: ['', Validators.required],
       fechaInscripcion: ['', Validators.required],
       horario: ['', Validators.required],
       modalidad: ['', Validators.required],
       seminarios: ['', Validators.required],
-      titulo: ['', Validators.required],
-     
+      titulo: [''],
+      img: [''],
       estado: ['', Validators.required],
       valorMatricula: ['', Validators.required],
       valorCurso: ['', Validators.required],
@@ -179,6 +179,7 @@ export class CrearCursoComponent implements OnInit {
       );
       this.lista.fechaFin = fechaFin;
       this.lista.catalogo = this.catalogos;
+      
       console.log(this.lista)
       this.cursoServicio.crear(this.lista).subscribe((m) => {
         this._snackBar.open('Curso creada!', '', {

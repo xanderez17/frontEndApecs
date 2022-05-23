@@ -1,69 +1,85 @@
-<mat-card class="container">
+<div class="container">
   <form [formGroup]="form" appearance="standard">
     <mat-card-header>
       <mat-card-title>Formulario Catálogos</mat-card-title>
     </mat-card-header>
 
-    <mat-card-content>
-      <mat-form-field style="width: 500px" appearance="legacy">
-        <mat-label>Nombre</mat-label>
-        <input
-          matInput
-          autocomplete="off"
-          formControlName="nombre"
-          [(ngModel)]="lista.nombre"
-        />
-      </mat-form-field>
+    <mat-form-field style="width: 400px" appearance="legacy">
+      <mat-label>Nombre</mat-label>
+      <input
+        matInput
+        autocomplete="off"
+        formControlName="nombre"
+        [(ngModel)]="lista.nombre"
+      />
+    </mat-form-field>
+    <mat-form-field style="width: 120px" appearance="legacy">
+      <mat-label>Duracion</mat-label>
+      <input
+        matInput
+        type="number"
+        autocomplete="off"
+        formControlName="duracion"
+        [(ngModel)]="lista.duracion"
+      />
+    </mat-form-field>
+    <mat-form-field style="width: 500px;" appearance="legacy">
+      <mat-label>Descripcion</mat-label>
+      <textarea
+        matInput
+        autocomplete="off"
+        formControlName="descripcion"
+        [(ngModel)]="lista.descripcion"
+      ></textarea>
+    </mat-form-field>
 
-      <mat-form-field style="width: 500px" appearance="legacy">
-        <mat-label>Descripcion</mat-label>
-        <textarea
-          matInput
-          autocomplete="off"
-          formControlName="descripcion"
-          [(ngModel)]="lista.descripcion"
-        ></textarea>
-      </mat-form-field>
+   
+   <br>
+      <label   for="inputFile">Subir Foto</label><br />
+      <input
+    
+        id="inputFile"
+        type="file"
+        formControlName="img"
+        accept=".png, .jpg, .jpeg"
+        (change)="cargarImg($event)"
+        [(ngModel)]="lista.img"
+      /><br>
+      <img style="width: 400px;" src="{{ lista.img }}" alt="" />
+     
+  
+    <div class="col-sm-4">
+      <label for="inputFile2">Subir PDF</label><br />
 
-      <mat-form-field appearance="legacy">
-        <mat-label>Imagen</mat-label>
-        <input
-          matInput
-          autocomplete="off"
-          formControlName="img"
-          [(ngModel)]="lista.img"
-        />
-      </mat-form-field>
+      <input
+        id="inputFile2"
+        type="file"
+        formControlName="pdf"
+        accept=".pdf"
+        (change)="cargarPDF($event)"
+        [(ngModel)]="lista.pdf"
+      />
+      <img src="{{ lista.pdf }}" alt="" />
+    </div>
 
-      <mat-form-field appearance="legacy">
-        <mat-label>PDF</mat-label>
-        <input
-          matInput
-          autocomplete="off"
-          formControlName="pdf"
-          [(ngModel)]="lista.pdf"
-        />
-      </mat-form-field>
-
-      <mat-card-actions style="text-align: center">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="irLista()"
-          style="margin-right: 20px"
-        >
-          Volver
-        </button>
-        <button
-          type="submit"
-          [disabled]="form.invalid"
-          mat-raised-button
-          color="accent"
-          (click)="agregar()"
-        >
-          Guardar
-        </button>
-      </mat-card-actions>
-    </mat-card-content>
-  </form>
-</mat-card>
+    <mat-card-actions style="align-items: center">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="irLista()"
+        style="margin-right: 20px"
+      >
+        Volver
+      </button>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        mat-raised-button
+        color="accent"
+        (click)="agregar()"
+      >
+        Guardar
+      </button>
+    </mat-card-actions>
+</form>
+</div>

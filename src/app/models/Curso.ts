@@ -9,8 +9,6 @@ export class Curso {
   catalogo: Catalogo = new Catalogo();
   docente: Docente = new Docente();
   cupos: any;
-  descripcion: any;
-  duracion: any;
   estado: any;
   fechaInicio: any;
   fechaFin: any;
@@ -19,7 +17,6 @@ export class Curso {
   seminarios: any;
   horario: Horario= new Horario();
   sucursal: Sucursal = new Sucursal();
-  titulo: any;
   valorCurso: any;
   valorMatricula: any;
 

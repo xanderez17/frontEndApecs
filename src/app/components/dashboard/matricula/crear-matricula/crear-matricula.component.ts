@@ -127,7 +127,7 @@ export class CrearMatriculaComponent implements OnInit {
     this.listaCurso.filter = $event.target.value;
   }
 
-  //Filtrar Matrícula
+  //Filtrar Alumno
   filtrar($event: any) {
     this.alumno = new Alumno();
 

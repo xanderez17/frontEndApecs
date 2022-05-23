@@ -49,9 +49,7 @@ export class CrearAulaComponent implements OnInit {
       this.lista = m;
     });
   }
-  compareAula(x: Aula, y: Aula): boolean {
-    return x && y ? x.idAula === y.idAula : x === y;
-  }
+ 
   agregar() {
     if (this.idEdit) {
       this.aulaServicio

@@ -4,4 +4,5 @@ export class Catalogo{
   nombre: any;
   img: any;
   pdf: any;
+    duracion: any;
 }

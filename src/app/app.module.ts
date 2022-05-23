@@ -46,7 +46,9 @@ import { CrearHorariosComponent } from './components/dashboard/horario/crear-hor
 import { ListarHorariosComponent } from './components/dashboard/horario/listar-horarios/listar-horarios.component';
 import { ListarRepresentanteComponent } from './components/dashboard/Representante/listar-representante/listar-representante.component';
 import { CrearRepresentanteComponent } from './components/dashboard/Representante/crear-representante/crear-representante.component';
-import { CrearRepresentanteDirective } from './components/dashboard/Representante/crear-representante.directive';
+import { EditarRepresentanteComponent } from './components/dashboard/Representante/editar-representante/editar-representante.component';
+import { CrearParentezcoComponent } from './components/dashboard/parentezco/crear-parentezco/crear-parentezco.component';
+import { ListarParentezcoComponent } from './components/dashboard/parentezco/listar-parentezco/listar-parentezco.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { CrearRepresentanteDirective } from './components/dashboard/Representant
     ListarHorariosComponent,
     ListarRepresentanteComponent,
     CrearRepresentanteComponent,
-    CrearRepresentanteDirective
+    EditarRepresentanteComponent,
+    CrearParentezcoComponent,
+    ListarParentezcoComponent,
   ],
   imports: [
     BrowserModule,

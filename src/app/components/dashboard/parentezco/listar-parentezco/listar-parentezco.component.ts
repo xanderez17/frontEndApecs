@@ -3,20 +3,26 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Aula } from 'src/app/models/Aula';
-import { AulaService } from 'src/app/services/aula.service';
+import { Parentezco } from 'src/app/models/Perentezco';
+import { ParentezcoService } from 'src/app/services/parentezco.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-listar-aulas',
-  templateUrl: './listar-aulas.component.html',
-  styleUrls: ['./listar-aulas.component.css']
+  selector: 'app-listar-parentezco',
+  templateUrl: './listar-parentezco.component.html',
+  styleUrls: ['./listar-parentezco.component.css'],
 })
-export class ListarAulasComponent implements OnInit {
+export class ListarParentezcoComponent implements OnInit {
 
   public lista!: MatTableDataSource<any>;
-//datos encabezado tablas
-  displayedColumns: string[] = ['nombre','capacidad','modalidad','ubicacion', 'acciones'];
+  //datos encabezado tablas
+  displayedColumns: string[] = [
+    'representante',
+    'telefono',
+    'alumno',
+    'parentezco',
+    'acciones',
+  ];
 
   //varibel paginador
   length = 100;
@@ -28,19 +34,13 @@ export class ListarAulasComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginador!: MatPaginator;
   @ViewChild(MatSort) marSort!: MatSort;
 
-  constructor(
-    private router: Router,
-    private aulaServicio: AulaService
-    ) {
-  }
+  constructor(private router: Router, private servicio: ParentezcoService) {}
 
   ngOnInit() {
-
-    this.aulaServicio.listar().subscribe((response) => {
+    this.servicio.listar().subscribe((response) => {
       this.lista = new MatTableDataSource(response);
       this.lista.paginator = this.paginador;
       this.lista.sort = this.marSort;
-
     });
     this.paginador._intl.itemsPerPageLabel = 'Registros por página:';
     this.paginador._intl.nextPageLabel = 'Siguiente';
@@ -48,14 +48,13 @@ export class ListarAulasComponent implements OnInit {
     this.paginador._intl.firstPageLabel = 'Primera Página';
     this.paginador._intl.lastPageLabel = 'Última Página';
   }
-// filtrar
+  // filtrar
   filtrar($event: any) {
     this.lista.filter = $event.target.value;
-
   }
 
-//emininar
-  eliminar(p: Aula) {
+  //emininar
+  eliminar(p: Parentezco) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -67,7 +66,7 @@ export class ListarAulasComponent implements OnInit {
     swalWithBootstrapButtons
       .fire({
         title: '¿Estas  seguro?',
-        text: `¿Seguro que quieres eliminar  aula ${p.nombre} ?`,
+        text: `¿Seguro que quieres eliminar  ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar!',
@@ -76,18 +75,16 @@ export class ListarAulasComponent implements OnInit {
       })
       .then((result) => {
         if (result.value) {
-          this.aulaServicio.eliminar(p.idAula).subscribe((resp) => {
-            this.router.navigateByUrl('dashboard/listar-aulas');
+          this.servicio.eliminar(p.idParentezco).subscribe((resp) => {
+            this.router.navigateByUrl('dashboard/listar-parentezco');
             swalWithBootstrapButtons.fire(
               'Eliminada!',
-              `Aula ${p.nombre} ha  sido eliminada correctamente!`,
+              `Se ha  sido eliminada correctamente!`,
               'success'
             );
-
           });
-        } location.reload();
+        }
+        location.reload();
       });
-
   }
-
 }

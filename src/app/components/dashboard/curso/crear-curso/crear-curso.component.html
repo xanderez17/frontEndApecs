@@ -5,41 +5,33 @@
     </mat-card-header>
 
     <mat-card-content>
-      <mat-form-field style="width: 500px" appearance="legacy">
+      <mat-form-field style="width: 400px" appearance="legacy">
         <mat-label>Titulo</mat-label>
         <input
           matInput
           autocomplete="off"
           formControlName="titulo"
-          [(ngModel)]="lista.titulo"
-        />
-      </mat-form-field>
-      <mat-form-field style="width: 200px" appearance="legacy">
-        <mat-label>Catalogo</mat-label>
-        <input
-          matInput
-          autocomplete="off"
-          formControlName="catalogo"
           [(ngModel)]="lista.catalogo.nombre"
-        
-        />  {{catalogos.nombre}}
-      </mat-form-field>
-      <mat-form-field style="width: 150px" appearance="legacy">
-        <mat-label>Modalidad</mat-label>
-        <mat-select formControlName="modalidad" [(ngModel)]="lista.modalidad">
-          <mat-option value="Presencial">Presencial</mat-option>
-          <mat-option value="virtual">Virtual</mat-option>
-        </mat-select>
+        />
+        {{ catalogos.nombre }}
       </mat-form-field>
 
       <mat-form-field style="width: 500px" appearance="legacy">
         <mat-label>Descripcion</mat-label>
         <textarea
           matInput
-          autocomplete="off"
           formControlName="descripcion"
-          [(ngModel)]="lista.descripcion"
+          [(ngModel)]="lista.catalogo.descripcion"
         ></textarea>
+        {{ catalogos.descripcion }}
+      </mat-form-field>
+
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label>Modalidad</mat-label>
+        <mat-select formControlName="modalidad" [(ngModel)]="lista.modalidad">
+          <mat-option value="Presencial">Presencial</mat-option>
+          <mat-option value="virtual">Virtual</mat-option>
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field style="width: 200px" appearance="legacy">
@@ -51,8 +43,6 @@
           [(ngModel)]="lista.categoria"
         />
       </mat-form-field>
-
-     
 
       <mat-form-field style="width: 100px" appearance="legacy">
         <mat-label>Cupos</mat-label>
@@ -72,8 +62,8 @@
           type="number"
           autocomplete="off"
           formControlName="duracion"
-          [(ngModel)]="lista.duracion"
-        />
+          [(ngModel)]="lista.catalogo.duracion"
+        />{{catalogos.duracion}}
       </mat-form-field>
 
       <mat-form-field style="width: 170px" appearance="legacy">
@@ -200,6 +190,10 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <br />
+      <input type="file" appearance="legacy"   formControlName="img" [(ngModel)]="lista.catalogo.img">
+       <br> <img  style="width: 400px" src="{{ catalogos.img }}" alt="" />
+      
     </mat-card-content>
 
     <mat-card-actions>
