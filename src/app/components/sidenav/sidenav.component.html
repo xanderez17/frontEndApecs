@@ -8,13 +8,28 @@
   </div>
 
   <ul class="sidenav-nav">
-    <li class="sidenav-nav-item" *ngFor="let data of navData">
-      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]">
-        <i class="sidenav-link-icon" [class]="data.icon"></i>
-        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+
+
+    <li class="sidenav-nav-item" *ngFor="let item of menuItems">
+      <a class="sidenav-nav-link" href="#" align-middle px-0>
+        <i [class]="item.icono"></i> <span class="sidenav-link-text" *ngIf="collapsed"></span>
+
+        <p class="m-2">
+          {{ item.titulo }}
+          <span class="badge badge-warming ml-2">{{
+            item.submenu.length
+            }}</span>
+          <i class="right fas fa-angle-left"></i>
+        </p>
       </a>
+      <ul class="collapse show nav flex-column ms-1">
+        <li class="sidenav-nav-item" *ngFor="let submenu of item.submenu">
+          <a class="sidenav-nav-link" [routerLink]="submenu.url" style="cursor: pointer">
+            <i class="{{ submenu.icono }}"></i>
+            <p class="sidenav-link-text" >{{ submenu.titulo }}</p>
+          </a>
+        </li>
+      </ul>
     </li>
-
   </ul>
-
-</div>
+  </div>
