@@ -1,4 +1,4 @@
-<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
   <div class="logo-container">
     <button class="logo" (click)="toggleCollapse()">A</button>
     <div class="logo-text" *ngIf="collapsed">Apecs</div>
@@ -8,28 +8,29 @@
   </div>
 
   <ul class="sidenav-nav">
-
-
     <li class="sidenav-nav-item" *ngFor="let item of menuItems">
       <a class="sidenav-nav-link" href="#" align-middle px-0>
-        <i [class]="item.icono"></i> <span class="sidenav-link-text" *ngIf="collapsed"></span>
+        <i [class]="item.icono"></i>
+        <span class="sidenav-nav-item{" *ngIf="collapsed"></span>
 
-        <p class="m-2">
-          {{ item.titulo }}
-          <span class="badge badge-warming ml-2">{{
-            item.submenu.length
-            }}</span>
+        <p class="m-2">    {{ item.titulo }}
+          <span class="badge badge-warming ml-2">{{ item.submenu.length
+          }}</span>
           <i class="right fas fa-angle-left"></i>
         </p>
       </a>
       <ul class="collapse show nav flex-column ms-1">
         <li class="sidenav-nav-item" *ngFor="let submenu of item.submenu">
-          <a class="sidenav-nav-link" [routerLink]="submenu.url" style="cursor: pointer">
+          <a
+            class="sidenav-nav-link"
+            [routerLink]="submenu.url"
+            style="cursor: pointer"
+          >
             <i class="{{ submenu.icono }}"></i>
-            <p class="sidenav-link-text" >{{ submenu.titulo }}</p>
+            <p class="sidenav-nav-item">{{ submenu.titulo }}</p>
           </a>
         </li>
       </ul>
     </li>
   </ul>
-  </div>
+</div>
