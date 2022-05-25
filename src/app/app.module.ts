@@ -49,6 +49,9 @@ import { CrearRepresentanteComponent } from './components/dashboard/Representant
 import { EditarRepresentanteComponent } from './components/dashboard/Representante/editar-representante/editar-representante.component';
 import { CrearParentezcoComponent } from './components/dashboard/parentezco/crear-parentezco/crear-parentezco.component';
 import { ListarParentezcoComponent } from './components/dashboard/parentezco/listar-parentezco/listar-parentezco.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HomeComponent } from './components/home/home.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +90,9 @@ import { ListarParentezcoComponent } from './components/dashboard/parentezco/lis
     EditarRepresentanteComponent,
     CrearParentezcoComponent,
     ListarParentezcoComponent,
+    SidebarComponent,
+    HomeComponent,
+    PrincipalComponent,
   ],
   imports: [
     BrowserModule,

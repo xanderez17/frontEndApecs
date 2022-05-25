@@ -29,12 +29,21 @@ import { ListarRepresentanteComponent } from './components/dashboard/Representan
 import { EditarRepresentanteComponent } from './components/dashboard/Representante/editar-representante/editar-representante.component';
 import { CrearParentezcoComponent } from './components/dashboard/parentezco/crear-parentezco/crear-parentezco.component';
 import { ListarParentezcoComponent } from './components/dashboard/parentezco/listar-parentezco/listar-parentezco.component';
+import {HOME} from "@angular/cdk/keycodes";
+import {HomeComponent} from "./components/home/home.component";
+import {PrincipalComponent} from "./components/principal/principal.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'inicio', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path:'home', component:HomeComponent},
+  {path:'principal', component:PrincipalComponent},
+
   {path:'inicio', component:CuerpoComponent},
   {path:'login', component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
+
+
+
 
   {path:'dashboard/crear-curso/:idC',component:CrearCursoComponent},
   {path:'dashboard/editar-cursos/:id',component:CrearCursoComponent},
@@ -92,8 +101,7 @@ const routes: Routes = [
   {path:'dashboard/editar-parentezco/:id',component:CrearParentezcoComponent},
   {path:'dashboard/listar-parentezco',component:ListarParentezcoComponent},
 
-
-  {path: '**', redirectTo: 'inicio', pathMatch: 'full'}
+  {path: '**', redirectTo: 'home', pathMatch: 'full'}
 
 ];
 
