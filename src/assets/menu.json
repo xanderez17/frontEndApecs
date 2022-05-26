@@ -2,20 +2,21 @@
   {
     "text": "Dashboard",
     "icon": "dashboard",
+
     "routerLink": "/"
   },
   {
     "text": "Gestión de Cursos",
-    "icon": "inventory_2",
+    "icon": "groups_2",
     "children": [
       {
-        "text": "Crear Catalogo",
-        "icon": "category",
+        "text": "Crear Catálogo",
+        "icon": "folder",
         "routerLink": "/dashboard/crear-catalogo"
       },
       {
         "text": "Ver Catalogos",
-        "icon": "category",
+        "icon": "list_alt",
         "routerLink": "/dashboard/listar-catalogos"
       }
     ]
