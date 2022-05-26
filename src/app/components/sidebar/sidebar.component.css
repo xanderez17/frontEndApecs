@@ -3,8 +3,9 @@
   color: white !important;
 }
 
+
 ::ng-deep .mat-nav-list .mat-icon {
-  margin-right: 10px;
+  margin-right: 30px;
 }
 
 /*Es cuando se expande la lista*/
@@ -21,13 +22,14 @@
 /*Listas x items*/
 .mat-expansion-panel .mat-list-item::ng-deep {
   padding-left: 15px !important;
+  color: white;
 
 }
 
 .mat-nav-list .is-active::ng-deep  {
-  background-color: rgb(204, 204, 204)!important;
-  border-left     : 8px solid rgb(139, 137, 133);
-  width           : calc(100% - 8px)!important;;
+  background-color: #1abc9c;
+  border-radius: 3px;
+
 }
 
 .logo{
@@ -48,4 +50,19 @@
 ::ng-deep .mat-nav-list .mat-list-item.is-active .mat-list-item-content {
   padding: 0 8px;
 }
+
+mat-expansion-panel{
+  background-color: #0e375d;
+}
+
+h2{
+  font-family: "Serif";
+}
+
+.texto{
+  text-align: center;
+  color: white;
+  background-color: #1abc9c;
+}
+
 

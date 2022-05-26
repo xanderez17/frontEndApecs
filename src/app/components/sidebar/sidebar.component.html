@@ -1,6 +1,8 @@
 <mat-nav-list>
   <img src="assets/recursos/apecsFooter.png" class="logo py-4">
   <mat-divider></mat-divider>
+  <br>
+  <h2 class="texto">Menú</h2>
   <ng-container *ngFor="let menu of menuList | async; index as i;">
       <ng-container [ngTemplateOutlet]="menu.children ?  childMenu : parentMenu"
           [ngTemplateOutletContext]="{menu:menu}">
@@ -15,6 +17,8 @@
   </mat-list-item>
 </ng-template>
 
+
+
 <ng-template #childMenu let-menu="menu">
   <mat-expansion-panel [class.mat-elevation-z0]="true">
       <mat-expansion-panel-header>
@@ -23,7 +27,7 @@
       <mat-nav-list>
           <mat-list-item [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
               true}">
-              <mat-icon>{{submenu.icon}}</mat-icon> {{submenu.text}}
+              <mat-icon >{{submenu.icon}}</mat-icon> {{submenu.text}}
           </mat-list-item>
       </mat-nav-list>
   </mat-expansion-panel>

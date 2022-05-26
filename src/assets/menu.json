@@ -1,11 +1,5 @@
 [
   {
-    "text": "Dashboard",
-    "icon": "dashboard",
-
-    "routerLink": "/"
-  },
-  {
     "text": "Gestión de Catálogos",
     "icon": "auto_stories",
     "children": [
