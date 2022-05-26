@@ -31,12 +31,10 @@ import { CrearParentezcoComponent } from './components/dashboard/parentezco/crea
 import { ListarParentezcoComponent } from './components/dashboard/parentezco/listar-parentezco/listar-parentezco.component';
 import {HOME} from "@angular/cdk/keycodes";
 import {HomeComponent} from "./components/home/home.component";
-import {PrincipalComponent} from "./components/principal/principal.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path:'home', component:HomeComponent},
-  {path:'principal', component:PrincipalComponent},
 
   {path:'inicio', component:CuerpoComponent},
   {path:'login', component:LoginComponent},

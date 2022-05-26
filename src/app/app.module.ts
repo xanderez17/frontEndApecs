@@ -19,7 +19,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ListarCursosComponent } from './components/dashboard/curso/listar-cursos/listar-cursos.component';
 import { ListarContratosComponent } from './components/dashboard/contratos/listar-contratos/listar-contratos.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -34,8 +33,8 @@ import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar
 import { CrearAulaComponent } from './components/dashboard/aula/crear-aula/crear-aula.component';
 import { ListarAulasComponent } from './components/dashboard/aula/listar-aulas/listar-aulas.component';
 import { CrearMatriculaComponent } from './components/dashboard/matricula/crear-matricula/crear-matricula.component';
-import {SidenavComponent} from "./components/sidenav/sidenav.component";
-import {BodyComponent} from "./components/body/body.component";
+
+
 import { CrearCatalogoComponent } from './components/dashboard/catalogo/crear-catalogo/crear-catalogo.component';
 import { ListarCatalogoComponent } from './components/dashboard/catalogo/listar-catalogo/listar-catalogo.component';
 import { ListarSucursalComponent } from './components/dashboard/sucursal/listar-sucursal/listar-sucursal.component';
@@ -51,7 +50,7 @@ import { CrearParentezcoComponent } from './components/dashboard/parentezco/crea
 import { ListarParentezcoComponent } from './components/dashboard/parentezco/listar-parentezco/listar-parentezco.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
-import { PrincipalComponent } from './components/principal/principal.component';
+
 
 @NgModule({
   declarations: [
@@ -61,7 +60,6 @@ import { PrincipalComponent } from './components/principal/principal.component';
     CuerpoComponent,
     LoginComponent,
     DashboardComponent,
-    NavBarComponent,
     ListarCursosComponent,
     ListarContratosComponent,
     CrearCursoComponent,
@@ -75,8 +73,6 @@ import { PrincipalComponent } from './components/principal/principal.component';
     CrearAulaComponent,
     ListarAulasComponent,
     CrearMatriculaComponent,
-    SidenavComponent,
-    BodyComponent,
     CrearCatalogoComponent,
     ListarCatalogoComponent,
     ListarSucursalComponent,
@@ -91,9 +87,8 @@ import { PrincipalComponent } from './components/principal/principal.component';
     CrearParentezcoComponent,
     ListarParentezcoComponent,
     SidebarComponent,
-    HomeComponent,
-    PrincipalComponent,
-    SidenavComponent,
+    HomeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -118,4 +113,4 @@ import { PrincipalComponent } from './components/principal/principal.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,23 @@
+[
+  {
+    "text": "Dashboard",
+    "icon": "dashboard",
+    "routerLink": "/"
+  },
+  {
+    "text": "Gestión de Cursos",
+    "icon": "inventory_2",
+    "children": [
+      {
+        "text": "Crear Catalogo",
+        "icon": "category",
+        "routerLink": "/dashboard/crear-catalogo"
+      },
+      {
+        "text": "Ver Catalogos",
+        "icon": "category",
+        "routerLink": "/dashboard/listar-catalogos"
+      }
+    ]
+  }
+]

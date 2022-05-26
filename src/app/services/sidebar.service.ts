@@ -1,78 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SidebarService {
-  constructor() {}
+  constructor(private _httpClient: HttpClient) { }
+  getList<T>(url: string) {
+    return this._httpClient.get<T[]>(`${environment.API_URL}/${url}`).pipe(
+        retry(1),
+        catchError((e) => {
+          if (e.status == 400) {
+            return throwError(e);
+          }
+          Swal.fire(e.error.mensaje, e.error.error, "error");
+          return throwError(e);
+        })
+      );
+}
 
-  menu: any[] = [
-    {
-      titulo: 'Gestión de Cursos ',
-      submenu: [
-        {
-          titulo: 'Crear Catalogo',
-          url: 'crear-catalogo',
-        },
-        {
-          titulo: 'Ver Catalogos',
-          url: 'listar-catalogos',
-        },
-        {
-          titulo: 'Listar curso',
-          url: 'listar-cursos',
-        },
-      ],
-    },
-    {
-      titulo: 'Gestión de Contratos ',
-      submenu: [
-        {
-          titulo: 'Crear matriculas',
-          url: 'crear-matricula',
-        },
-        {
-          titulo: 'Ver Matriculas',
-          url: 'listar-matriculas',
-        },
-
-        {
-          titulo: 'Ver Contratos',
-          url: 'listar-contratos',
-        }
-
-      ]
-    },
-    {
-      titulo: 'Gestión de Personas ',
-      submenu: [
-        {
-          titulo: 'Crear Alumno',
-          url: 'inscripcion',
-        },
-        {
-          titulo: 'Ver Alumnos',
-          url: 'listar-alumnos',
-        },
-        {
-          titulo: 'Crear Docentes',
-          url: 'crear-docente',
-        },
-        {
-          titulo: 'Ver Docentes',
-          url: 'listar-docentes',
-        },  {
-          titulo: 'Crear Representante',
-          url: 'editar-representante',
-        },
-        {
-          titulo: 'Ver Represententes',
-          url: 'listar-representantes',
-        },
-      ],
-    },
-
-
-
-  ];
 }
