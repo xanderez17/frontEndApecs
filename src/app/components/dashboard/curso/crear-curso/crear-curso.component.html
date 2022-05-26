@@ -191,9 +191,10 @@
         </mat-select>
       </mat-form-field>
       <br />
-      <input type="file" appearance="legacy"   formControlName="img" [(ngModel)]="lista.catalogo.img">
+      <input type="file" appearance="legacy"    >
        <br> <img  style="width: 400px" src="{{ catalogos.img }}" alt="" />
-      
+       <img style="width: 400px" class="card-img-top " src="{{lista.catalogo.img }}" alt="img">
+
     </mat-card-content>
 
     <mat-card-actions>
