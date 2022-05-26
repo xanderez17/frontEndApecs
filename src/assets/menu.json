@@ -6,18 +6,103 @@
     "routerLink": "/"
   },
   {
-    "text": "Gestión de Cursos",
+    "text": "Gestión de Catálogos",
     "icon": "groups_2",
     "children": [
       {
-        "text": "Crear Catálogo",
+        "text": "Crear Catálogos",
         "icon": "folder",
         "routerLink": "/dashboard/crear-catalogo"
       },
       {
-        "text": "Ver Catalogos",
+        "text": "Ver Catálogos",
         "icon": "list_alt",
         "routerLink": "/dashboard/listar-catalogos"
+      }
+    ]
+  },
+  {
+    "text": "Gestión de Cursos",
+    "icon": "groups_2",
+    "children": [
+
+      {
+        "text": "Ver Catálogos",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/listar-catalogos"
+      },
+      {
+        "text": "Ver Cursos",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/listar-cursos"
+      }
+    ]
+  },
+
+
+  {
+    "text": "Gestión de Matricula",
+    "icon": "groups_2",
+    "children": [
+      {
+        "text": "Crear Matricula",
+        "icon": "folder",
+        "routerLink": "/dashboard/crear-matricula"
+      },
+      {
+        "text": "Ver Catalogos",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/listar-matriculas"
+      }
+    ]
+  },
+  {
+    "text": "Gestión de Contratos",
+    "icon": "groups_2",
+    "children": [
+      {
+        "text": "Ver Matriculas",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/listar-matriculas"
+      },
+      {
+        "text": "Ver Contratos",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/listar-contratos"
+      }
+    ]
+  },
+  {
+    "text": "Gestión de Personas",
+    "icon": "groups_2",
+    "children": [
+      {
+        "text": "Crear Alumnos",
+        "icon": "list_alt",
+        "routerLink": "/inscripcion"
+      },
+      {
+        "text": "Ver Alumnos",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/listar-alumnos"
+      },
+      {
+        "text": "Crear Docente",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/crear-docente"
+      },  {
+        "text": "Ver Docente",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/listar-docentes"
+      },
+      {
+        "text": "Crear Representante",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/editar-representante"
+      },  {
+        "text": "Ver Representante",
+        "icon": "list_alt",
+        "routerLink": "/dashboard/listar-representantes"
       }
     ]
   }

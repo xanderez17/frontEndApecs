@@ -90,6 +90,8 @@ const routes: Routes = [
 
 
   {path:'dashboard/crear-representante',component:EditarRepresentanteComponent},
+  
+  {path:'dashboard/editar-representante/',component:EditarRepresentanteComponent},
   {path:'dashboard/editar-representante/:id',component:EditarRepresentanteComponent},
   {path:'dashboard/listar-representantes',component:ListarRepresentanteComponent},
 
