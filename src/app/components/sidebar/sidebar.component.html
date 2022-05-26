@@ -1,4 +1,6 @@
-<mat-nav-list class="side-navnar">
+<mat-nav-list>
+  <img src="assets/recursos/apecsFooter.png" class="logo py-4">
+  <mat-divider></mat-divider>
   <ng-container *ngFor="let menu of menuList | async; index as i;">
       <ng-container [ngTemplateOutlet]="menu.children ?  childMenu : parentMenu"
           [ngTemplateOutletContext]="{menu:menu}">

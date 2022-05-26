@@ -7,16 +7,16 @@
   },
   {
     "text": "Gestión de Catálogos",
-    "icon": "groups_2",
+    "icon": "auto_stories",
     "children": [
       {
         "text": "Crear Catálogos",
-        "icon": "folder",
+        "icon": "note_add",
         "routerLink": "/dashboard/crear-catalogo"
       },
       {
         "text": "Ver Catálogos",
-        "icon": "list_alt",
+        "icon": "style",
         "routerLink": "/dashboard/listar-catalogos"
       }
     ]
@@ -28,12 +28,12 @@
 
       {
         "text": "Ver Catálogos",
-        "icon": "list_alt",
+        "icon": "style",
         "routerLink": "/dashboard/listar-catalogos"
       },
       {
         "text": "Ver Cursos",
-        "icon": "list_alt",
+        "icon": "summarize",
         "routerLink": "/dashboard/listar-cursos"
       }
     ]
@@ -42,66 +42,66 @@
 
   {
     "text": "Gestión de Matricula",
-    "icon": "groups_2",
+    "icon": "description",
     "children": [
       {
         "text": "Crear Matricula",
-        "icon": "folder",
+        "icon": "bookmark_add",
         "routerLink": "/dashboard/crear-matricula"
       },
       {
         "text": "Ver Catalogos",
-        "icon": "list_alt",
+        "icon": "style",
         "routerLink": "/dashboard/listar-matriculas"
       }
     ]
   },
   {
     "text": "Gestión de Contratos",
-    "icon": "groups_2",
+    "icon": "content_copy",
     "children": [
       {
         "text": "Ver Matriculas",
-        "icon": "list_alt",
+        "icon": "file_copy",
         "routerLink": "/dashboard/listar-matriculas"
       },
       {
         "text": "Ver Contratos",
-        "icon": "list_alt",
+        "icon": "request_page",
         "routerLink": "/dashboard/listar-contratos"
       }
     ]
   },
   {
     "text": "Gestión de Personas",
-    "icon": "groups_2",
+    "icon": "people",
     "children": [
       {
         "text": "Crear Alumnos",
-        "icon": "list_alt",
+        "icon": "group_add",
         "routerLink": "/inscripcion"
       },
       {
         "text": "Ver Alumnos",
-        "icon": "list_alt",
+        "icon": "format_list_numbered",
         "routerLink": "/dashboard/listar-alumnos"
       },
       {
         "text": "Crear Docente",
-        "icon": "list_alt",
+        "icon": "school",
         "routerLink": "/dashboard/crear-docente"
       },  {
         "text": "Ver Docente",
-        "icon": "list_alt",
+        "icon": "format_list_numbered",
         "routerLink": "/dashboard/listar-docentes"
       },
       {
         "text": "Crear Representante",
-        "icon": "list_alt",
+        "icon": "person_add",
         "routerLink": "/dashboard/editar-representante"
       },  {
         "text": "Ver Representante",
-        "icon": "list_alt",
+        "icon": "format_list_numbered",
         "routerLink": "/dashboard/listar-representantes"
       }
     ]

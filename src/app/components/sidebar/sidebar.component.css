@@ -1,30 +1,45 @@
 ::ng-deep .mat-expansion-panel-header {
   padding: 0 16px !important;
+  color: white !important;
 }
 
 ::ng-deep .mat-nav-list .mat-icon {
   margin-right: 10px;
 }
 
-::ng-deep .mat-expansion-panel-body {
-  padding: 0 !important
+/*Es cuando se expande la lista*/
+ .mat-expansion-panel-body::ng-deep {
+  padding: 0 !important;
+
 }
 
-::ng-deep .mat-expansion-panel-header {
+.mat-expansion-panel-header::ng-deep  {
   height: 48px !important;
+  background-color: #0e375d;
 }
 
-::ng-deep .mat-expansion-panel .mat-list-item {
+/*Listas x items*/
+.mat-expansion-panel .mat-list-item::ng-deep {
   padding-left: 15px !important;
+
 }
 
-::ng-deep .mat-nav-list .is-active {
+.mat-nav-list .is-active::ng-deep  {
   background-color: rgb(204, 204, 204)!important;
   border-left     : 8px solid rgb(139, 137, 133);
   width           : calc(100% - 8px)!important;;
 }
 
+.logo{
+  padding: 5px 0 0 40px;
+  width: 220px;
+  height: auto;
+}
 
+.mat-divider {
+  border-top-width: 2px;
+  border-color: white;
+}
 
 ::ng-deep .mat-list-base {
   padding-top: 0 !important;
@@ -33,3 +48,4 @@
 ::ng-deep .mat-nav-list .mat-list-item.is-active .mat-list-item-content {
   padding: 0 8px;
 }
+
