@@ -93,6 +93,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
     SidebarComponent,
     HomeComponent,
     PrincipalComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
