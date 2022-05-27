@@ -11,7 +11,7 @@
           matInput
           autocomplete="off"
           formControlName="titulo"
-          [(ngModel)]="lista.catalogo.nombre"
+          [(ngModel)]="lista.titulo"
         />
         {{ catalogos.nombre }}
       </mat-form-field>
@@ -176,7 +176,7 @@
           [(ngModel)]="lista.valorCurso"
         />
       </mat-form-field>
-      
+
       <mat-form-field style="width: 150px" appearance="legacy">
         <mat-label>Valor Reserva</mat-label>
         <input
@@ -191,7 +191,7 @@
         <mat-label>Valor Descuento</mat-label>
         <input
           matInput
-       
+
           autocomplete="off"
           formControlName="valorDescuento"
           [(ngModel)]="lista.valorDescuento"
@@ -212,7 +212,7 @@
         </mat-select>
       </mat-form-field>
       <br />
-      
+
       <input type="file" appearance="legacy"    >
        <br> <img  style="width: 400px" src="{{ catalogos.img }}" />
        <img style="width: 400px" class="card-img-top " src="{{lista.catalogo.img }}" >

@@ -5,7 +5,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Curso } from 'src/app/models/Curso';
 import { CursosService } from 'src/app/services/cursos.service';
 import Swal from 'sweetalert2';
-import {Inscripcion} from "../../../../models/Inscripcion";
+import {Router} from "@angular/router";
+import {DocenteService} from "../../../../services/docente.service";
+import {Docente} from "../../../../models/Docente";
 
 @Component({
   selector: 'app-listar-cursos',
@@ -13,56 +15,56 @@ import {Inscripcion} from "../../../../models/Inscripcion";
   styleUrls: ['./listar-cursos.component.css'],
 })
 export class ListarCursosComponent implements OnInit {
+
   public lista!: MatTableDataSource<any>;
 
-  lista1: Curso[] = [];
   //datos encabezado tablas
   displayedColumns: string[] = [
     'titulo',
+    'descripcion',
     'categoria',
-    'docente',
     'cupos',
     'duracion',
-    'estado',
+    'docente',
+    'sucursal',
     'fechaInscripcion',
     'fechaInicio',
     'horario',
-    'sucursal',
+    'estado',
     'acciones',
   ];
 
-  //varibel paginador
+  //Variable paginador
   length = 100;
   pageSize = 25;
-  pageSizeOptions: number[] = [25, 50, 100];
+  pageSizeOptions: number[] = [ 25,50, 100];
   // MatPaginator
   pageEvent!: PageEvent;
 
   @ViewChild(MatPaginator, { static: true }) paginador!: MatPaginator;
   @ViewChild(MatSort) marSort!: MatSort;
 
-  constructor(private cursoServicio: CursosService) {}
+  constructor(private servicio: CursosService, private router: Router) {}
 
   ngOnInit() {
-    this.cursoServicio.listar().subscribe((response) => {
+    this.servicio.listar().subscribe((response) => {
       this.lista = new MatTableDataSource(response);
       this.lista.paginator = this.paginador;
       this.lista.sort = this.marSort;
-
     });
+
     this.paginador._intl.itemsPerPageLabel = 'Registros por página:';
     this.paginador._intl.nextPageLabel = 'Siguiente';
     this.paginador._intl.previousPageLabel = 'Anterior';
     this.paginador._intl.firstPageLabel = 'Primera Página';
     this.paginador._intl.lastPageLabel = 'Última Página';
   }
-
-  // filtrar
+  // Filtrar
   filtrar($event: any) {
     this.lista.filter = $event.target.value;
   }
 
-  //emininar
+  // Eliminar
   eliminar(curso: Curso) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -72,10 +74,12 @@ export class ListarCursosComponent implements OnInit {
       buttonsStyling: false,
     });
 
+    console.log(this.lista);
+
     swalWithBootstrapButtons
       .fire({
         title: '¿Estas  seguro?',
-        text: `¿Seguro que quieres eliminar ${curso.catalogo.nombre} ?`,
+        text: `¿Seguro que quieres eliminar al curso ${curso.idCurso} ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar!',
@@ -84,10 +88,10 @@ export class ListarCursosComponent implements OnInit {
       })
       .then((result) => {
         if (result.value) {
-          this.cursoServicio.eliminar(curso.idCurso).subscribe((resp) => {
+          this.servicio.eliminar(curso.idCurso).subscribe((resp) => {
             swalWithBootstrapButtons.fire(
-              'Eliminada!',
-              `${curso.catalogo.nombre} ha  sido eliminado correctamente!`,
+              'Eliminado!',
+              ` ${curso.idCurso} ha  sido eliminada correctamente!`,
               'success'
             );
           });
