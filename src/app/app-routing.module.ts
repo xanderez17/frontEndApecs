@@ -64,7 +64,7 @@ const routes: Routes = [
 
   {path:'inscripcion/:id',component:CrearInscripcionComponent},
   {path:'dashboard/inscripcion-curso/:id',component:CrearInscripcionCursoComponent},
-  {path:'dashboard/listar-inscripcion',component:ListarInscripcionComponent},
+  {path:'dashboard/listar-inscripciones',component:ListarInscripcionComponent},
 
   {path:'dashboard/crear-alumno',component:CrearAlumnoComponent},
   {path:'dashboard/editar-alumno/:id',component:CrearAlumnoComponent},

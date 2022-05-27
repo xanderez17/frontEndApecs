@@ -14,7 +14,7 @@ export class InscripcionService {
 
   //Listar Inscripcion
   listar(): Observable<Inscripcion[]> {
-    return this.http.get<Inscripcion[]>('http://localhost:9898/api/inscripcion/listarInscripciones');
+    return this.http.get<Inscripcion[]>('http://localhost:9898/api/inscripcion/listarInscripcion');
   }
 
   //Obtener  por id

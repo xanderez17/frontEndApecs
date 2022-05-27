@@ -15,6 +15,7 @@
       }
     ]
   },
+  
   {
     "text": "Gestión de Cursos",
     "icon": "groups_2",
@@ -38,6 +39,11 @@
     "text": "Gestión de Matricula",
     "icon": "description",
     "children": [
+      {
+        "text": "Ver Inscripciones",
+        "icon": "style",
+        "routerLink": "/dashboard/listar-inscripciones"
+      },
       {
         "text": "Crear Matricula",
         "icon": "bookmark_add",

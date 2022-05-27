@@ -6,6 +6,7 @@ export class Contrato {
   alumno: Alumno = new Alumno();
   idContrato: any;
   estado: any;
+  fechaContrato: any;
   formaPago: any;
   matricula: Matricula = new Matricula();
   observacion: any;
