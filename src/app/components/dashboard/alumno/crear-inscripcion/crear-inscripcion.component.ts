@@ -15,6 +15,8 @@ import { InscripcionService } from 'src/app/services/inscripcion.service';
   styleUrls: ['./crear-inscripcion.component.css'],
 })
 export class CrearInscripcionComponent implements OnInit {
+  fecha = new Date();
+
   lista = new Alumno();
   listaGet = new Alumno();
   listaCruso = new Curso();
@@ -73,21 +75,21 @@ export class CrearInscripcionComponent implements OnInit {
 
 
   agregar() {
-
+    this.listaInscripsion.alumno = this.listaGet;
+    this.listaInscripsion.curso = this.listaCruso;
 
     this.alumnoServicio.crear(this.lista).subscribe((m) => {
       this.listaGet = m;
       
-      this.listaInscripsion.alumno = this.listaGet.id;
-      this.listaInscripsion.curso = this.listaCruso.idCurso;
-      this.listaInscripsion.fechaInscripcion = new Date;
-      console.log(this.listaInscripsion);
+      
+      this.listaInscripsion.fechaInscripcion = this.fecha;
+    
       
       //Crear Inscripcion
       this.inscripcionServicio.crear(this.listaInscripsion).subscribe((m1) => {
-        console.log(m1);
+       
         
-        this._snackBar.open('Alumno creado!', '', {
+        this._snackBar.open('Alumnoinscrito!', '', {
           duration: 2500,
           horizontalPosition: 'center',
           verticalPosition: 'bottom',

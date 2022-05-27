@@ -50,9 +50,9 @@ import { CrearParentezcoComponent } from './components/dashboard/parentezco/crea
 import { ListarParentezcoComponent } from './components/dashboard/parentezco/listar-parentezco/listar-parentezco.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
-import { CrearAlumnoComponent } from './components/dashboard/alumno/crear-alumno/crear-alumno.component';
-import { CrearInscripcionCursoComponent } from './components/dashboard/alumno/crear-inscripcion-curso/crear-inscripcion-curso.component';
 import { ListarInscripcionComponent } from './components/dashboard/alumno/listar-inscripcion/listar-inscripcion.component';
+import { CrearInscripcionCursoComponent } from './components/dashboard/alumno/crear-inscripcion-curso/crear-inscripcion-curso.component';
+import { CrearAlumnoComponent } from './components/dashboard/alumno/crear-alumno/crear-alumno.component';
 
 
 @NgModule({

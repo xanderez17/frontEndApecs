@@ -30,10 +30,10 @@ import { CrearParentezcoComponent } from './components/dashboard/parentezco/crea
 import { ListarParentezcoComponent } from './components/dashboard/parentezco/listar-parentezco/listar-parentezco.component';
 
 import {HomeComponent} from "./components/home/home.component";
-import { CrearInscripcionCursoComponent } from './components/dashboard/alumno/crear-inscripcion-curso/crear-inscripcion-curso.component';
-import { ListarInscripcionComponent } from './components/dashboard/alumno/listar-inscripcion/listar-inscripcion.component';
 import { CrearAlumnoComponent } from './components/dashboard/alumno/crear-alumno/crear-alumno.component';
 import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-inscripcion/crear-inscripcion.component';
+import { CrearInscripcionCursoComponent } from './components/dashboard/alumno/crear-inscripcion-curso/crear-inscripcion-curso.component';
+import { ListarInscripcionComponent } from './components/dashboard/alumno/listar-inscripcion/listar-inscripcion.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
