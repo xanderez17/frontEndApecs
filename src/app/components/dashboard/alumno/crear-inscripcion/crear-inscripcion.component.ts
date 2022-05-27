@@ -75,19 +75,14 @@ export class CrearInscripcionComponent implements OnInit {
 
 
   agregar() {
-    this.listaInscripsion.alumno = this.listaGet;
+    this.listaInscripsion.fechaInscripcion = this.fecha;
     this.listaInscripsion.curso = this.listaCruso;
-
     this.alumnoServicio.crear(this.lista).subscribe((m) => {
       this.listaGet = m;
-      
-      
-      this.listaInscripsion.fechaInscripcion = this.fecha;
-    
-      
-      //Crear Inscripcion
-      this.inscripcionServicio.crear(this.listaInscripsion).subscribe((m1) => {
-       
+      this.listaInscripsion.alumno = this.listaGet;
+        
+                //Crear Inscripcion
+      this.inscripcionServicio.crear(this.listaInscripsion).subscribe((m1) => {     
         
         this._snackBar.open('Alumnoinscrito!', '', {
           duration: 2500,

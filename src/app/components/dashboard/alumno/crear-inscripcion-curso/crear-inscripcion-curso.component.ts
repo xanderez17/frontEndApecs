@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
@@ -16,7 +16,8 @@ import { InscripcionService } from 'src/app/services/inscripcion.service';
 @Component({
   selector: 'app-crear-inscripcion-curso',
   templateUrl: './crear-inscripcion-curso.component.html',
-  styleUrls: ['./crear-inscripcion-curso.component.css']
+  styleUrls: ['./crear-inscripcion-curso.component.css'],
+  providers: [DatePipe],
 })
 export class CrearInscripcionCursoComponent implements OnInit {
   fecha = new Date();
@@ -35,9 +36,9 @@ export class CrearInscripcionCursoComponent implements OnInit {
   displayedColumns: string[] = [
     'titulo',
     'categoria',
-    'docente',
+  
     'duracion',
-
+    'docente',
     'fechaInicio',
    
     'estado',
@@ -65,7 +66,8 @@ export class CrearInscripcionCursoComponent implements OnInit {
     private miDatePipe: DatePipe
   ) {
     this.form = this.fb.group({
-    
+    alumno:['',Validators.required],
+    curso:['',Validators.required]
     });
   }
 

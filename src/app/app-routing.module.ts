@@ -63,7 +63,8 @@ const routes: Routes = [
   {path:'dashboard/listar-paralelos',component:ListarParaleloComponent},
 
   {path:'inscripcion/:id',component:CrearInscripcionComponent},
-  {path:'dashboard/inscripcion-curso/:id',component:CrearInscripcionCursoComponent},
+  {path:'dashboard/crear-inscripcion',component:CrearInscripcionCursoComponent},
+    {path:'dashboard/editar-inscripcion-curso/:id',component:CrearInscripcionCursoComponent},
   {path:'dashboard/listar-inscripciones',component:ListarInscripcionComponent},
 
   {path:'dashboard/crear-alumno',component:CrearAlumnoComponent},
