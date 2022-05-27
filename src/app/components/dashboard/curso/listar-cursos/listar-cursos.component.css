@@ -1,6 +1,5 @@
 .contenedor{
   width: 100%;
-
   display: flex;
 }
 .mat-table{
@@ -11,7 +10,7 @@
 }
 .mat-header-cell {
   text-align: center;
- 
+
 }
 .mat-cell{
   padding-right: 10px;

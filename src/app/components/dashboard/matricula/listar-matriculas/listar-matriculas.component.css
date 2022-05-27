@@ -6,8 +6,56 @@
 }
 .mat-header-cell {
   text-align: center;
- 
+
 }
 .mat-cell{
   padding-right: 10px;
 }
+
+.contenedor{
+  width: 100%;
+  display: flex;
+}
+.mat-table{
+  width: 100%;
+}
+.ng-container{
+  padding: 10px;
+}
+.mat-header-cell {
+  text-align: center;
+
+}
+.mat-cell{
+  padding-right: 10px;
+}
+
+
+.page {
+  color: white;
+  padding: 0 1rem;
+  background: #f1f5f9;
+}
+
+.page__box {
+  min-height: 120px;
+  background: #1e293b;
+  margin: 0 -1rem;
+  font-size: 36px;
+}
+
+.page__content {
+  min-height: calc(100vh - 178px);
+  border-radius: 10px;
+  margin-top: -2rem;
+  background: white;
+  color: black;
+  font-size: 2rem;
+}
+
+.page-data {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

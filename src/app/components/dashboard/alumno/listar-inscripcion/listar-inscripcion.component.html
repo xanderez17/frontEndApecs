@@ -1,12 +1,12 @@
+<mat-card class="container">
 <mat-toolbar>
-  <div class="col-md-10 text-left">Lista de Docentes</div>
+  <div class="col-md-10 text-left">Lista de Inscripciones</div>
   <div class="col-md-2 text-right">
     <button mat-raised-button color="accent" routerLink="/dashboard/crear-docente">
-      Nuevo Docente
+      Nueva Inscripción
     </button>
   </div>
 </mat-toolbar>
-<mat-card class="container">
 <mat-form-field appearance="standard">
   <mat-label>Buscar por nombre</mat-label>
   <input matInput (keyup)="filtrar($event)" autocomplete="off" #input />
@@ -53,3 +53,4 @@
     aria-label="Select page">
   </mat-paginator>
 </div>
+</mat-card>

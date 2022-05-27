@@ -1,21 +1,15 @@
-<mat-toolbar>
-  <div class="col-md-10 text-left">Lista de Catalogos</div>
-  <div class="col-md-2 text-right">
-    <button
-      mat-raised-button
-      color="accent"
-      routerLink="/dashboard/crear-catalogo"
-    >
-      Nuevo Catalogo
-    </button>
-  </div>
-</mat-toolbar>
 <mat-card class="container">
+  <mat-toolbar>
+    <div class="col-md-10 text-left">Lista de Catálogos</div>
+    <div class="col-md-2 text-right">
+      <button mat-raised-button color="accent" routerLink="/dashboard/crear-catalogo">Nuevo Catálogo</button>
+    </div>
+  </mat-toolbar>
   <div *ngIf="lista.length > 0">
     <div class="class=items col-md-4 col-xs-12" *ngFor="let x of lista">
       <mat-card-content>
-        <img src="{{x.img }}" alt="" />
-       
+        <img src="{{x.img }}" alt=""/>
+
         <div class="card-body">
           <h2 class="card-title">{{ x.nombre }}</h2>
           <h4 class="card-text">{{ x.descripcion }}</h4>
@@ -31,7 +25,8 @@
           matTooltip="Eliminar"
         >
           <mat-icon aria-hidden="true" aria-label="Example home icon"
-            >delete</mat-icon
+          >delete
+          </mat-icon
           >
         </a>
         <a
@@ -43,7 +38,8 @@
           matTooltip="Editar"
         >
           <mat-icon aria-hidden="true" aria-label="Example home icon"
-            >mode_edit</mat-icon
+          >mode_edit
+          </mat-icon
           >
         </a>
 
@@ -56,13 +52,12 @@
           matTooltip="Crear curso"
         >
           <mat-icon aria-hidden="true" aria-label="Example home icon"
-            >forward
+          >forward
           </mat-icon>
         </a>
       </mat-card-actions>
     </div>
   </div>
-
   <div *ngIf="lista.length == 0">
     <span>No hay datos</span>
   </div>

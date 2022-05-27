@@ -15,7 +15,7 @@
       }
     ]
   },
-  
+
   {
     "text": "Gestión de Cursos",
     "icon": "groups_2",
@@ -50,7 +50,7 @@
         "routerLink": "/dashboard/crear-matricula"
       },
       {
-        "text": "Ver Catalogos",
+        "text": "Ver Matrícula",
         "icon": "style",
         "routerLink": "/dashboard/listar-matriculas"
       }

@@ -18,3 +18,22 @@
     overflow: hidden;
     display: flex;
 }
+
+.contenedor{
+  width: 100%;
+
+  display: flex;
+}
+.mat-table{
+  width: 100%;
+}
+.ng-container{
+  padding: 10px;
+}
+.mat-header-cell {
+  text-align: center;
+
+}
+.mat-cell{
+  padding-right: 10px;
+}
