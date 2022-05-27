@@ -11,16 +11,9 @@
         >
       </div>
 
-      <mat-form-field style="width: 150px" appearance="legacy">
+      
         <mat-label>Fecha Contrato</mat-label>
-        <input
-          matInput
-          [matDatepicker]="myDatepicker"
-          autocomplete="off"
-          formControlName="fechaContrato"
-          [(ngModel)]="lista.fechaContrato"
-        />
-      </mat-form-field>
+      
       <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
       <mat-datepicker #myDatepicker></mat-datepicker>
     </mat-card-content>

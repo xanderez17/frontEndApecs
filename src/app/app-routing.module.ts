@@ -9,7 +9,6 @@ import { CrearCursoComponent } from './components/dashboard/curso/crear-curso/cr
 import {CrearContratoComponent} from "./components/dashboard/contratos/crear-contrato/crear-contrato.component";
 import { CrearParaleloComponent } from './components/dashboard/paralelo/crear-paralelo/crear-paralelo.component';
 import { ListarParaleloComponent } from './components/dashboard/paralelo/listar-paralelo/listar-paralelo.component';
-import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-inscripcion/crear-inscripcion.component';
 import { ListarEstudiantesComponent } from './components/dashboard/alumno/listar-estudiantes/listar-estudiantes.component';
 import { ListarAulasComponent } from './components/dashboard/aula/listar-aulas/listar-aulas.component';
 import { CrearAulaComponent } from './components/dashboard/aula/crear-aula/crear-aula.component';
@@ -29,8 +28,12 @@ import { ListarRepresentanteComponent } from './components/dashboard/Representan
 import { EditarRepresentanteComponent } from './components/dashboard/Representante/editar-representante/editar-representante.component';
 import { CrearParentezcoComponent } from './components/dashboard/parentezco/crear-parentezco/crear-parentezco.component';
 import { ListarParentezcoComponent } from './components/dashboard/parentezco/listar-parentezco/listar-parentezco.component';
-import {HOME} from "@angular/cdk/keycodes";
+
 import {HomeComponent} from "./components/home/home.component";
+import { CrearInscripcionCursoComponent } from './components/dashboard/alumno/crear-inscripcion-curso/crear-inscripcion-curso.component';
+import { ListarInscripcionComponent } from './components/dashboard/alumno/listar-inscripcion/listar-inscripcion.component';
+import { CrearAlumnoComponent } from './components/dashboard/alumno/crear-alumno/crear-alumno.component';
+import { CrearInscripcionComponent } from './components/dashboard/alumno/crear-inscripcion/crear-inscripcion.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -59,8 +62,12 @@ const routes: Routes = [
   {path:'dashboard/editar-paralelo/:id',component:CrearParaleloComponent},
   {path:'dashboard/listar-paralelos',component:ListarParaleloComponent},
 
-  {path:'inscripcion',component:CrearInscripcionComponent},
-  {path:'dashboard/editar-alumno/:id',component:CrearInscripcionComponent},
+  {path:'inscripcion/:id',component:CrearInscripcionComponent},
+  {path:'dashboard/inscripcion-curso/:id',component:CrearInscripcionCursoComponent},
+  {path:'dashboard/listar-inscripcion',component:ListarInscripcionComponent},
+
+  {path:'dashboard/crear-alumno',component:CrearAlumnoComponent},
+  {path:'dashboard/editar-alumno/:id',component:CrearAlumnoComponent},
   {path:'dashboard/listar-alumnos',component:ListarEstudiantesComponent},
 
   {path:'dashboard/crear-docente',component:CrearDocenteComponent},
@@ -90,7 +97,7 @@ const routes: Routes = [
 
 
   {path:'dashboard/crear-representante',component:EditarRepresentanteComponent},
-  
+
   {path:'dashboard/editar-representante/',component:EditarRepresentanteComponent},
   {path:'dashboard/editar-representante/:id',component:EditarRepresentanteComponent},
   {path:'dashboard/listar-representantes',component:ListarRepresentanteComponent},

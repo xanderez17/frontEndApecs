@@ -19,5 +19,7 @@ export class Curso {
   sucursal: Sucursal = new Sucursal();
   valorCurso: any;
   valorMatricula: any;
+  valorDescuento:any;
+  reserva:any;
 
 }

@@ -1,7 +1,19 @@
 <mat-card class="container">
+ 
+
+
   <form [formGroup]="form" appearance="standard">
+
     <mat-card-header>
       <mat-card-title>Formulario Estudiantes</mat-card-title>
+<mat-card-subtitle><mat-label><strong>Cuso: </strong></mat-label> {{listaCruso.catalogo.nombre}}<br>
+  <mat-label><strong>Valor Normal: </strong></mat-label> {{listaCruso.valorCurso}}<br>
+  <mat-label><strong>Reserva tu cupo con: </strong></mat-label>{{listaCruso.reserva}}<br>
+  <mat-label><strong>Valor Total con Descuento:</strong>  </mat-label> {{listaCruso.valorDescuento}}<br>
+  <mat-label><strong>Horarios Disponibles: </strong> </mat-label> {{listaCruso.horario.dias}} {{listaCruso.horario.horaInicio}} {{listaCruso.horario.horaFin}}<br>
+  <mat-label><strong>Fecha Inicio:  </strong></mat-label>  {{listaCruso.fechaInicio}} <strong>Fin:</strong>  {{listaCruso.fechaFin}}<br>
+
+</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>

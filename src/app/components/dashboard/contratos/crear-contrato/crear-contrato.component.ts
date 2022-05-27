@@ -122,13 +122,7 @@ export class CrearContratoComponent implements OnInit {
 
   agregar() {
     if (this.idEdit) {
-      const fechaContrato = this.miDatePipe.transform(
-        this.lista.fechaContrato,
-        'yyyy-MM-dd'
-      );
-      this.lista.fechaContrato = fechaContrato;
-
-      this.contratoServicio
+         this.contratoServicio
         .editarContrato(this.lista, Number(this.idEdit))
         .subscribe((ma) => {
           this._snackBar.open('Contrato editado!', '', {
@@ -143,11 +137,7 @@ export class CrearContratoComponent implements OnInit {
       this.listaParentezco.representante = this.representante;
       this.parentezcoServicio.crear(this.listaParentezco);
 
-      const fechaContrato = this.miDatePipe.transform(
-        this.lista.fechaContrato,
-        'yyyy-MM-dd'
-      );
-      this.lista.fechaContrato = fechaContrato;
+     
       this.lista.matricula = this.matricula;
       this.lista.representante = this.representante;
       this.contratoServicio.crearContrato(this.lista).subscribe((m) => {

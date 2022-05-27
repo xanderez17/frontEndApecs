@@ -8,16 +8,9 @@
       <mat-label>Matrícula Nº {{ numMatricula }}</mat-label>
       <br />
 
-      <mat-form-field appearance="legacy">
+
         <mat-label>Fecha Matrícula</mat-label>
-        <input
-          matInput
-          [matDatepicker]="myDatepicker"
-          autocomplete="off"
-          formControlName="fechaMatricula"
-          [(ngModel)]="lista.fechaMatricula"
-        />
-      </mat-form-field>
+      
       <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
       <mat-datepicker #myDatepicker></mat-datepicker>
 

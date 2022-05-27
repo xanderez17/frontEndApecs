@@ -142,11 +142,7 @@ export class CrearMatriculaComponent implements OnInit {
   }
     agregar() {
       if (this.idEdit) {
-        const fecha = this.miDatePipe.transform(
-          this.lista.fechaMatricula,
-          'yyyy-MM-dd'
-        );
-        this.lista.fechaMatricula = fecha;
+      
         this.lista.alumno = this.alumno;
         this.lista.curso = this.curso;
 
@@ -161,11 +157,7 @@ export class CrearMatriculaComponent implements OnInit {
             this.irLista();
           });
       } else {
-        const fecha = this.miDatePipe.transform(
-          this.lista.fechaMatricula,
-          'yyyy-MM-dd'
-        );
-        this.lista.fechaMatricula = fecha;
+    
         this.lista.contrato = false;
         this.lista.alumno = this.alumno;
         this.lista.curso = this.curso;

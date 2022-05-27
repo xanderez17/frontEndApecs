@@ -38,8 +38,8 @@ export class CrearCatalogoComponent implements OnInit {
     let reader = new FileReader();
     reader.readAsDataURL(img[0]);
     reader.onloadend = () => {
-   
-this.lista.img=reader.result;
+
+      this.lista.img = reader.result;
     }
   }
 
@@ -48,8 +48,8 @@ this.lista.img=reader.result;
     let reader = new FileReader();
     reader.readAsDataURL(pdf[0]);
     reader.onloadend = () => {
-   
-this.lista.pdf=reader.result;
+
+      this.lista.pdf = reader.result;
     }
   }
 

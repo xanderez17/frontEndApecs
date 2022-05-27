@@ -10,7 +10,7 @@
         <p><strong>Inicia: </strong>{{c.fechaInscripcion}}</p>
 
         <a href="#" class="btn btn-info ">Detalles</a>
-        <a href="#" class="btn btn-success" routerLink="/inscripcion">Inscribirse</a>
+        <a href="#" class="btn btn-success" [routerLink]="['/inscripcion',c.idCurso]">Inscribirse</a>
       </div>
     </div>
   </div>
