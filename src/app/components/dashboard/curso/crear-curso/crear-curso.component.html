@@ -176,6 +176,27 @@
           [(ngModel)]="lista.valorCurso"
         />
       </mat-form-field>
+      
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label>Valor Reserva</mat-label>
+        <input
+          matInput
+          type="number"
+          autocomplete="off"
+          formControlName="valorReserva"
+          [(ngModel)]="lista.reserva"
+        />
+      </mat-form-field>
+      <mat-form-field style="width: 150px" appearance="legacy">
+        <mat-label>Valor Descuento</mat-label>
+        <input
+          matInput
+       
+          autocomplete="off"
+          formControlName="valorDescuento"
+          [(ngModel)]="lista.valorDescuento"
+        />
+      </mat-form-field>
       <mat-form-field style="width: 200px" appearance="legacy">
         <mat-label>Sucursal</mat-label>
         <mat-select

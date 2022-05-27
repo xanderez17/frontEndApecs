@@ -106,7 +106,9 @@ export class CrearCursoComponent implements OnInit {
       estado: ['', Validators.required],
       valorMatricula: ['', Validators.required],
       valorCurso: ['', Validators.required],
-      sucursal: ['', Validators.required]
+      sucursal: ['', Validators.required],
+      valorReserva:['',Validators.required],
+      valorDescuento:['',Validators.required]
     });
   }
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
