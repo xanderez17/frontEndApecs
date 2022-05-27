@@ -23,6 +23,7 @@ import { Curso } from '../../../../models/Curso';
   providers: [DatePipe],
 })
 export class CrearMatriculaComponent implements OnInit {
+  fecha = new Date();
   public listaCurso!: MatTableDataSource<any>;
 
   numMatricula: any;
@@ -41,7 +42,7 @@ export class CrearMatriculaComponent implements OnInit {
     'categoria',
     'docente',
     'duracion',
-    'estado',
+
     'fechaInicio',
     'horario',
     'sucursal',
@@ -71,8 +72,6 @@ export class CrearMatriculaComponent implements OnInit {
     private miDatePipe: DatePipe
   ) {
     this.form = this.fb.group({
-      fechaMatricula: ['', Validators.required],
-
       paralelo: ['', Validators.required],
     });
   }
@@ -138,49 +137,49 @@ export class CrearMatriculaComponent implements OnInit {
     }
   }
   seleccionarCurso(curso: any) {
-   this.curso=curso;
+    this.curso = curso;
   }
-    agregar() {
-      if (this.idEdit) {
-      
-        this.lista.alumno = this.alumno;
-        this.lista.curso = this.curso;
+  agregar() {
+    if (this.idEdit) {
 
-        this.matriculaServicio
-          .editar(this.lista, Number(this.idEdit))
-          .subscribe((ma) => {
-            this._snackBar.open('Matricula editada!', '', {
-              duration: 2500,
-              horizontalPosition: 'center',
-              verticalPosition: 'bottom',
-            });
-            this.irLista();
-          });
-      } else {
-    
-        this.lista.contrato = false;
-        this.lista.alumno = this.alumno;
-        this.lista.curso = this.curso;
-
-        this.matriculaServicio.crear(this.lista).subscribe((m) => {
-          this._snackBar.open('Matrícula creada!', '', {
+      this.lista.alumno = this.alumno;
+      this.lista.curso = this.curso;
+      this.lista.fechaMatricula = this.fecha
+      this.matriculaServicio
+        .editar(this.lista, Number(this.idEdit))
+        .subscribe((ma) => {
+          this._snackBar.open('Matricula editada!', '', {
             duration: 2500,
             horizontalPosition: 'center',
             verticalPosition: 'bottom',
           });
           this.irLista();
         });
+    } else {
 
+      this.lista.contrato = false;
+      this.lista.alumno = this.alumno;
+      this.lista.curso = this.curso;
+      this.lista.fechaMatricula = this.fecha
+      this.matriculaServicio.crear(this.lista).subscribe((m) => {
+        this._snackBar.open('Matrícula creada!', '', {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
         this.irLista();
-      }
-    }
+      });
 
-    compareParalelo(x: Paralelo, y: Paralelo): boolean {
-      return x && y ? x.idParalelo === y.idParalelo : x === y;
-    }
-
-
-    irLista() {
-      this.router.navigateByUrl('dashboard/listar-matriculas');
+      this.irLista();
     }
   }
+
+  compareParalelo(x: Paralelo, y: Paralelo): boolean {
+    return x && y ? x.idParalelo === y.idParalelo : x === y;
+  }
+
+
+  irLista() {
+    this.router.navigateByUrl('dashboard/listar-matriculas');
+  }
+}

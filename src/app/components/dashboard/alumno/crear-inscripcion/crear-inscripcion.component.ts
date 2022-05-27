@@ -16,15 +16,16 @@ import { InscripcionService } from 'src/app/services/inscripcion.service';
 })
 export class CrearInscripcionComponent implements OnInit {
   lista = new Alumno();
-  listaCruso=new Curso();
-  listaInscripsion=new Inscripcion();
-   form!: FormGroup;
+  listaGet = new Alumno();
+  listaCruso = new Curso();
+  listaInscripsion = new Inscripcion();
+  form!: FormGroup;
   idEdit: any;
 
   constructor(
     private cursoServicio: CursosService,
-private alumnoServicio:AlumnoService,
-private inscripcionServicio:InscripcionService,
+    private alumnoServicio: AlumnoService,
+    private inscripcionServicio: InscripcionService,
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
@@ -49,7 +50,7 @@ private inscripcionServicio:InscripcionService,
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.idEdit = params.get('id');
-      console.log(this.idEdit)
+      //console.log(this.idEdit)
     });
 
     this.cargarCurso(Number(this.idEdit));
@@ -69,29 +70,33 @@ private inscripcionServicio:InscripcionService,
     });
   }
 
-  
+
 
   agregar() {
-    this.listaInscripsion.curso=this.listaCruso;
-    this.listaInscripsion.cedula=this.lista.identificacion;
-    this.inscripcionServicio.crear(this.listaInscripsion).subscribe((m) => {
-      this._snackBar.open('', '', {
-        duration: 2500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
-      this.irLista();
-    });
-    this.alumnoServicio.crear(this.lista).subscribe((m) => {
-      this._snackBar.open('Alumno creado!', '', {
-        duration: 2500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
-      this.irLista();
-    });
 
-    this.irLista();
+
+    this.alumnoServicio.crear(this.lista).subscribe((m) => {
+      this.listaGet = m;
+      
+      this.listaInscripsion.alumno = this.listaGet.id;
+      this.listaInscripsion.curso = this.listaCruso.idCurso;
+      this.listaInscripsion.fechaInscripcion = new Date;
+      console.log(this.listaInscripsion);
+      
+      //Crear Inscripcion
+      this.inscripcionServicio.crear(this.listaInscripsion).subscribe((m1) => {
+        console.log(m1);
+        
+        this._snackBar.open('Alumno creado!', '', {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+        this.irLista();
+
+      });
+
+    });
   }
 
   irLista() {
