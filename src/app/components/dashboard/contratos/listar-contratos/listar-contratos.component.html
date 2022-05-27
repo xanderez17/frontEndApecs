@@ -1,18 +1,18 @@
-<div class="container">
+<mat-card class="container">
   <mat-toolbar>
-    <span>Lista de Contratos</span>
+    <div class="col-md-10 text-left">Lista de Contratos</div>
+    <div class="col-md-2 text-right">
+      <div class="dt-buttons">
+        <button mat-raised-button color="primary" routerLink="/dashboard/listar-matriculas" style="margin-right: 20px;">
+          Ver Matrículas<mat-icon>visibility</mat-icon>
+        </button>
+      </div>
+    </div>
   </mat-toolbar>
 
-  <div class="dt-buttons">
-    <button mat-raised-button color="primary" routerLink="/dashboard/listar-matriculas" style="margin-right: 20px;">
-      Ver Matriculas
-    </button>
-  </div>
+
   <mat-form-field appearance="standard">
-
-
-
-    <mat-label>Buscar por ID de Contrato</mat-label>
+    <mat-label>Buscar por ID de Contrato</mat-label><mat-icon matSuffix>search</mat-icon>
     <input matInput (keyup)="filtrar($event)" autocomplete="off" #input>
     <div id="example23_filter" class="dataTables_filter">
 
@@ -39,7 +39,7 @@
       </ng-container>
 
       <ng-container matColumnDef="observacion">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Observacion </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Observación </th>
         <td mat-cell *matCellDef="let element"> {{element.observacion}} </td>
       </ng-container>
       <ng-container matColumnDef="curso">
@@ -91,6 +91,5 @@
     <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
       (page)="pageEvent = $event" aria-label="Select page">
     </mat-paginator>
-
   </div>
-</div>
+</mat-card>

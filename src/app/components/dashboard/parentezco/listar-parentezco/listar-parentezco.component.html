@@ -1,16 +1,16 @@
-<div class="container">
+<mat-card class="container">
   <mat-toolbar>
     <span>Lista de parentezcos  Representante y Alumno</span>
   </mat-toolbar>
 
   <div class="dt-buttons">
     <button mat-raised-button color="accent" routerLink="/dashboard/crear-parentezco" style="margin-right: 20px;">
-      Asignar Representante
+      Asignar Representante<mat-icon>add</mat-icon>
     </button>
   </div>
   <mat-form-field appearance="standard">
 
-    <mat-label>Buscar por nombre</mat-label>
+    <mat-label>Buscar por nombre</mat-label><mat-icon matSuffix>search</mat-icon>
     <input matInput (keyup)="filtrar($event)" autocomplete="off" #input>
     <div id="example23_filter" class="dataTables_filter">
 
@@ -27,7 +27,7 @@
         <td mat-cell *matCellDef="let element"> {{element.representante.nombrePrimer}} </td>
       </ng-container>
       <ng-container matColumnDef="telefono">
-        <th mat-header-cell *matHeaderCellDef> Telefono<th>
+        <th mat-header-cell *matHeaderCellDef> Teléfono<th>
         <td mat-cell *matCellDef="let element"> {{element.representante.telefono}} </td>
       </ng-container>
       <ng-container matColumnDef="alumno">
@@ -61,6 +61,5 @@
     <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
       (page)="pageEvent = $event" aria-label="Select page">
     </mat-paginator>
-
   </div>
-</div>
+</mat-card>

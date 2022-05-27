@@ -47,6 +47,8 @@ export class ListarSucursalComponent implements OnInit {
     this.paginador._intl.firstPageLabel = 'Primera Página';
     this.paginador._intl.lastPageLabel = 'Última Página';
   }
+
+
   // filtrar
   filtrar($event: any) {
     this.lista.filter = $event.target.value;

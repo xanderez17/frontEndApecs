@@ -98,7 +98,7 @@
       {
         "text": "Crear Representante",
         "icon": "person_add",
-        "routerLink": "/dashboard/editar-representante"
+        "routerLink": "/dashboard/crear-representante"
       },  {
         "text": "Ver Representante",
         "icon": "format_list_numbered",

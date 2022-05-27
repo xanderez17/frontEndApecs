@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Curso } from 'src/app/models/Curso';
 import { CursosService } from 'src/app/services/cursos.service';
 import Swal from 'sweetalert2';
+import {Inscripcion} from "../../../../models/Inscripcion";
 
 @Component({
   selector: 'app-listar-cursos',
@@ -13,6 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class ListarCursosComponent implements OnInit {
   public lista!: MatTableDataSource<any>;
+
   lista1: Curso[] = [];
   //datos encabezado tablas
   displayedColumns: string[] = [
@@ -23,7 +25,7 @@ export class ListarCursosComponent implements OnInit {
     'duracion',
     'estado',
     'fechaInscripcion',
-    'fechaInicio',    
+    'fechaInicio',
     'horario',
     'sucursal',
     'acciones',
@@ -46,6 +48,7 @@ export class ListarCursosComponent implements OnInit {
       this.lista = new MatTableDataSource(response);
       this.lista.paginator = this.paginador;
       this.lista.sort = this.marSort;
+
     });
     this.paginador._intl.itemsPerPageLabel = 'Registros por página:';
     this.paginador._intl.nextPageLabel = 'Siguiente';
@@ -53,6 +56,7 @@ export class ListarCursosComponent implements OnInit {
     this.paginador._intl.firstPageLabel = 'Primera Página';
     this.paginador._intl.lastPageLabel = 'Última Página';
   }
+
   // filtrar
   filtrar($event: any) {
     this.lista.filter = $event.target.value;

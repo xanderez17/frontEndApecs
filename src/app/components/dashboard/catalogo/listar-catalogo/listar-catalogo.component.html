@@ -2,7 +2,7 @@
   <mat-toolbar>
     <div class="col-md-10 text-left">Lista de Catálogos</div>
     <div class="col-md-2 text-right">
-      <button mat-raised-button color="accent" routerLink="/dashboard/crear-catalogo">Nuevo Catálogo</button>
+      <button mat-raised-button color="accent" routerLink="/dashboard/crear-catalogo">Nuevo Catálogo<mat-icon>add</mat-icon></button>
     </div>
   </mat-toolbar>
   <div *ngIf="lista.length > 0">
@@ -58,7 +58,7 @@
       </mat-card-actions>
     </div>
   </div>
-  <div *ngIf="lista.length == 0">
+  <div class="mensaje" *ngIf="lista.length == 0">
     <span>No hay datos</span>
   </div>
 </mat-card>
