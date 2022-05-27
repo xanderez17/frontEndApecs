@@ -140,6 +140,7 @@ export class CrearCursoComponent implements OnInit {
         'yyyy-MM-dd'
       );
       this.lista.fechaInicio = fechaInicio;
+      this.lista.titulo = this.catalogos.nombre;
 
       const fechaInscripcion = this.miDatePipe.transform(
         this.lista.fechaInscripcion,
@@ -152,7 +153,7 @@ export class CrearCursoComponent implements OnInit {
         'yyyy-MM-dd'
       );
       this.lista.fechaFin = fechaFin;
-    
+
        this.cursoServicio.editar(this.lista, Number(this.idEdit))
         .subscribe((ma) => {
           this._snackBar.open('Curso editado!', '', {
@@ -181,9 +182,12 @@ export class CrearCursoComponent implements OnInit {
       );
       this.lista.fechaFin = fechaFin;
       this.lista.catalogo = this.catalogos;
-      
+
       console.log(this.lista)
+
+      this.lista.titulo = this.catalogos.nombre;
       this.cursoServicio.crear(this.lista).subscribe((m) => {
+
         this._snackBar.open('Curso creada!', '', {
           duration: 2500,
           horizontalPosition: 'center',

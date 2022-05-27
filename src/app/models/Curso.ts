@@ -5,6 +5,7 @@ import {Sucursal} from "./Sucursal";
 
 export class Curso {
   idCurso: any;
+  titulo: any;
   categoria: any;
   catalogo: Catalogo = new Catalogo();
   docente: Docente = new Docente();
