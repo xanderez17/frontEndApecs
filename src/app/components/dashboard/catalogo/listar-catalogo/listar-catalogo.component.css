@@ -37,3 +37,8 @@
 .mat-cell{
   padding-right: 10px;
 }
+
+.mensaje{
+  text-align: center;
+  font-size: 18px;
+}
