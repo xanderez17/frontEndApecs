@@ -187,7 +187,7 @@
           [(ngModel)]="lista.reserva"
         />
       </mat-form-field>
-      <mat-form-field style="width: 150px" appearance="legacy">
+      <mat-form-field style="width: 500px" appearance="legacy">
         <mat-label>Valor Descuento</mat-label>
         <input
           matInput
@@ -212,9 +212,10 @@
         </mat-select>
       </mat-form-field>
       <br />
+      
       <input type="file" appearance="legacy"    >
-       <br> <img  style="width: 400px" src="{{ catalogos.img }}" alt="" />
-       <img style="width: 400px" class="card-img-top " src="{{lista.catalogo.img }}" alt="img">
+       <br> <img  style="width: 400px" src="{{ catalogos.img }}" />
+       <img style="width: 400px" class="card-img-top " src="{{lista.catalogo.img }}" >
 
     </mat-card-content>
 
