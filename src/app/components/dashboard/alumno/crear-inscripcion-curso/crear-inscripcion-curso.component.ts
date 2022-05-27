@@ -170,6 +170,6 @@ export class CrearInscripcionCursoComponent implements OnInit {
 
 
   irLista() {
-    this.router.navigateByUrl('dashboard/listar-matriculas');
+    this.router.navigateByUrl('dashboard/listar-inscripciones');
   }
 }
